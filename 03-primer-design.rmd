@@ -1,0 +1,284 @@
+# Clonado _in silico_ de genes {#clonning}
+
+La tecnología de recombinación genética es una de las herramientas principales y más importantes que ha reformado el mundo. En esta sección, buscaremos entender el proceso de planificación y análisis que lleva a la realización de los experimentos de recombinación, con la finalidad de encontrar estrategias que permitan llevar a término de forma eficiente el clonado de genes en vectores. 
+
+El proceso de planificación esta delineado dentro de los objetivos de la investigación, y el fin de la misma determina las necesidades del proceso de simulación. El proceso de planificación requiere que se responda: ¿Qué vector de destino es el adecuado de acuerdo a mi investigación? ¿Dónde lo voy a expresar? ¿Necesito de marcadores moleculares en la proteína a expresar? ¿Cuál es la fuente del inserto? ¿Qué enzimas de restricción son adecuadas para lograr obtener mi producto final? Para responder estas preguntas se debe de haber realizado un paso previo de investigación. 
+
+En general, el proceso de planificación _in silico_ consiste de los siguientes pasos:
+
+* Selección de un vector de entada.
+* Selección de un inserto de interés.
+* Diseño y análisis de _primers_.
+* Selección de enzimas de restricción (ER) adecuadas.
+
+## Diseño de _Primers_ {#primer-design}
+
+El diseño de _primers_ adecuados para la amplificación de un gen de interés requiere del conocimiento de la secuencia del gen que se quiere amplificar. Los _primers_ son oligonucleótidos cortos de 18-24 nucleótidos de longitud que sirven como puntos de inicio con extremos 3' libres para que la polimerasa pueda añadir nucleótidos durante la elongación, tal como se muestra en la figura \@ref(fig:primer-elongation). 
+
+```{r primer-elongation, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = 'Elongación de las hebras de ADN durante el proceso de amplificación por PCR usando _primers_ prediseñados. El _primer forward_ se une a la hebra rezagada, mientras que el _primer reverse_ se une a la hebra líder.'}
+knitr::include_graphics(here::here("figs", "primer-positions.png"))
+```
+
+Se deben diseñar dos _primers_, uno _forward_ y uno _reverse_ los cuales sirven para amplificar la secuencia de ADN del gen de interés en la hebra líder y rezagada, respectivamente. Por lo tanto, los _primers_ deben ser complementarios a los extremos de la secuencia del gen que se desea amplificar. Además, por lo general a estos se les añade extremos cohesivos (o _sticky ends_) que sirven como complementos de un sitio de restricción que facilita el proceso de clonado.
+
+(ref:example-primer-citrate) \@ref(clonning).`example_Set`
+
+> **Ejemplo (ref:example-primer-citrate)**  Continuando con el proyecto de ingeniería genética cuyo interés es aislar el gen de la citrato sintetasa, los investigadores lograron generar una librería de DNA a partir de del genoma de _A. niger_, generando fragmentos de $9$-$23$ kb e insertándolos en el vector $\lambda$EMBL3. La librería generada de esta forma se revisó usando cDNA previamente preparado a partir de ARNm, y se seleccionaron los positivos para su digestión con la enzima de restricción _SalI_ para su posterior inserción en un vector de carga. 
+> 
+> Se necesita amplificar el gen de interés en el plásmido utilizando _primers_ específicos. Para ello, se analiza la secuencia consenso obtenida y se encuentra que los extremos de la secuencia de la citrato sintetasa tienen las siguientes bases: 
+> 
+```
+    Extremo 5' |  5'  ATGCCTTTCACCATGCGCCTCGTCAA...  3'
+    Extremo 3' |  5'  ...AGGGTCGTGTCGAGGTCAGCGTCTAA  3'
+```
+
+> Para diseñar los _primers_, solo se debe de escribir secuencias complementarias adecuadas. 
+> 
+> * Para el _primer forward_: de la figura \@ref(fig:primer-elongation) vemos que el _primer forward_ se une a la secuencia complementaria del trozo de mostrado arriba para el extremo 5' de la secuencia. Es decir, el _primer forward_ debe ser complementario a la hebra rezagada y no a la líder. Sin embargo, la secuencia complementaria a la hebra rezagada es la hebra líder, por lo tanto, la misma secuencia mostrada arriba para el extremo 5' sirve como _primer forward_. 
+> * Para el _primer reverse_, se debe escribir la secuencia complementaria a la secuencia mostrada arriba para el extremo 3': recuerda que la secuencia consenso es la hebra líder, y que el _primer reverse_ se une a esta hebra. 
+> 
+> Se tiene entonces:
+
+```
+    Forward |  5'  ATGCCTTTCACCATGCGCCTCGTC  3'
+    Reverse |  5'  TTAGACGCTGACCTCGACACGACC  3'
+```
+
+> Noten que se ha escrito el _primer reverse_ en dirección 5' a 3'. Luego, nos aseguramos que nuestros _primers_ tienen la longitud correcta, que establecimos de antemano que debería ser de 18 nucleótidos. Eliminamos las bases extras para obtener la longitud deseada, del extremo 3':
+
+```
+    Forward |  5'  ATGCCTTTCACCATGCGC  3'
+    Reverse |  5'  TTAGACGCTGACCTCGAC  3'
+```
+
+> Luego, se añaden los sitios de restricción adecuados (en caso de ser necesario) a los extremos 5' para poder tener los extremos cohesivos que faciliten el proceso de inserción al vector de expresión.
+
+## Selección de sitios de restricción {#restriction-enzymes}
+
+El proceso de selección de sitios de restricción no es trivial y requiere de análisis. Se debe de tener en cuenta que no todos los sitios de restricción son adecuados y el uso de uno u otro depende de la aplicación, el vector de entrada, el inserto, y de la disponibilidad de enzimas de restricción. Se debe tener en cuenta:
+
+* Las enzimas de restricción (ER) a usar deben estar en el MCS del vector de entrada (MCS es abreviación de _Multi-Cloning Sites_) debido a las restricciones que impone la necesidad de un promotor para expresar el gen de interés. 
+* Las ER a usar, por lo general, deben tener sitios únicos de corte en el plásmido de entrada, de forma que el proceso resulte en un segmento pequeño descartable, y uno más grande que representa la sección del plásmido al que se unirá el inserto.
+* El inserto, por lo general, no debe contener sitios de restricción específicos para las ER que se usaran para el proceso de digestión.
+
+(ref:example-primer-citrate-two) \@ref(clonning).`example_Counter`
+
+> **Ejemplo (ref:example-primer-citrate-two)**  Siguiendo con el proyecto de investigación de la citrato sintetasa, se decidió hacer uso del plásmido de expresión pKK223-3, el cual tiene un promotor _tac_ que mejora el proceso de expresión de los genes que se encuentran corriente abajo en la secuencia. Para realizar este análisis se abre SerialCloner y se abre la secuencia de nucleótidos del plásmido (previamente buscada en el GenBank y descargada en un formato adecuado). Al abrirse la secuencia se le da _click_ al botón de _Graphic Map_, lo cual muestra la ventana de la figura \@ref(fig:map-plasmid).
+
+```{r map-plasmid, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = "Mapa de características del plásmido pKK223-3 para el clonado del gen de la citrato sintetasa."}
+knitr::include_graphics(here::here("figs", "AN-ex", "7.png"))
+```
+
+> Esto muestra un mapa gráfico del plásmido junto con sus características y sitios de restricción únicos (los sitios de restricción duplicados también se pueden marcar haciendo _click_ en la casilla apropiada en el mapa). Los sitios de restricción de interés son aquellos que se encuentran entre el promotor mejorado con el cartucho _tac_ y el terminador _rrnbT2_ (un terminador fuerte), los cuales son: _EcorRI_, _Cfr9I_, _XmaI_, _TspMI_, _SmaI_, _PstI_ y _HindIII_, lo cual es bastante conveniente porque en el laboratorio se tienen disponible las ER _EcoRI_ y _SmaI_. 
+> 
+> El inserto se analiza por la presencia de los mismos sitios de restricción abriendo la secuencia en SerialCloner y abriendo el mapa gráfico del gen. Se hace _click_ en la casilla de _Unique Sites_ y se selecciona la casilla de _Particular Sites_. Luego se selecciona en el menú desplegable justo a la derecha las enzimas de restricción _EcoRI_ y _SmaI_. El resultado se muestra en la figura \@ref(fig:citrate-er).
+
+```{r citrate-er, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = "Secuencia consenso de la citrato sintetasa que muestra los sitios de restricción de las ER escogidas."}
+knitr::include_graphics(here::here("figs", "AN-ex", "8.png"))
+```
+
+> Se encuentra que el inserto tiene un sitio de restricción para _SmaI_ en el residuo 1352. En general, es mala idea hacer uso de esta ER para realizar el clonado, aun así se procedió con el experimento (ver más abajo).
+> 
+> Dada la elección de las ER, se procedió a añadir los sitios de restricción a los _primers_ diseñados anteriormente. Para esto solo es necesario buscar en Internet ([_New England Biolabs_](https://www.neb.com/en) es una buena fuente de información) las secuencias de los sitios de restricción para las enzimas escogidas, y luego analizar la orientación del inserto en el plásmido de interés de forma que se pueda asociar correctamente el sitio de restricción apropiado a cada _primer_. En el plásmido, al ir de 5' a 3' el sitio de _EcoRI_ se encuentra primero que el de _SmaI_, por lo que el _primer forward_ debería tener este sitio de restricción si se quiere que la orientación sea de 5' a 3'. Por tanto los _primers_ quedan como:
+
+```
+    Forward |  5'  GAATTC ATGCCTTTCACCATGCGC  3'
+    Reverse |  5'  CCCGGG TTAGACGCTGACCTCGAC  3'
+```
+
+> Noten que la longitud de los _primers_ aumento pero esto no es relevante ya que aún no se llega a la longitud máxima de los _primers_ (más adelante veremos sobre esto).
+
+## Más sobre diseño de _Primers_ {#more-on-primers}
+
+El diseñar los _primers_ requiere un paso siguiente de análisis de los mismos para verificar que son adecuados para llevar a cabo la PCR deseada. Para esto, se tiene que verificar que los _primers_ diseñados cumplen con ciertos requisitos que aparecen debido a las condiciones con las cuales se debe llevar a cabo la PCR en el laboratorio. Estas son:
+
+* Los _primers_ deben ser específicos para la región de interés.
+* No deben tener una longitud menor a 18 nucleótidos (menor a esto se pierde especifidad) y no mayor a 24 nucleótidos (mayor a esto hace que decrezca la eficiencia del alineamiento).
+* Deben tener entre 40-60% de contenido GC para asegurar una temperatura de _melting_ ($T_m$) adecuada.
+* La diferencia en la $T_m$ de ambos _primers_ no debe ser mayor a $5^\circ$ C para poder usar el par en simultaneo. Valores entre 2 a $3^\circ$ C son preferibles.
+* La $T_m$ debe estar entre $55$-$65^\circ$ C.
+* Es recomendable que el extremo 3' no termine en T ya que este suele dar lugar a pareamientos inaceptables.
+* El extremo 3' de los _primers_ debe terminar en G o C (llamado _G/C clamp_) dado que ayuda a estabilizar el pareamiento de los _primers_ en esos extremos. Sin embargo, solo 3 de más G y C en esa posición es recomendable.
+* No debe haber demasiada autocomplementaridad (dentro de un mismo _primer_) o complementaridad cruzada (entre pares de _primers_). Esto es especialmente importante en el extremo 3' de la secuencia del _primer_, donde es más importante la complementaridad con la secuencia del gen de interés.
+
+Además de estos requisitos, otras consideraciones que se deben hacer pueden surgir como resultado de los objetivos de la investigación. Siempre es recomendable añadir algunos pocos nucleótidos (principalmente 4-6 nucleótidos) extra al extremo 5' de los _primers_ (antes de los sitios de restricción), dado que esto mejora la eficiencia de unión de las ER. Los nucleótidos añadidos pueden ser cualesquiera siempre y cuando no formen palíndromos ni dimerizaciones no deseadas. También se debe preservar el _marco de lectura_ de la secuencia del gen de interés por lo que se debe verificar que el uso de los sitios de restricción seleccionados no cambien el marco de lectura. 
+
+(ref:example-primer-citrate-three) \@ref(clonning).`example_Counter`
+
+> **Ejemplo (ref:example-primer-citrate-three)** Dadas las consideraciones anteriores, los _primers_ diseñados hasta el momento para la amplificación de nuestro gen para la citrato sintetasa deben ser modificados un poco. Primero, se deben añadir los nucleótidos extras al extremo 5' para mejorar la eficiencia de las ER (unos 6-8 nucleótidos bastaran, aunque esto varía dependiendo de la ER a usar):
+
+```
+    Forward |  5'  CGCTGT GAATTC ATGCCTTTCACCATGCGC  3'
+    Reverse |  5'  TAATTT CCCGGG TTAGACGCTGACCTCGAC  3'  
+```
+
+> Segundo, la longitud de los _primers_ aumentó a 30 nucleótidos como resultado del paso anterior, asi que es conveniente eliminar algunas bases del extremo 3' para tener la longitud correcta:
+
+```
+    Forward |  5'  CGCTGT GAATTC ATGCCTTTCACC  3'
+    Reverse |  5'  TAATTT CCCGGG TTAGACGCTGAC  3'  
+```
+
+> Tercero, se verifica que los extremos tengan extremos 3' con _G/C clamp_ (especialmente importante, que no terminen en T dado que esta base tiende a dar pareamientos erróneos).
+> 
+> Una vez obtenidos los _primers_ se analizan usando alguna herramienta que permita calcular los parámetros ($T_m$, %GC, autocomplementaridad, y dimerización) y existen varias disponibles. Una de ellas disponibles (Primer-Blast del NCBI, PerlPrimer, Primer3, OligoAnalyzer, BioEdit, etc.). Usando la herramienta Primer-Blast, solo se tienen que colocar las secuencias generadas en las casillas correspondientes y modificar los parámetros de acuerdo a los requisitos mencionados anteriormente (en organismo se colocó _Aspergillus niger_ tal como se muestra en la figura \@ref(fig:primer-blast)).
+
+```{r primer-blast, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = "Configuración de las entradas de Primer-Blast para verificar los _primers_ construidos."}
+knitr::include_graphics(here::here("figs", "AN-ex", "9.png"))
+```
+
+> Los resultados obtenidos muestran que los pares de _primers_ diseñados no son adecuados debido a que el contenido de GC es muy alto, al igual que la diferencia en la $T_m$ la cual es muy alta en el _primer reverse_ (vea la figura \@ref(fig:primer-blast-results)).
+
+```{r primer-blast-results, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = "Resultados de Primer-Blast."}
+knitr::include_graphics(here::here("figs", "AN-ex", "10.png"))
+```
+
+> En este punto se comienza a jugar un poco con los _primers_ (acortar un poco en el extremo 3' sin perder de vista los requisitos listados anteriormente, cambiar los nucleótidos extra del extremo 5' para modificar la $T_m$ y el %GC lo necesario) hasta obtener _primers_ adecuados como los mostrados:
+
+```
+    Forward |  5'  GCTCGT GAATTC ATGCCTTTCACCATGCGC  3'
+    Reverse |  5'  TATTAT CCCGGG TTAGACGCTGACCTCGAC  3' 
+```
+
+(ref:example-primer-yeast) \@ref(clonning).`example_Counter`
+
+> **Ejemplo (ref:example-primer-yeast)**  Se busca desarrollar un sistema de producción de xilanasas procedentes de _Trichoderma asperellum_, utilizando una biorefineria a base de la levadura _Pichia pastoris_. Para ello, usted requiere amplificar el gen de la xilanasa (KM277356.1) de tal forma que pueda tener una cantidad suficientemente grande del gen para transformar a las levaduras. Partiendo de la secuencia de la xilanasa (la cual encontró en bases de datos biológicas), cuyos extremos son:
+ 
+```
+    Extremo 5' |  5'  ATGGTCTCCTTCACATCTCTCCTCGCCGGCTTCGTCGCTGTTACCGGAGTTCTGTCCGCTCCCACTGAGA...  3'
+    Extremo 3' |  5'  ...CTTGGACTACCAGATCATTGCCGTGGAGGGCTACTTTAGCTCTGGTAACGCCAACATTAACGTTAGCTAA  3'
+```
+
+> se decidió realizar un par de _primers_, obteniéndose los fragmentos siguientes:
+
+```
+    Forward |  5'  ATGCCTTTCACCATGCGCCTCGTC  3'
+    Reverse |  5'  TTAGACGCTGACCTCGACACGACC  3'
+```
+
+> Para el proceso de inserción en la levadura, requiere un plásmido de expresión. Luego de una rápida revisión, decide usar el plásmido pGEX-4T-3 el cual presenta los sitios de restricción ```BamHI-EcorRI-SmaI-SalI-XhoI-NotI```, en la región MCS. Con esta información, se decide utilizar las ER _BamHI_ y _NotI_ (que convenientemente tiene en su laboratorio), de forma que los _primers_ quedan como:
+
+```
+    Forward |  5'  GGATCC ATGCCTTTCACCATGCGC  3'
+    Reverse |  5'  AGCGGCCGC TTAGACGCTGACCTCGAC  3'
+```
+
+> Dado que la proteína se va a expresar en _P. pastorus_, se necesita añadir al _primer forward_ la secuencia consenso de Kozak de _Pichia_: una secuencia que es reconocida por la maquinaria de transcripción dada por (G/A)NN**ATG**G. Si modificamos el _primer forward_ siguiendo este esquema, vemos que debemos tener cuidado con la introducción de cambios en el marco de lectura introducidos por la añadidura de la última G. Para ver esto, nótese que la secuencia de aminoácidos codificada por los codones del _primer_ es:
+
+```
+    Forward |  5'  GGATCC ATGCCTTTCACCATGCGC  3'
+                           M  P  F  T  M  R
+```
+
+> pero al introducir la secuencia consenso para el reconocimiento de la maquinaria de transcripción se obtiene:
+
+```
+    Forward |  5'  GGATCCgnnATGgCCTTTCACCATGCGC  3'
+                             M  A  F  H  H  A
+```
+
+> que es totalmente distinta a la anterior. Para solucionar este problema, añadimos un par de bases más para no modificar el marco de lectura:
+
+```
+    Forward |  5'  GGATCCgnnATGgnnCCTTTCACCATGCGC  3'
+                             M  ?  P  F  T  M  R
+```
+
+> Las bases N introducidas pueden ser cualesquiera, de forma que se cumplan las recomendaciones de diseño de _primers_, pero dado que las bases luego del codón de inicio ATG se traducen y forman parte de la proteína, estas se deben escoger con más cuidado. Es usual elegirlas de tal forma que se trate de un aminoácido que no sea reactivo y que tenga la mínima influencia en la estructura y función de la proteína, como codones GGN (que codifican para glicina) o GCN (que codifican para alanina).  
+> De esta forma, siguiendo estas consideraciones, se obtienen los _primers_ tentativos:
+
+```
+    Forward |  5'  GGATCCGATATGGCACCTTTCACCATGC  3'
+    Reverse |  5'  AGCGGCCGCTTAGACGCTGACCTCGAC  3'
+```
+
+> Se deja al lector el comprobar los parámetros de diseño para este par de _primers_. Con estos _primers_ particulares, se debe de modificar el protocolo de PCR para la amplificación ¿por qué?
+
+(ref:excersice-primer-blast) \@ref(clonning).`excersice_Set`
+
+> **Ejercicio (ref:excersice-primer-blast)**  Realice el Primer-Blast para el par de _primers_ diseñado en el ejemplo (ref:example-primer-yeast). En caso de poder, modifique el par hasta optimizar los parámetros de diseño. ¿Qué puede decir de los _primers_ diseñados?
+
+<!---
+(ref:excersice-primer-design) \@ref(clonning).`excersice_Counter`
+--->
+
+## Amplificación _in silico_ de genes por PCR.
+
+La amplificación _in silico_ de nuestro gen nos permite saber de antemano si nuestros _primers_ son de utilidad para obtener el inserto a usar en los pasos subsiguientes del proceso de investigación. 
+
+(ref:example-in-silico-one) \@ref(clonning).`example_Counter`
+
+> **Ejemplo (ref:example-in-silico-one)** Se decide probar los _primers_ obtenidos para el gen de la citrato sintetasa realizando un amplificado _in silico_ por PCR.  
+> Se abre SerialCLoner y se selecciona PCR del menú de herramientas, y se llenan las casillas como se muestra en la figura \@ref(fig:serial-cloner-one) (para cada _primer_ la primera casilla admite un nombre para el oligonucleótido, una sección asociada a los nucleótidos extras y el sitio de restricción, y un área para la plantilla) y seguido se selecciona la plantilla a usar para realizar la amplificación haciendo _click_ en _Select Matrix DNA Sequence_ y se selecciona la secuencia del plásmido pBluescript KS(+) con el gen _citA_ (que se encuentra en la carpeta _example_).
+
+```{r serial-cloner-one, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = "PCR _in silico_ del gen de la citrato sintetasa usando los _primers_ diseñados en el ejemplo (ref:example-primer-citrate-three)."}
+knitr::include_graphics(here::here("figs", "AN-ex", "11.png"))
+```
+
+> Luego de hacer _click_ en _Run PCR_ se puede ver que se obtiene un inserto de 2071 bp con extremos cohesivos para las enzimas de restricción seleccionadas anteriormente.
+
+## Construcción _in silico_ de plásmidos recombinantes.
+
+En esta sección, aprenderemos a construir plásmidos a partir de productos de PCR y vectores de destino, por medio de un ligado _in silico_. Además, podremos establecer estrategias de análisis de nuestros resultados de clonado por medio de la digestión _in silico_ de nuestro constructo final, de forma que podamos saber que esperar en el laboratorio.
+
+(ref:example-in-silico-two) \@ref(clonning).`example_Counter`
+
+> **Ejemplo (ref:example-in-silico-two)**  Durante el proyecto de construcción de un plásmido de expresión para la citrato sintetasa se decidió usar las ER _EcoRI_ y _SmaI_, aunque para esta última se tiene un sitio de restricción dentro del inserto. La razón de ellos es que de esta forma es posible verificar la importancia relativa de la secuencia corriente abajo del sitio _SmaI_ en la generación de la proteína. Para esto, se decide realizar un subclonado del producto de PCR en el plásmido pKK223-3 haciendo uso de un plásmido intermedio pGEM-T. Los subclonados se hacen con la finalidad de obtener una ganancia de funcionalidad (ver más abajo).
+>
+> Para realizar el subclonado en el pKK223-3 es necesario primero insertar el nuestro inserto en el vector pGEM-T. Revisando la secuencia (la cual ya debería tener previamente descargada. Si no encuentra la secuencia en las bases de datos del NCBI puede buscar en las páginas de _Addgene_ o _SnapGene_) en el SerialCloner se encuentra que el plásmido tiene dos sitios de restricción para _EcoRI_ muy cercanos entre ellos. Esto quiere decir que, analizando la forma en la que es posible obtener un vector intermedio circular, al realizar el clonado se obtendrán que cada plásmido pGEM-T aceptara dos insertos como se muestra en la figura \@ref(fig:serial-cloner-two).
+
+```{r serial-cloner-two, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = 'Ejemplo de proceso de subclonado para ganancia de funcionalidad (tomado de [AddGene](https://www.addgene.org/protocols/subcloning/))'}
+knitr::include_graphics(here::here("figs", "subcloning-scheme.png"))
+```
+
+> Aquí es donde está la ganancia de funcionalidad: dado que se aceptan dos insertos en cada plásmido, entonces al momento del subclonado tendré el doble de concentración del inserto de forma que haya más probabilidad de obtener el inserto que deseo en mi plásmido pKK223-3 del gen de la citrato sintetasa.  
+> Realizamos la simulación del proceso de ligado: 
+> 
+> * Para esto solo hay que abrir SerialCloner y en la barra de herramientas (en funcionalidades) buscar _Build Construct_. 
+> * Aparecerá una ventana nueva y a la derecha, en la casilla nombrada _Fragment #1/Vector Fragment_ se hace _click_ en _Select DNA 1.._ y se selecciona el pGEM-T (el archivo se encuentra en la carpeta _examples_). 
+> * Aparecerá un mapa gráfico a la izquierda (si en el mapa aparece linealizado el plásmido, seleccione en la barra de herramientas la opción de _Sequence_ seguido de _Circularize_) en el cual deberá deseleccionar la casilla de _Unique Sites_ y seleccionar la casilla de _Particular Sites_ y buscar en el menú desplegable a _EcoRI_ y seleccionarlo.
+> * Luego seleccione uno de los sitios _EcoRI_ en el mapa y seguido, manteniendo presionada la tecla _shift_ en su teclado, presione el siguiente sitio de restricción, de forma que aparezca una flecha como se indica en la figura \@ref(fig:serial-cloner-three) (si esta no aparece, cambie el orden en el que selecciona los sitios de restricción).
+
+```{r serial-cloner-three, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = "Simulación del proceso de ligado del inserto y el vector usando SerialCloner."}
+knitr::include_graphics(here::here("figs", "AN-ex", "12.png"))
+```
+
+> * Realice el mismo procedimiento en el área correspondiente a _Fragment #2_ pero esta vez seleccione la secuencia correspondiente al producto de PCR (la secuencia esta en el archivo PCR-citA en la carpeta _examples_).
+> * Selecciones en la casilla de _Particular Sites_ los sitios de restricción para _EcoRI_ y _SmaI_.
+> * Luego seleccione en el mapa estos sitios, primero el de _EcoRI_ y luego el sitio _SmaI_ en el extremo 3' de la secuencia como se muestra en la figura \@ref(fig:serial-cloner-four). 
+
+```{r serial-cloner-four, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = "Simulación del proceso de ligado del inserto y el vector usando SerialCloner: Especificaciones del inserto."}
+knitr::include_graphics(here::here("figs", "AN-ex", "13.png"))
+```
+
+> * Realice el mismo procedimiento en el área correspondiente a _Fragment #3_ pero esta vez seleccione la secuencia correspondiente al producto de PCR (la secuencia esta en el archivo PCR-citA en la carpeta _examples_).
+> * Selecciones en la casilla de _Particular Sites_ los sitios de restricción para _EcoRI_ y _SmaI_.
+> * Luego seleccione en el mapa estos sitios, primero el sitio _SmaI_ en el extremo 3' de la secuencia y luego el de _EcoRI_ como se muestra en la figura \@ref(fig:serial-cloner-five).
+
+```{r serial-cloner-five, fig.pos = '!h', echo = FALSE, out.width='70%', fig.align='center', fig.cap = "Simulación del proceso de ligado del inserto y el vector usando SerialCloner: Especificaciones del segundo inserto."}
+knitr::include_graphics(here::here("figs", "AN-ex", "14.png"))
+```
+
+> * Presione _Ligate_. Aparecerá una ventana con una nueva secuencia con el producto del ligado.
+> 
+> En la nueva secuencia (de 7103 bp) se puede ver el mapa gráfico y se observa que se generó nuestro plásmido con dos copias del inserto, una adyacente a la otra. 
+> 
+> En el laboratorio, se verificaría la obtención de estas secuencias por medio de geles de agarosa. Hay que estar consciente que, dado el peso molecular del plásmido, se deben de seleccionar un diámetro de poro adecuado ajustando la concentración de agarosa ($1-1{,}5$%) y que en el experimento se podrán encontrar posiblemente dos bandas: la del plásmido construido _in silico_ y una banda posible correspondiente a una secuencia circular formada por el ligado de dos insertos (recuerden que dos insertos tendrían extremos complementarios que podrían ligarse entre sí).
+
+Una vez realizado el plásmido con la doble carga del gen _citA_ se procede a construir el plásmido pKAC-35S a partir del plásmido pKK22-3 y el inserto de _citA_. Para ello, el proceso de planificación requiere que se realice un ensayo de digestión: una incubación de cada plásmido con las ER _EcoRI_ y _SmaI_, seguido de una electroforesis en agarosa para verificar el ensayo y recuperar los fragmentos de interés para el ensayo de ligamiento. Se puede comprobar _in silico_ el tamaño a de los fragmentos resultantes haciendo un corte virtual en SerialCloner (solo hay que seleccionar la secuencia deseada y las ER a usar y se genera un reporte que muestra el tamaño de los fragmentos producidos).
+
+Luego, para el ligado, solo hay que seguir las instrucciones anteriores (para el clonado) seleccionando en _Fragment #1_ el vector de destino (pKK223-3) entre los sitios de restricción _EcoRI_ y _Sma_I_, y en _Fragment #2_ la sección del inserto elegida en el ensayo de digestión (que en este caso consiste de un fragmento de aproximadamente $1{,}3$ kb), y luego se presiona ligar para obtener el plásmido. Al verificar los resultados del subclonado _in silico_ se obtiene que el gen _citA_ queda en la orientación inversa a la que se quiere. Una forma de solventar este problema es realizar un ensayo de digestión con una sola enzima de digestión (como _HindIII_ en este caso) seguido de un ensayo de ligado. De esta forma se obtienen igual número de plásmidos con el gen en ambas orientaciones.
+
+Se valida el ensayo con una electroforesis en agarosa con una concentración entre $1-1{,}5$% y se aíslan los plásmidos para la transformación de bacterias. El proceso de planificación requiere también el uso de bacterias _E. coli_ que carecen de citrato sintetasa (estas son bacterias que solo crecen en medio mínimo suplementado con glutamato) de forma que se pueda comprobar que se esta expresando una proteína funcional.
+
+(ref:excersice-in-silico-one) \@ref(clonning).`excersice_Counter`
+
+> **Ejercicio (ref:excersice-in-silico-one)**  Realice una digestión _in silico_ de cada uno de los plásmidos, pKAC-35S y pKK22-3 y el inserto _citA_ usando las ER _EcoRI_ y _SmaI_. Realice una electroforesis en agarosa para verificar el ensayo y recuperar los fragmentos de interés para el ensayo de ligamiento.
+
+(ref:excersice-in-silico-two) \@ref(clonning).`excersice_Counter`
+
+> **Ejercicio (ref:excersice-in-silico-two)**  Realice un ligamiento _in silico_ de la sección del inserto seleccionada en el ejercicio (ref:excersice-in-silico-one) con el plásmido pKK223-3 entre los sitios de restricción _EcoRI_ y _Sma_I_. ¿Qué observa en el nuevo constructo sobre la orientación del inserto? ¿Qué significaría esto para la expresión de la proteína?
+
+(ref:excersice-in-silico-three) \@ref(clonning).`excersice_Counter`
+
+> **Ejercicio (ref:excersice-in-silico-three)**  Realice una nueva digestión _in silico_ usando solo _HindIII_ seguido de un ensayo de ligado. ¿Qué esperaría obtener en este caso?

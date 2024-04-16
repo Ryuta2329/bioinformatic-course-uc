@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.5 Construcción in silico de plásmidos recombinantes. | Bioinformatica-UC.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3.5 Construcción in silico de plásmidos recombinantes. | Bioinformatica-UC.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.5 Construcción in silico de plásmidos recombinantes. | Bioinformatica-UC.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="amplificación-in-silico-de-genes-por-pcr..html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="databases.html"><a href="databases.html"><i class="fa fa-check"></i><b>1</b> Búsqueda en bases de Datos Biológicas</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="genbank-search.html"><a href="genbank-search.html"><i class="fa fa-check"></i><b>1.1</b> Búsqueda en el <em>GenBank</em></a></li>
+<li class="chapter" data-level="1.2" data-path="fasta-format.html"><a href="fasta-format.html"><i class="fa fa-check"></i><b>1.2</b> Secuencias en formato FASTA</a></li>
+<li class="chapter" data-level="1.3" data-path="db-embl-ebi.html"><a href="db-embl-ebi.html"><i class="fa fa-check"></i><b>1.3</b> La base de datos de EMBL-EBI</a></li>
+<li class="chapter" data-level="1.4" data-path="db-uniprot.html"><a href="db-uniprot.html"><i class="fa fa-check"></i><b>1.4</b> Bases de datos de proteínas</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="db-uniprot.html"><a href="db-uniprot.html#presentación-de-una-entrada-de-uniprot"><i class="fa fa-check"></i><b>1.4.1</b> Presentación de una entrada de UniProt</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sequence-comparisons.html"><a href="sequence-comparisons.html"><i class="fa fa-check"></i><b>2</b> Comparando Secuencias</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="msa-practice.html"><a href="msa-practice.html"><i class="fa fa-check"></i><b>2.1</b> Alineamientos de múltiples secuencias: citrato sintetasa</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clonning.html"><a href="clonning.html"><i class="fa fa-check"></i><b>3</b> Clonado <em>in silico</em> de genes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="primer-design.html"><a href="primer-design.html"><i class="fa fa-check"></i><b>3.1</b> Diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.2" data-path="restriction-enzymes.html"><a href="restriction-enzymes.html"><i class="fa fa-check"></i><b>3.2</b> Selección de sitios de restricción</a></li>
+<li class="chapter" data-level="3.3" data-path="more-on-primers.html"><a href="more-on-primers.html"><i class="fa fa-check"></i><b>3.3</b> Más sobre diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.4" data-path="amplificación-in-silico-de-genes-por-pcr..html"><a href="amplificación-in-silico-de-genes-por-pcr..html"><i class="fa fa-check"></i><b>3.4</b> Amplificación <em>in silico</em> de genes por PCR.</a></li>
+<li class="chapter" data-level="3.5" data-path="construcción-in-silico-de-plásmidos-recombinantes..html"><a href="construcción-in-silico-de-plásmidos-recombinantes..html"><i class="fa fa-check"></i><b>3.5</b> Construcción <em>in silico</em> de plásmidos recombinantes.</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="construcción-in-silico-de-plásmidos-recombinantes." class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Construcción <em>in silico</em> de plásmidos recombinantes.<a href="construcción-in-silico-de-plásmidos-recombinantes..html#construcción-in-silico-de-plásmidos-recombinantes." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En esta sección, aprenderemos a construir plásmidos a partir de productos de PCR y vectores de destino, por medio de un ligado <em>in silico</em>. Además, podremos establecer estrategias de análisis de nuestros resultados de clonado por medio de la digestión <em>in silico</em> de nuestro constructo final, de forma que podamos saber que esperar en el laboratorio.</p>
+
+<blockquote>
+<p><strong>Ejemplo <a href="clonning.html#clonning">3</a>.6</strong> Durante el proyecto de construcción de un plásmido de expresión para la citrato sintetasa se decidió usar las ER <em>EcoRI</em> y <em>SmaI</em>, aunque para esta última se tiene un sitio de restricción dentro del inserto. La razón de ellos es que de esta forma es posible verificar la importancia relativa de la secuencia corriente abajo del sitio <em>SmaI</em> en la generación de la proteína. Para esto, se decide realizar un subclonado del producto de PCR en el plásmido pKK223-3 haciendo uso de un plásmido intermedio pGEM-T. Los subclonados se hacen con la finalidad de obtener una ganancia de funcionalidad (ver más abajo).</p>
+<p>Para realizar el subclonado en el pKK223-3 es necesario primero insertar el nuestro inserto en el vector pGEM-T. Revisando la secuencia (la cual ya debería tener previamente descargada. Si no encuentra la secuencia en las bases de datos del NCBI puede buscar en las páginas de <em>Addgene</em> o <em>SnapGene</em>) en el SerialCloner se encuentra que el plásmido tiene dos sitios de restricción para <em>EcoRI</em> muy cercanos entre ellos. Esto quiere decir que, analizando la forma en la que es posible obtener un vector intermedio circular, al realizar el clonado se obtendrán que cada plásmido pGEM-T aceptara dos insertos como se muestra en la figura <a href="construcción-in-silico-de-plásmidos-recombinantes..html#fig:serial-cloner-two">3.7</a>.</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:serial-cloner-two"></span>
+<img src="figs/subcloning-scheme.png" alt="Ejemplo de proceso de subclonado para ganancia de funcionalidad (tomado de [AddGene](https://www.addgene.org/protocols/subcloning/))" width="100%" />
+<p class="caption">
+Figure 3.7: Ejemplo de proceso de subclonado para ganancia de funcionalidad (tomado de <a href="https://www.addgene.org/protocols/subcloning/">AddGene</a>)
+</p>
+</div>
+<blockquote>
+<p>Aquí es donde está la ganancia de funcionalidad: dado que se aceptan dos insertos en cada plásmido, entonces al momento del subclonado tendré el doble de concentración del inserto de forma que haya más probabilidad de obtener el inserto que deseo en mi plásmido pKK223-3 del gen de la citrato sintetasa.<br />
+Realizamos la simulación del proceso de ligado:</p>
+<ul>
+<li>Para esto solo hay que abrir SerialCloner y en la barra de herramientas (en funcionalidades) buscar <em>Build Construct</em>.</li>
+<li>Aparecerá una ventana nueva y a la derecha, en la casilla nombrada <em>Fragment #1/Vector Fragment</em> se hace <em>click</em> en <em>Select DNA 1..</em> y se selecciona el pGEM-T (el archivo se encuentra en la carpeta <em>examples</em>).</li>
+<li>Aparecerá un mapa gráfico a la izquierda (si en el mapa aparece linealizado el plásmido, seleccione en la barra de herramientas la opción de <em>Sequence</em> seguido de <em>Circularize</em>) en el cual deberá deseleccionar la casilla de <em>Unique Sites</em> y seleccionar la casilla de <em>Particular Sites</em> y buscar en el menú desplegable a <em>EcoRI</em> y seleccionarlo.</li>
+<li>Luego seleccione uno de los sitios <em>EcoRI</em> en el mapa y seguido, manteniendo presionada la tecla <em>shift</em> en su teclado, presione el siguiente sitio de restricción, de forma que aparezca una flecha como se indica en la figura <a href="construcción-in-silico-de-plásmidos-recombinantes..html#fig:serial-cloner-three">3.8</a> (si esta no aparece, cambie el orden en el que selecciona los sitios de restricción).</li>
+</ul>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:serial-cloner-three"></span>
+<img src="figs/AN-ex/12.png" alt="Simulación del proceso de ligado del inserto y el vector usando SerialCloner." width="100%" />
+<p class="caption">
+Figure 3.8: Simulación del proceso de ligado del inserto y el vector usando SerialCloner.
+</p>
+</div>
+<blockquote>
+<ul>
+<li>Realice el mismo procedimiento en el área correspondiente a <em>Fragment #2</em> pero esta vez seleccione la secuencia correspondiente al producto de PCR (la secuencia esta en el archivo PCR-citA en la carpeta <em>examples</em>).</li>
+<li>Selecciones en la casilla de <em>Particular Sites</em> los sitios de restricción para <em>EcoRI</em> y <em>SmaI</em>.</li>
+<li>Luego seleccione en el mapa estos sitios, primero el de <em>EcoRI</em> y luego el sitio <em>SmaI</em> en el extremo 3’ de la secuencia como se muestra en la figura <a href="construcción-in-silico-de-plásmidos-recombinantes..html#fig:serial-cloner-four">3.9</a>.</li>
+</ul>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:serial-cloner-four"></span>
+<img src="figs/AN-ex/13.png" alt="Simulación del proceso de ligado del inserto y el vector usando SerialCloner: Especificaciones del inserto." width="100%" />
+<p class="caption">
+Figure 3.9: Simulación del proceso de ligado del inserto y el vector usando SerialCloner: Especificaciones del inserto.
+</p>
+</div>
+<blockquote>
+<ul>
+<li>Realice el mismo procedimiento en el área correspondiente a <em>Fragment #3</em> pero esta vez seleccione la secuencia correspondiente al producto de PCR (la secuencia esta en el archivo PCR-citA en la carpeta <em>examples</em>).</li>
+<li>Selecciones en la casilla de <em>Particular Sites</em> los sitios de restricción para <em>EcoRI</em> y <em>SmaI</em>.</li>
+<li>Luego seleccione en el mapa estos sitios, primero el sitio <em>SmaI</em> en el extremo 3’ de la secuencia y luego el de <em>EcoRI</em> como se muestra en la figura <a href="construcción-in-silico-de-plásmidos-recombinantes..html#fig:serial-cloner-five">3.10</a>.</li>
+</ul>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:serial-cloner-five"></span>
+<img src="figs/AN-ex/14.png" alt="Simulación del proceso de ligado del inserto y el vector usando SerialCloner: Especificaciones del segundo inserto." width="70%" />
+<p class="caption">
+Figure 3.10: Simulación del proceso de ligado del inserto y el vector usando SerialCloner: Especificaciones del segundo inserto.
+</p>
+</div>
+<blockquote>
+<ul>
+<li>Presione <em>Ligate</em>. Aparecerá una ventana con una nueva secuencia con el producto del ligado.</li>
+</ul>
+<p>En la nueva secuencia (de 7103 bp) se puede ver el mapa gráfico y se observa que se generó nuestro plásmido con dos copias del inserto, una adyacente a la otra.</p>
+<p>En el laboratorio, se verificaría la obtención de estas secuencias por medio de geles de agarosa. Hay que estar consciente que, dado el peso molecular del plásmido, se deben de seleccionar un diámetro de poro adecuado ajustando la concentración de agarosa (<span class="math inline">\(1-1{,}5\)</span>%) y que en el experimento se podrán encontrar posiblemente dos bandas: la del plásmido construido <em>in silico</em> y una banda posible correspondiente a una secuencia circular formada por el ligado de dos insertos (recuerden que dos insertos tendrían extremos complementarios que podrían ligarse entre sí).</p>
+</blockquote>
+<p>Una vez realizado el plásmido con la doble carga del gen <em>citA</em> se procede a construir el plásmido pKAC-35S a partir del plásmido pKK22-3 y el inserto de <em>citA</em>. Para ello, el proceso de planificación requiere que se realice un ensayo de digestión: una incubación de cada plásmido con las ER <em>EcoRI</em> y <em>SmaI</em>, seguido de una electroforesis en agarosa para verificar el ensayo y recuperar los fragmentos de interés para el ensayo de ligamiento. Se puede comprobar <em>in silico</em> el tamaño a de los fragmentos resultantes haciendo un corte virtual en SerialCloner (solo hay que seleccionar la secuencia deseada y las ER a usar y se genera un reporte que muestra el tamaño de los fragmentos producidos).</p>
+<p>Luego, para el ligado, solo hay que seguir las instrucciones anteriores (para el clonado) seleccionando en <em>Fragment #1</em> el vector de destino (pKK223-3) entre los sitios de restricción <em>EcoRI</em> y <em>Sma_I</em>, y en <em>Fragment #2</em> la sección del inserto elegida en el ensayo de digestión (que en este caso consiste de un fragmento de aproximadamente <span class="math inline">\(1{,}3\)</span> kb), y luego se presiona ligar para obtener el plásmido. Al verificar los resultados del subclonado <em>in silico</em> se obtiene que el gen <em>citA</em> queda en la orientación inversa a la que se quiere. Una forma de solventar este problema es realizar un ensayo de digestión con una sola enzima de digestión (como <em>HindIII</em> en este caso) seguido de un ensayo de ligado. De esta forma se obtienen igual número de plásmidos con el gen en ambas orientaciones.</p>
+<p>Se valida el ensayo con una electroforesis en agarosa con una concentración entre <span class="math inline">\(1-1{,}5\)</span>% y se aíslan los plásmidos para la transformación de bacterias. El proceso de planificación requiere también el uso de bacterias <em>E. coli</em> que carecen de citrato sintetasa (estas son bacterias que solo crecen en medio mínimo suplementado con glutamato) de forma que se pueda comprobar que se esta expresando una proteína funcional.</p>
+
+<blockquote>
+<p><strong>Ejercicio <a href="clonning.html#clonning">3</a>.2</strong> Realice una digestión <em>in silico</em> de cada uno de los plásmidos, pKAC-35S y pKK22-3 y el inserto <em>citA</em> usando las ER <em>EcoRI</em> y <em>SmaI</em>. Realice una electroforesis en agarosa para verificar el ensayo y recuperar los fragmentos de interés para el ensayo de ligamiento.</p>
+</blockquote>
+
+<blockquote>
+<p><strong>Ejercicio <a href="clonning.html#clonning">3</a>.3</strong> Realice un ligamiento <em>in silico</em> de la sección del inserto seleccionada en el ejercicio <a href="clonning.html#clonning">3</a>.2 con el plásmido pKK223-3 entre los sitios de restricción <em>EcoRI</em> y <em>Sma_I</em>. ¿Qué observa en el nuevo constructo sobre la orientación del inserto? ¿Qué significaría esto para la expresión de la proteína?</p>
+</blockquote>
+
+<blockquote>
+<p><strong>Ejercicio <a href="clonning.html#clonning">3</a>.4</strong> Realice una nueva digestión <em>in silico</em> usando solo <em>HindIII</em> seguido de un ensayo de ligado. ¿Qué esperaría obtener en este caso?</p>
+</blockquote>
+
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="amplificación-in-silico-de-genes-por-pcr..html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,505 @@
+# Búsqueda en bases de Datos Biológicas {#databases}
+
+Las bases de datos son una parte esencial del trabajo realizado en bioinformática. 
+Con toda la información generada cada día en el mundo sobre secuenciaciones, y con la necesidad que se tiene de usar estos datos, de una forma sencilla y accesible, pero que muestre adecuadamente las características de las mismas, se hace necesario de bases de datos especializadas. 
+Anualmente, estas bases de datos se registran en el primer tomo de la revista de _Nucleic Acid Researh_.
+
+Las bases de datos pueden ser de dos tipos:
+
+1. _Bases de datos primarias_: contienen información acerca de la secuencia primaria de nucleótidos o proteínas, e información acompañante (denominada anotaciones) sobre la función, bibliografía, referencias a otras bases de datos, entre otras cosas.
+2. _Bases de datos secundarias_: estas resumen los resultados de análisis realizados a las secuencias primarias, con la finalidad de obtener patrones o características comunes de clases o familias de secuencias, con la finalidad de poder clasificar secuencias desconocidas basadas en estos patrones o características comunes. 
+
+En todos los casos, el intercambio de información se hace por medio de sistemas simples basados en archivos de texto ASCII, y se facilita la búsqueda y uso de la información por medio de la inclusión de índices de búsqueda. 
+Entre las bases de datos primarias que van a ser de uso común en el ámbito de la bioinformática, la ingeniería molecular y biología computacional esta el *GenBank* (disponible en el _US National Center for Biotechnology Information_ o NCBI), 
+el *EMBL* (siglas de _European Molecular Biology Laboratory Nucleotide Sequence Database_ localizado en el _European Bioinformatics Institute_ o EBI), 
+y el *DDBJ* (siglas de _DNA Database of Japan_ localizado en el _Center for Information Biology_ o CIB).
+
+El _GenBank_ es la más conocida de las bases de datos y contiene decenas de millones de secuencias a las cuales accesar desde una computadora vía Internet. 
+Una entrada típica de la base de datos es mostrada a continuación: 
+
+```
+LOCUS       NG_059281               1608 bp    DNA     linear   PRI 08-MAR-2021
+DEFINITION  Homo sapiens hemoglobin subunit beta (HBB), RefSeqGene (LRG_1232)
+            on chromosome 11.
+ACCESSION   NG_059281 REGION: 5001..6608
+VERSION     NG_059281.1
+KEYWORDS    RefSeq; RefSeqGene.
+SOURCE      Homo sapiens (human)
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini;
+            Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 1608)
+  AUTHORS   Calvo SE, Pagliarini DJ and Mootha VK.
+  TITLE     Upstream open reading frames cause widespread reduction of protein
+            expression and are polymorphic among humans
+  JOURNAL   Proc Natl Acad Sci U S A 106 (18), 7507-7512 (2009)
+   PUBMED   19372376
+REFERENCE   2  (bases 1 to 1608)
+  AUTHORS   Origa,R.
+  TITLE     Beta-Thalassemia
+  JOURNAL   (in) Adam MP, Ardinger HH, Pagon RA, Wallace SE, Bean LJH, Mirzaa G
+            and Amemiya A (Eds.);
+            GENEREVIEWS((R));
+            (1993)
+   PUBMED   20301599
+
+...
+
+PRIMARY     REFSEQ_SPAN         PRIMARY_IDENTIFIER PRIMARY_SPAN        COMP
+            1-10106             AC104389.8         24306-34411         c
+FEATURES             Location/Qualifiers
+     source          1..1608
+                     /organism="Homo sapiens"
+                     /mol_type="genomic DNA"
+                     /db_xref="taxon:9606"
+                     /chromosome="11"
+                     /map="11p15.4"
+     gene            1..1608
+                     /gene="HBB"
+                     /gene_synonym="beta-globin; CD113t-C; ECYT6"
+                     /note="hemoglobin subunit beta"
+                     /db_xref="GeneID:3043"
+                     /db_xref="HGNC:HGNC:4827"
+                     /db_xref="MIM:141900"
+     mRNA            join(1..142,273..495,1346..1608)
+                     /gene="HBB"
+                     /gene_synonym="beta-globin; CD113t-C; ECYT6"
+                     /product="hemoglobin subunit beta"
+                     /transcript_id="NM_000518.5"
+                     /db_xref="GeneID:3043"
+                     /db_xref="LRG:t1"
+                     /db_xref="HGNC:HGNC:4827"
+                     /db_xref="MIM:141900"
+     exon            1..142
+                     /gene="HBB"
+                     /gene_synonym="beta-globin; CD113t-C; ECYT6"
+                     /inference="alignment:Splign:2.1.0"
+                     /number=1
+     CDS             join(51..142,273..495,1346..1474)
+                     /gene="HBB"
+                     /gene_synonym="beta-globin; CD113t-C; ECYT6"
+                     /note="beta globin chain; hemoglobin, beta; hemoglobin
+                     beta subunit"
+                     /codon_start=1
+                     /product="hemoglobin subunit beta"
+                     /protein_id="NP_000509.1"
+                     /db_xref="CCDS:CCDS7753.1"
+                     /db_xref="GeneID:3043"
+                     /db_xref="LRG:p1"
+                     /db_xref="HGNC:HGNC:4827"
+                     /db_xref="MIM:141900"
+                     /translation="MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFE
+                     SFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPE
+                     NFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH"
+
+    ...
+
+     misc_feature    1463..1465
+                     /gene="HBB"
+                     /gene_synonym="beta-globin; CD113t-C; ECYT6"
+                     /note="N6-acetyllysine, alternate.
+                     /evidence=ECO:0000269|PubMed:4531009; propagated from
+                     UniProtKB/Swiss-Prot (P68871.2); acetylation site"
+     exon            273..495
+                     /gene="HBB"
+                     /gene_synonym="beta-globin; CD113t-C; ECYT6"
+                     /inference="alignment:Splign:2.1.0"
+                     /number=2
+     exon            1346..1608
+                     /gene="HBB"
+                     /gene_synonym="beta-globin; CD113t-C; ECYT6"
+                     /inference="alignment:Splign:2.1.0"
+                     /number=3
+ORIGIN      
+        1 acatttgctt ctgacacaac tgtgttcact agcaacctca aacagacacc atggtgcatc
+       61 tgactcctga ggagaagtct gccgttactg ccctgtgggg caaggtgaac gtggatgaag
+      121 ttggtggtga ggccctgggc aggttggtat caaggttaca agacaggttt aaggagacca
+      181 atagaaactg ggcatgtgga gacagagaag actcttgggt ttctgatagg cactgactct
+      241 ctctgcctat tggtctattt tcccaccctt aggctgctgg tggtctaccc ttggacccag
+      301 aggttctttg agtcctttgg ggatctgtcc actcctgatg ctgttatggg caaccctaag
+      361 gtgaaggctc atggcaagaa agtgctcggt gcctttagtg atggcctggc tcacctggac
+      421 aacctcaagg gcacctttgc cacactgagt gagctgcact gtgacaagct gcacgtggat
+      481 cctgagaact tcagggtgag tctatgggac gcttgatgtt ttctttcccc ttcttttcta
+      541 tggttaagtt catgtcatag gaaggggata agtaacaggg tacagtttag aatgggaaac
+      601 agacgaatga ttgcatcagt gtggaagtct caggatcgtt ttagtttctt ttatttgctg
+      661 ttcataacaa ttgttttctt ttgtttaatt cttgctttct ttttttttct tctccgcaat
+      721 ttttactatt atacttaatg ccttaacatt gtgtataaca aaaggaaata tctctgagat
+      781 acattaagta acttaaaaaa aaactttaca cagtctgcct agtacattac tatttggaat
+      841 atatgtgtgc ttatttgcat attcataatc tccctacttt attttctttt atttttaatt
+      901 gatacataat cattatacat atttatgggt taaagtgtaa tgttttaata tgtgtacaca
+      961 tattgaccaa atcagggtaa ttttgcattt gtaattttaa aaaatgcttt cttcttttaa
+     1021 tatacttttt tgtttatctt atttctaata ctttccctaa tctctttctt tcagggcaat
+     1081 aatgatacaa tgtatcatgc ctctttgcac cattctaaag aataacagtg ataatttctg
+     1141 ggttaaggca atagcaatat ctctgcatat aaatatttct gcatataaat tgtaactgat
+     1201 gtaagaggtt tcatattgct aatagcagct acaatccagc taccattctg cttttatttt
+     1261 atggttggga taaggctgga ttattctgag tccaagctag gcccttttgc taatcatgtt
+     1321 catacctctt atcttcctcc cacagctcct gggcaacgtg ctggtctgtg tgctggccca
+     1381 tcactttggc aaagaattca ccccaccagt gcaggctgcc tatcagaaag tggtggctgg
+     1441 tgtggctaat gccctggccc acaagtatca ctaagctcgc tttcttgctg tccaatttct
+     1501 attaaaggtt cctttgttcc ctaagtccaa ctactaaact gggggatatt atgaagggcc
+     1561 ttgagcatct ggattctgcc taataaaaaa catttatttt cattgcaa
+//
+```
+
+El anterior es un ejemplo de la información asociada a la subunidad _beta_ de la hemoglobina humana (HBb). 
+Cada una de las secuencias se encuentra asociada con un código denominado número de acceso que es único e identifica a la secuencia dentro del banco (en el caso del ejemplo, es NG_059281). 
+Al inicio, se puede ver el _locus_ único para la secuencia, la longitud de la secuencia y características particulares (se trata de una secuencia de ADN lineal), y la fecha de la última actualización. 
+De igual forma, se muestra la fuente de la secuencia junto con la clasificación del organismo, y referencias a publicaciones especificas (en el ejemplo mostrado no se muestra toda la información mostrada en el _GenBank_. 
+Las partes donde se omite información se muestran con tres puntos suspensivos).
+
+Luego se muestra la información referente a las características de la secuencia (_Features_). 
+Cada sección de esta parte tiene asociado campos que describen particularidades de esa sección (por ejemplo, el campo ```/translation``` en la característica _CDS_ muestra la secuencia de aminoácidos del gen al cual hace referencia la secuencia). 
+Finalmente en ```ORIGIN``` se muestra la secuencia de ADN: cada línea contiene solo 60 bases separadas en grupos de 10 bases.
+
+**¿Cómo realizo una búsqueda en la base de datos?**
+
+Para realizar consultas a la base de datos del NCBI, se hace uso de un sistema denominado _Entrez_, que es un motor de búsqueda que logra llevar a cabo la búsqueda en la base de datos. El motor de búsqueda Entrez provee acceso a todas las bases de datos de forma simultánea usando solo un criterio de búsqueda. Este sistema permite a los usuarios recuperar, de las bases de datos, secuencias estructuras y referencias, así como también genomas, genes y mapas cromosómicos completos. 
+
+Otra forma de realizar búsquedas en las bases de datos primarias es por medio de una herramienta llamada BLAST (siglas de _Basic Local Aligment Search Tool_), con la cual se pueden buscar secuencias de nucleótidos o proteínas, al comparar una secuencia conocida con otras contenidas en una base de datos. De esta forma, la base de datos devuelve todas las secuencias coincidentes (_hits_ o _matches_), de acuerdo a cierto esquema de puntuación. Este sistema de búsqueda es útil cuando tenemos una secuencia desconocida que queremos identificar. Más adelante, cuando hablemos de [alineamientos de secuencias](#sequence-aligments) profundizaremos en esta técnica. por ahora, nos concentraremos en la búsqueda por medio del sistema Entrez.
+
+## Búsqueda en el _GenBank_ {#genbank-search}
+
+Para empezar, lo primero es entrar al portal del [NCBI](https://www.ncbi.nlm.nih.gov), cuya página principal se muestra en la figura \@ref(fig:ncbi-start-page). 
+Al entrar a la página del NCBI, solo hay que ubicarse en la casilla de entrada de texto para búsquedas, localizada en la parte superior de la página.  
+A la izquierda de la barra de búsqueda, hay un menú desplegable que permite seleccionar la base de datos en la cual se quiere realizar la consulta, haciendo que la búsqueda sea más especializada.
+
+```{r ncbi-start-page, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = "Página principal del NCBI encontrada en [https://www.ncbi.nlm.nih.gov](https://www.ncbi.nlm.nih.gov)"}
+knitr::include_graphics(here::here("figs", "ncbi-principal.png"))
+```
+
+La búsqueda desde la página del NCBI se hace usando términos clave (cadenas de caracteres que representan el término de búsqueda), en combinación con operadores lógicos y etiquetas (_search tags_) que definen campos de identificación o IDs, los cuales permiten búsquedas rápidas sencillas o mucho más complicadas. 
+
+* Los operadores lógicos pueden ser de tres tipos: ```AND```, ```OR``` y ```NOT```; con cada uno de los cuales es posible construir expresiones de búsqueda. Por ejemplo, si queremos buscar en la base de datos la hexoquinasa y fosfofructoquinasa (ambas proteínas del metabolismo de la glucosa), podríamos usar ```hexokinase OR phosphofructokinase ``` para obtener los registros de estas proteínas.
+* Las etiquetas de búsqueda se construyen como expresiones de clave-valor, las cuales toman la forma ```valor[clave]```. Por ejemplo, la clave ```ORGN``` sirve para especificar un organismo o taxón particular, como en ```Homo sapiens[ORGN]``` o ```FUNGI[ORGN]```. En estos caso, _Homo sapiens_ y _FUNGI_ sirven como valores del campo ```ORGN```. Hay [otras etiquetas o campos](https://www.ncbi.nlm.nih.gov/books/NBK49540/) disponibles, algunos de los cuales estaremos usando. 
+
+(ref:example-citrate) \@ref(databases).`example_Counter`
+
+> **Ejemplo (ref:example-citrate)** 
+> Digamos que como parte de un proyecto de investigación de interés, se requiere buscar la secuencia genética para la enzima que cataliza la reacción estereoespecífica de formación de citrato a partir de acetil-CoA y oxalacetato, la _citrato sintetasa_, como parte de un proyecto mucho mayor de ingeniería molecular que busca clonar esta enzima derivada de _Aspergillus niger_ e introducirla en un vector de expresión para su producción industrial. 
+> 
+> Dado que solo se requiere de la secuencia de nucleótidos para un gen particular, se puede seleccionar la base de datos correspondiente a nucleótidos en el menú desplegable a la izquierda de la barra de búsqueda. Se coloca en la entrada para consultas el nombre de enzima que se desea consultar (en inglés) y se oprime **Buscar**.  
+> 
+> Se puede ver que se obtienen miles de resultados para la búsqueda de la enzima en la base de datos de nucleótidos. 
+> Pueden revisar la base de datos y van a encontrar que hay algunas coincidencias en las cuales se reportan palabras como _mRNA_ o _partial_. 
+> Dado que se trata de un proyecto de ingeniería genética, los resultados parciales no nos interesan, porque las secuencias parciales no contienen información completa del gen. Y dado que solo nos interesan las secuencias derivadas de _A. niger_, podemos usar una etiqueta de búsqueda para este organismo. 
+> Esto se puede lograr usando una cadena de operadores lógicos como en:
+> 
+```
+    citrate synthase AND Aspergillus niger[ORGN] NOT partial
+```
+
+> Como se observa, la búsqueda se ha reducida de cientos de miles, a solo (al momento de escritura de este material) 36 secuencias que coinciden con los criterios de búsqueda usados. Algunos de los _items_ encontrados corresponden al gen de la citrato sintetasa. Sin embargo, dado que _A. niger_ es un organismo eucariota, el gen asociado contendrá intrones y exones, pero a nosotros solo nos interesa la información codificante. Podemos tener esta información, seleccionando solo aquellas secuencias que corresponden a ARNm, de la siguiente forma:
+
+```
+    citrate synthase AND Aspergillus niger[ORGN] NOT partial AND mRNA
+```
+
+> Hasta este punto, vemos que las coincidencias se reducen de 36 a 27 _items_. Varios de estos corresponden al genoma (_whole genome shotgun sequence_) de _A. niger_ y otras a secciones o segmentos del genoma (_genomic contig_), que contienen otros genes y secuencias que no son de interés, por lo que las podemos filtrar como sigue:
+
+```
+    citrate synthase AND Aspergillus niger[ORGN] NOT (partial OR "whole genome" OR "genomic contig") AND mRNA 
+```
+
+> (noten el uso de comillas en los filtros. Esto le dice a Entrez que busque la _palabra_ completa, en ese orden). Hemos logrado reducir nuestra búsqueda a solo 5 _items_ que potencialmente nos servirían como secuencias posibles a elegir. 
+
+De la búsqueda del ejemplo anterior, podemos ver de forma más detallada la entrada que colocamos como criterio de búsqueda en la casilla de _Search Details_ que se encuentra a la derecha, como se muestra en la figura \@ref(fig:ncbi-search-details). En esta casilla, aparece la forma como el sistema Entrez entiende la expresión colocada en la casilla de búsqueda. 
+
+```{r ncbi-search-details, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = "Resultados de la búsqueda de la citrato sintetasa, donde se enfatiza la casilla de los detalles de búsqueda."}
+knitr::include_graphics(here::here("figs", "ncbi-principal.png"))
+```
+
+Los detalles nos muestra que, cuando no especificamos una etiqueta de búsqueda para la palabra usada en la expresión, se le asigna por omisión la clave ```All Fields```, que significa que el sistema va a buscar la palabra en todas las etiquetas de búsqueda posibles, devolviendo cualquier coincidencia. 
+
+Ahora, antes de seleccionar cualquier secuencia para nuestro ejemplo de biología molecular, se ha de mencionar que la base de datos del _GenBank_ contiene secuencias con grados variables de calidad. 
+Esto significa que hay secuencias tanto revisadas como sin revisar en la base de datos. La revisión puede ser por medio de un proceso automático o estar manualmente curada por investigadores. Siempre que sea posible es mejor seleccionar las secuencias con la mayor calidad. 
+
+Las secuencias que han sido revisadas de forma automática por el sistema del NCBI tienen un número de acceso que comienza con XM_ (si se trata de una secuencia de ARNm), XR_ (si es una secuencia de ARN no codificante) o XP_ (si es una secuencia de aminoácidos). 
+Luego, cuando la secuencia es manualmente curada, se le asigna el identificador NM_, NR_ o NP_, respectivamente. 
+
+Sea cual sea el caso, las secuencias revisadas pasan a ser parte de una base de datos especial denominada RefSeq que contiene secuencias de referencia del genoma de distintos organismos. 
+Una forma de solo obtener resultados revisados es usando una etiqueta de búsqueda con clave ```PROP``` cuyo valor asociado sea ```srcdb_refseq``` (este valor especifica que la base de datos usada (srcdb es por _source database_) sea RefSeq). Otros valores asociados a esta clave se muestran en la [tabla de etiquetas de búsqueda del NCBI](https://www.ncbi.nlm.nih.gov/books/NBK49540/).
+
+> **Ejemplo \@ref(databases).`example_CounterCall`** (_continuación_). 
+Continuando con el ejemplo (ref:example-citrate), de los 5 _items_ mostrados para la citrato sintetasa, solo 3 de estos corresponden a secuenciadas contenidas en RefSeq: XM_025596061.1 es una secuencia de 2534 pb, XM_025596708.1 es de 1893 pb, y XM_001393158.2 de 1654 pb. De estas, solo las dos primeras son parte de un _BioProject_, una colección de datos que corresponden a un esfuerzo único de secuenciación.  
+> Si seleccionamos el primero de estos _items_ (XM_025596061.1), podemos revisar la información (metadata) asociada a la secuencia. Por lo general, la secuencia se utilizará en pasos posteriores de análisis, así que el investigador querrá descargarla en formato FASTA, que es un formato con una estructura sencilla y ligero. Para descargarla, la forma más sencilla es seleccionar el menú desplegable en la esquina superior derecha de la entrada llamado _Send To_, y seguir los pasos en la figura \@ref(fig:fasta-download), hasta obtener el archivo con la secuencia en formato FASTA.
+
+```{r fasta-download, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = "Pasos para descargar una secuencia en formato FASTA: 1) Abra el menú desplegable _Send to_, 2) selecciona la casilla de _Complete records_, 3) selecciona _File_, 4) en el menú desplegable _Format_ selecciona FASTA, y 5) selecciona el botón _Create File_."}
+knitr::include_graphics(here::here("figs", "fasta-download.png"))
+```
+
+En la siguiente sección se explica la estructura del formato FASTA, pero primero, veamos otros ejemplos. 
+
+(ref:example-covid19) \@ref(databases).`example_Counter`
+
+> **Ejemplo (ref:example-covid19)**
+> En el año 2020, el mundo entero se vio afectado por la pandemia surgida como consecuencia de la aparición del virus SARS-COV-2, el cual ha tenido repercusiones socio-económicas importantes, y un importante costo en vidas. 
+> El origen de esta pandemia se traza a la provincia de Wuhan en China, y la secuencia del aislado se encuentra disponible como secuencia de referencia con el código de acceso  ```NC_045512``` con la cual se comparan las variantes, en búsqueda de formas de análisis y diagnóstico globales, así como en la búsqueda de vacunas y medida de prevención de la enfermedad o mitigación de sus efectos. 
+> 
+> Como parte de este ejemplo, puede entrar a la página del NCBI y buscar por la secuencia usando el número de acceso, de forma que se pueda encontrar información acerca de las características moleculares que describen a este virus, que pueden derivarse del análisis de la información presente en su secuencia. 
+> Para ello, revise la secuencia y verifica la siguiente información:
+> 
+> * La secuencia del virus es de 29903 bp y consiste de ssRNA (ARN de cadena sencilla, la abreviación es del inglés _single stranded RNA_). El genoma es lineal.
+> * El virus pertenece a la familia de Coronaviridae.
+> * La secuencia ha sido verificada manualmente por especialistas. 
+> * Se trata de un virus patógeno de humanos obtenido de un virus aislado en China en la provincia de Wuhan. 
+> * Presenta diversas proteínas entre las cuales destacan las poliproteínas de replicación ORF1a y ORF1ab (que se procesan luego en proteínas _nsp_ (_non structural proteins_), que están involucradas en todo el ciclo de infección, y que se muestran como proteínas maduras en la información del genoma), la glucoproteína S (por _Surface_), la proteína E (por _Envelope_), la proteína N (por _Nucleocapside_), y los tallos de inducción de deslizamiento de marco de lectura.
+
+(ref:example-plasmids) \@ref(databases).`example_Counter`
+
+> **Ejemplo (ref:example-plasmids)**  Los plásmidos son importantes herramientas utilizadas en la biología recombinante para la inserción de genes foráneos al interior de células bacterianas para utilizar la maquinaria de las mismas para expresar proteínas de interés. 
+> Un plásmido usado para la expresión de proteínas es el pKK223-3 (un plásmido sintético de PL-Pharmacia). 
+> Buscando el mismo en el _GenBank_ muestra que se trata de un plásmido de 4586 bp el cual confiere resistencia a ampicilina (gen AmpR) y tiene el cartucho de secuencias promotores _tac_ de _E. coli_ que sirve en el mejoramiento de la expresión de proteínas. 
+> También contiene las secuencias de poliligamiento (_polylinker_) del plásmido pUC18 que contiene los sitios de restricción _EcoRI-SmaI-BamHI-SalI-PstI-HindIII_ para el uso de estas enzimas de restricción específica en protocolos de ingeniería genética.
+
+(ref:excersice-plasmids) \@ref(databases).`excersice_Counter`
+
+> **Ejercicio (ref:excersice-plasmids)**  Busque el plásmido pBSK (-) en el NCBI e investigue a partir de esta sus características y propiedades. Además, obtenga información bibliográfica sobre la construcción del plásmido. 
+
+(ref:excersice-citrate) \@ref(databases).`excersice_Counter`
+
+> **Ejercicio (ref:excersice-citrate)** Repita el ejemplo para la citrato sintetasa, pero ahora, en lugar de filtrar las secuencias de genomas completos o contiguos y las secuencias parciales, filtre los resultados para obtener solo aquellas secuencias con longitudes entre 1500 y 3000 pb (_Pista_: use la etiqueta de búsqueda ```lim_inf:lim_sup[SLEN]```, donde ```lim_inf``` y ```lim_sup``` son números que indican el mínimo y máximo número de pares de bases).
+
+## Secuencias en formato FASTA {#fasta-format}
+
+El formato FASTA es un formato de almacenamiento y compartido de secuencias sencillo, que consiste de un archivo de texto el cual consta de dos partes:  
+
+* Comienza con un signo de _mayor que_, $>$, seguido de información descriptiva de la secuencia.
+* En la siguiente línea, se dispone la secuencia en grupos de 70 letras a la vez, cada grupo separado por un salto de línea.
+
+Un archivo típico se ve como el siguiente, que corresponde a la secuencia de aminoácidos del citocromo _c_ humano:
+
+```fasta
+  >NP_061820.1 cytochrome c [Homo sapiens]
+  MGDVEKGKKIFIMKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQAPGYSYTAANKNKGIIWGEDTLMEYLE
+  NPKKYIPGTKMIFVGIKKKEERADLIAYLKKATNE
+```
+
+Los archivos FASTA no solo pueden contener secuencias específicas de un gen o una proteína, sino que también se pueden almacenar de esta forma genomas completos, o incluso más de una secuencia a la vez. En este caso, cada secuencia en formato FASTA está separada de la anterior por un salto de línea (```\n```). Por ejemplo, el siguiente sería el formato para un archivo con 4 secuencias del citocromo c para 4 especies distintas:
+
+```fasta
+  >NP_061820.1 cytochrome c [Homo sapiens]
+  MGDVEKGKKIFIMKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQAPGYSYTAANKNKGIIWGEDTLMEYLE
+  NPKKYIPGTKMIFVGIKKKEERADLIAYLKKATNE
+
+  >NP_001039526.1 cytochrome c [Bos taurus]
+  MGDVEKGKKIFVQKCAQCHTVEKGGKHKTGPNLHGLFGRKTGQAPGFSYTDANKNKGITWGEETLMEYLE
+  NPKKYIPGTKMIFAGIKKKGEREDLIAYLKKATNE
+
+  >AAB72175.1 cytochrome C [Arabidopsis thaliana]
+  MASFDEAPPGNAKAGEKIFRTKCAQCHTVEAGAGHKQGPNLNGLFGRQSGTTAGYSYSAANKNKAVEWEE
+  KALYDYLLNPKKYIPGTKMVFPGLKKPQDRADLIAYLKESTAPK
+
+  >AAB72175.1 cytochrome C [Arabidopsis thaliana]
+  MASFDEAPPGNAKAGEKIFRTKCAQCHTVEAGAGHKQGPNLNGLFGRQSGTTAGYSYSAANKNKAVEWEE
+  KALYDYLLNPKKYIPGTKMVFPGLKKPQDRADLIAYLKESTAPK
+```
+
+Como se puede ver, cada uno de los archivos en formato FASTA corresponde a archivos de texto y, por lo tanto, se pueden abrir para explorarlos usando una aplicación tan sencilla como el bloc de notas, aunque hay otros programas que permiten abrir este tipo de archivos como JalView y BioEdit, que además poseen módulos para analizar estas secuencias. 
+
+**¿Cómo puedo descargar varias secuencias a la vez en un solo archivo FASTA?**
+
+Para descargar varias secuencias a la vez, podemos hacer uso de las casillas de selección que se encuentran a la derecha de las entradas o coincidencias que aparecen al hacer una búsqueda, como se muestra en el siguiente ejemplo.
+
+(ref:example-cytochrome-c) \@ref(databases).`example_Counter`
+
+> **Ejemplo (ref:example-cytochrome-c)**  Usted desea realizar un análisis de las secuencias asociadas a distintas proteínas del metabolismo. Para empezar, usted decide analizar las secuencias del citocromo _c_ provenientes de distintas especies con tiempos de divergencias variables.  
+> Para la búsqueda, se decide usar el siguiente criterio:
+
+```
+  cytochrome c AND srcdb_refseq[PROP]
+```
+
+> lo cual claro esta arroja miles de coincidencias. Sin embargo, usted predefine un conjunto de especies a partir del cual armar su estudio. Se comenzó con las secuencias de algunos primates (humano, chimpancé, y mono rhesus), seguido de otros mamíferos (caballo, burro, vaca, cerdo, oveja, perro, conejo, ballena gris de California, y el gran canguro gris), seguido de algunas aves (pollo, pavo, paloma, pato pekin), y reptiles (tortuga mordedora, serpiente de cascabel), anfibios (rana toro), y peces (atún y cazón).
+> Para mantener los criterios de búsqueda cortos, se decidió hacer las búsquedas por partes, comenzando con los primates usando el criterio:
+
+```
+  cytochrome c AND (human OR chimpanzee OR Rhesus monkey) AND srcdb_refseq[PROP] 
+```
+
+> Se seleccionan las casillas correspondientes a las tres especies (números de acceso NP_061820.1, NP_001065289.1, y XP_028701782.1) y se procede a descargar las secuencias, seleccionando en el menú desplegable _Send To_ (en la esquina superior derecha de los resultados de búsqueda), luego _File_, luego en el menú _Format_ se selecciona FASTA, y se crea el archivo.  
+> El resultado obtenido de esa forma es:
+
+```
+  >NP_061820.1 cytochrome c [Homo sapiens]
+  MGDVEKGKKIFIMKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQAPGYSYTAANKNKGIIWGEDTLMEYLE
+  NPKKYIPGTKMIFVGIKKKEERADLIAYLKKATNE
+
+  >NP_001065289.1 cytochrome c [Pan troglodytes]
+  MGDVEKGKKIFIMKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQAPGYSYTAANKNKGIIWGEDTLMEYLE
+  NPKKYIPGTKMIFVGIKKKEERADLIAYLKKATNE
+
+  >XP_028701782.1 cytochrome c [Macaca mulatta]
+  MGDVEKGKKIFIMKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQAPGYSYTAANKNKGITWGEDTLMEYLE
+  NPKKYIPGTKMIFVGIKKKEERADLIAYLKKATNE
+```
+
+> Luego, se realiza el mismo procedimiento para las otras especies. En cada caso, se descarga un archivo FASTA, que luego se puede unir con el anterior copiando la información contenida en un archivo, y pegándola en el otro archivo. 
+
+(ref:excersice-cytochrome-c) \@ref(databases).`excersice_Counter`
+
+> **Ejercicio (ref:excersice-cytochrome-c)**  Complete el archivo FASTA del ejemplo (ref:example-cytochrome-c), descargando las secuencias de aminoácidos del citocromo _c_ faltantes de las especies mencionadas, e incluya las secuencias de aminoácidos de la misma proteína de las siguientes especies: insectos (_Samia cynthia_ (una polilla), polilla del gusano cornudo del tabaco, mosca del gusano barrenador, _Drosophila melanogaster_), levadura de panadería (_Saccaromyces cervisiae_), _Candida krusei_ (una levadura), _Neurospora crassa_ (un moho), germen de trigo, semillas de trigo sarraceno, semillas de girasol, frijol mungo, coliflor, calabaza, semillas de sésamo, semillas de ricino, semillas de algodón, y semillas de abutilón (recuerde que los nombres de las especies deben estar en inglés, o debe buscar el nombre de la especie en internet antes de realizar la búsqueda). 
+
+## La base de datos de EMBL-EBI {#db-embl-ebi}
+
+Otras bases de datos primarias para secuencias de nucleótidos como la EMBL y la DDBJ (mencionadas anteriormente). Estas son las contrapartes Europeas y Asiáticas del NCBI y representan un compendio de las secuencias de genes para estas zonas. 
+Sin embargo, las tres bases de datos están sincronizadas, de forma que la información contenida en ellas es compartida por todas. Las diferencias principales entre estas tres bases de datos son:
+
+* El formato de presentación de las anotaciones para el _GenBank_ del NCBI y la DDBJ del CIB es el mismo, pero no es así para las anotaciones mostradas para el EMBL. Por ejemplo, la información obtenida para la subunidad beta de la hemoglobina (solo el segundo exón) se muestra como:
+
+ ```
+ ID   AYV92130; SV 1; linear; genomic DNA; STD; HUM; 223 BP.
+XX
+PA   MH133464.1
+XX
+DT   22-NOV-2018 (Rel. 139, Created)
+DT   22-NOV-2018 (Rel. 139, Last updated, Version 1)
+XX
+DE   Homo sapiens (human) partial hemoglobin subunit beta
+XX
+KW   .
+XX
+OS   Homo sapiens (human)
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia;
+OC   Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae;
+OC   Homo.
+XX
+RN   [1]
+RA   Bhattacharjee P., Sekar T., Verma R., Mandhani P., Kapre A., Dhanmeher S.,
+RA   Bhad B., Lingojwar S., Lingojwar D.;
+RT   "Homo sapiens hemoglobin subunit beta (HBB) exon 2 region";
+RL   Unpublished.
+XX
+RN   [2]
+RA   Bhattacharjee P., Sekar T., Verma R., Mandhani P., Kapre A., Dhanmeher S.,
+RA   Bhad B., Lingojwar S., Lingojwar D.;
+RT   ;
+RL   Submitted (28-MAR-2018) to the INSDC.
+RL   Molecular Biology, Atg Lab Biotechnology Research Laboratory, Ganesh Nagar
+RL   Pimple Nilakh, Pune, Maharashtra 411027, India
+XX
+DR   MD5; de8194e1efc6a1f1977b322dddcb2b80.
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..223
+FT                   /organism="Homo sapiens"
+FT                   /mol_type="genomic DNA"
+FT                   /country="India"
+FT                   /isolation_source="whole blood"
+FT                   /specimen_voucher="ATGLAB 2018102"
+FT                   /collected_by="Devendra Lingojwar"
+FT                   /collection_date="26-Feb-2018"
+FT                   /db_xref="taxon:9606"
+FT   CDS             MH133464.1:<110..>332
+FT                   /codon_start=2
+FT                   /gene="HBB"
+FT                   /product="hemoglobin subunit beta"
+FT                   /function="Oxygen carrying and transporting protein"
+FT                   /db_xref="GOA:A0A3G5AXY7"
+FT                   /db_xref="InterPro:IPR000971"
+FT                   /db_xref="InterPro:IPR002337"
+FT                   /db_xref="InterPro:IPR009050"
+FT                   /db_xref="InterPro:IPR012292"
+FT                   /db_xref="UniProtKB/TrEMBL:A0A3G5AXY7"
+FT                   /protein_id="AYV92130.1"
+FT                   /translation="LLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGL
+FT                   AHLDNLKGTFATLSELHCDKLHVDPENFR"
+XX
+SQ   Sequence 223 BP; 44 A; 58 C; 65 G; 56 T; 0 other;
+     gctgctggtg gtctaccctt ggacccagag gttctttgag tcctttgggg atctgtccac        60
+     tcctgatgct gttatgggca accctaaggt gaaggctcat ggcaagaaag tgctcggtgc       120
+     ctttagtgat ggcctggctc acctggacaa cctcaagggc acctttgcca cactgagtga       180
+     gctgcactgt gacaagctgc acgtggatcc tgagaacttc agg                         223
+//
+ ```
+ Como pueden ver, la información que contiene es la misma a la del formato para el _GenBank_, pero se dispone en un formato diferente. 
+
+* El sistema de consultas del EBI y CIB no es el _Entrez_, sino el Sistema de Recuperación de Secuencias (o SRS por _Sequence Retrieval System_). 
+ Este sistema hace uso especial de los operadores lógicos y expresiones regulares para realizar las consultas a la base de datos (pueden ver más información en la página de ayuda asociada las consultas). 
+ Además, el SRS permite realizar búsquedas estándar o extendidas, haciendo uso de los menús desplegables que se van generando a la izquierda (por ejemplo, al consultar la base de datos por la hemoglobina, se muestran todos los resultados que concuerdan con la palabra (_hemoglobine_). 
+ Luego se puede especializar la búsqueda, por ejemplo seleccionando la casilla para proteínas, de forma que solo muestre los resultados de secuencias de proteínas).
+* La página de EMBL permite crear proyectos permanentes de forma que los resultados de una búsqueda puedan guardarse, de forma que si surge la necesidad de interrumpir la búsqueda, esta pueda retomarse luego desde donde se dejó. 
+
+La página principal del EMBL-EBI se muestra en la figura \@ref(fig:embl-start-page). 
+
+```{r embl-start-page, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = "Página principal del EMBL-EBI encontrada en [https://www.ebi.ac.uk](https://www.ebi.ac.uk)"}
+knitr::include_graphics(here::here("figs", "embl-ebi-principal.png"))
+```
+
+En cuanto al sistema de búsqueda SRS, funciona de forma similar al Entrez, permitiendo el uso de operadores lógicos y paréntesis para agrupar expresiones lógicas, así como el uso de comillas para representar conjuntos de palabras en un orden dado. 
+De igual forma, permite el uso de campos de búsqueda, pero estos toman la forma ```clave:valor```, en lugar de ```valor[clave]```. 
+Para más información sobre la búsqueda en EMBL-EBI usando el sistema SRS, debe consultar [la documentación y ayuda](https://www.ebi.ac.uk/ebisearch/documentation).
+
+(ref:example-cry-prot) \@ref(databases).`example_Counter`
+
+> **Ejemplo (ref:example-cry-prot)**  Las proteínas _Cry_ son potentes pesticidas naturales producidos por bacterias esporuladas _Bacillus thuringiensis_ que tienen una gran importancia a nivel industrial debido a la capacidad de estas de ser usadas como biocontroladores de plagas que atacan los cultivos agrícolas.  
+> Podemos realizar una búsqueda seleccionando la base de datos correspondiente a secuencias de proteínas en el menú desplegable y colocamos la búsqueda especializada ```cry* AND Bacillus thuringiensis```.  
+> Al realizar la búsqueda, obtenemos 13282 _items_ o coincidencias, muchas de las cuales corresponden a secuencias que han sido revisadas y otras que no. Podemos obtener solo las secuencias revisadas añadiendo la palabra _Reviewed_ al criterio de búsqueda como en ```cry* AND Bacillus thuringiensis AND reviewed```, de lo cual se reduce el número de coincidencias a 147 resultados, de los cuales 105 corresponden a _B. thuringiensis_. 
+> 
+> Si revisamos los filtros que se encuentran a la izquierda de los resultados, podemos observar que 26 de esos resultados corresponden a _B. thuringiensis_, 17 a la misma especie variedad _kurstaki_, y así hay otros resultados que corresponden a otras variedades de la misma especie, y algunos resultados de proteínas CRY de especies no relacionadas a _B. thuringiensis_. Podemos seleccionar solo las casillas correspondientes a _B. thuringiensis_ y hacer _click_ en _Refine_.  
+> Sin embargo, no es tan sencillo descargar todas las secuencias en formato FASTA, y se debe hacer una a una. 
+
+## Bases de datos de proteínas {#db-uniprot}
+
+Entre las bases de datos de proteínas la más importante es la base de datos Swissprot del SIB (_Swiss Institute of Bioinformatics_), el cual opera también el servidor ExPASY (_Expert Protein Analysis System_). 
+La importancia de esta radica en que la base de datos es manualmente curada, esto es, cada entrada es analizada y revisada por expertos y comparada con datos en la literatura, resultando en una base de datos de muy alta calidad. 
+El formato de presentación es similar al de la base de datos EMBL, y de igual forma, contiene presentaciones con _displays_ gráficos. 
+
+Dado que la base de datos de Swissprot es manualmente curada, se hace muy lento el proceso de análisis relativo al número de secuencias que son generadas y enviadas para su verificación. 
+Es por ello que existe una base de datos alternativa denominada TrEMBL que contiene secuencias que aún no han sido incluidas en Swissprot pero que se encuentran en la base de datos EMBL. 
+El NCBI también posee un registro de proteínas que es en realidad un compendio de entradas encontradas en otras bases de datos de proteínas (incluida Swissprot y otras bases de datos como PIR y PDB).
+
+UniProt es una base de datos más completa que contiene información no solo de las secuencias, sino también de perfiles de expresión, localización celular, estructuras secundarias predichas, y análisis funcionales celulares/bioquímicos, por lo que tiene mayor información verificada y curada que RefSeq. 
+De esta forma, UniProt sirve como un catálogo que reúne la información en las bases de datos de Swissprot, TrEMBL y PIR.
+
+**¿Cómo realizo una búsqueda en la base de datos?**
+
+Al igual que para las secuencias encontradas en el _GenBank_, la secuencias en UniProt tienen sus propios números de acceso, aunque ambas bases de datos tiene referencias cruzadas entre si. De esta forma, es posible llevar a cabo las búsquedas a partir de estos números de acceso. Para ello solo debemos ingresar a la página principal de UniProt, que se muestra en la figura \@ref(fig:uniprot-start-page).
+
+```{r uniprot-start-page, fig.pos = '!h', echo = FALSE, out.width='100%', fig.align='center', fig.cap = "Página principal de UniProt encontrada en [https://www.uniprot.org](https://www.uniprot.org)"}
+knitr::include_graphics(here::here("figs", "embl-ebi-principal.png"))
+```
+
+En el último ejemplo de la sección anterior, pudimos encontrar todas las coincidencias de proteínas Cry de _B. thuringiensis_, que referencian a la base de datos de UniProt. A partir de estos resultados, podemos obtener un archivo de texto con los número de acceso que luego se pueden procesar por medio de un _pipeline_ que facilite la búsqueda de las secuencias (más adelante aprenderemos como hacer esto). 
+
+Otra forma es repetir la búsqueda de las proteínas Cry en la página del UniProt, usando los filtros especializados y las etiquetas de búsqueda que definen los campos especiales, cuya documentación está disponible en [la página de ayuda del portal de UniProt](https://www.uniprot.org/help/query-fields). 
+
+(ref:example-cry-prot-two) \@ref(databases).`example_Counter`
+
+> **Ejemplo (ref:example-cry-prot-two)**  Podemos repetir el ejemplo (ref:example-cry-prot) sobre proteína Cry, podemos escribir el siguiente criterio de búsqueda ```cry* AND organism_name:"Bacillus thuringiensis" AND reviewed:true```, que es equivalente al usado antes en EMBL-EBI. Al presionar _Enter_, vemos que los resultados son los mimos que los encontrados la página del EMBL-EBI.  
+> Nos damos cuenta que el uso del _wildcard_ * hace que aparezcan proteínas coincidentes de _Chaenorhabditis elegans_, las cuales no son de interés. Si realizamos la búsqueda sin este elemento, es decir, como  ```cry AND organism_name:"Bacillus thuringiensis" AND reviewed:true```, obtenemos solo resultados para _B. thuringiensis_. 
+>
+> La diferencia entre la búsqueda en UniProt y EMBL-EBI, es que ahora podemos facilitar la descarga de las secuencias, seleccionando las casillas a la izquierda de los números de acceso de las secuencias que nos interesa o, en este caso, seleccionamos todas las entradas a la vez y le damos _click_ al botón de descarga (_download_). Esto hará que aparezca un cuadro de dialogo, en el cual seleccionamos la casilla de _No_ en las opciones de compresión, y le damos descargar.  
+> El resultado es un archivo de texto en formato FASTA con las 110 secuencias de las proteínas Cry. 
+
+(ref:excersice-glucolysis) \@ref(databases).`excersice_Counter`
+
+> **Ejercicio (ref:excersice-glucolysis)**  Para este ejercicio, vamos a explorar las proteínas del metabolismo de la glucosa, correspondiente a las fases de la glucolisis. Para ello, realice una búsqueda en UniProt las secuencias de aminoácidos de la Hexoquinasa, Fosfofructoquinasa, gliceraldehído-3-fosfato deshidrogenasa, enolasa, y piruvato quinasa. En cada caso, deberá descargar un archivo FASTA con las secuencias, y para cada enzima, debe haber al menos 20 secuencias correspondientes a 20 especies distintas (puede usar las mismas especies del ejemplo (ref:example-cry-prot-two) y del ejercicio (ref:excersice-cytochrome-c) de la sección \@ref(fasta-format)).
+
+<!---
+(ref:example-listeria-target) \@ref{databases}.`example_Counter`
+> **Ejemplo \@ref{databases}.`example_CounterCall`**  Targets for Listeria monocytogenes.
+
+(ref:example-covid-two) \@ref{databases}.`example_Counter`
+> **Ejemplo \@ref{databases}.`example_CounterCall`**  Sars-Cov-2 Proteins.
+--->
+
+### Presentación de una entrada de UniProt
+
+Si busca una secuencia y selecciona esta, se abre el registro de la proteína en cuestión. Por ejemplo, digamos que buscamos la hexoquinasa humana (```P19367```) en UniProt y seleccionamos el registro de la secuencia. 
+Podemos ver en el registro, entre otras cosas, la siguiente información:
+
+* Información de registro: nombre de la proteína, gen que la codifica, el organismo del que proviene el registro, la longitud de la secuencia, así como información sobre el estatus y calidad de la secuencia, por medio de una puntuación de anotación definida de 1 a 5, siendo 5 la puntuación para secuencias de mejor calidad. 
+* Luego, sigue información sobre la función, incluyendo actividad catalítica, regulación y rutas metabólicas o de señalización a las que pertenece. 
+ Seguido, están las características de la proteína, como los sitios de unión de sustrato y de reguladores, y otros aminoácidos de interés. Luego la ontología genética que da información sobre la función molecular, proceso biológico y componentes celulares a los que se asocia.
+* Luego se presenta información taxonómica, así como número de acceso de la base de datos UniProt, y más abajo, la localización celular, interacciones con otras proteínas, estructura, y dominios de familia.
+* Finalmente, se encuentra la secuencia de aminoácidos, junto con la longitud, el peso molecular y última actualización. 
+
+(ref:excersice-gene-onthology) \@ref(databases).`excersice_Counter`
+
+> **Ejercicio (ref:excersice-gene-onthology)**  Investigue sobre la puntuación de anotación de las ontologías genéticas. ¿A que corresponde cada puntuación de anotación? 
+
+(ref:excersice-citrate-two) \@ref(databases).`excersice_Counter`
+
+> **Ejercicio (ref:excersice-citrate-two)**  Realice una búsqueda en UniProt de la secuencia de la citrato sintetasa de _A. niger_, y describa: el gen que la codifica, el número de acceso, longitud de la secuencia, peso molecular de la proteína, localización celular, así como la reacción que cataliza y su función, reguladores alostéricos. Finalmente, discuta sobre la calidad de la secuencia y obtenga y reporte la secuencia de aminoácidos, en formato FASTA.

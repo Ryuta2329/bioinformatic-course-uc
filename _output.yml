@@ -1,0 +1,7 @@
+bookdown::gitbook:
+  split_by: section
+  split_bib: false
+  number_sections: true
+  pandoc_args: "--lua-filter=./assets/counters.lua"
+bookdown::pdf_book: 
+  pandoc_args: "--lua-filter=./assets/counters.lua"

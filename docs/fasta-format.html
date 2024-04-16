@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.2 Secuencias en formato FASTA | Bioinformatica-UC.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.2 Secuencias en formato FASTA | Bioinformatica-UC.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.2 Secuencias en formato FASTA | Bioinformatica-UC.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="genbank-search.html"/>
+<link rel="next" href="db-embl-ebi.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="databases.html"><a href="databases.html"><i class="fa fa-check"></i><b>1</b> Búsqueda en bases de Datos Biológicas</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="genbank-search.html"><a href="genbank-search.html"><i class="fa fa-check"></i><b>1.1</b> Búsqueda en el <em>GenBank</em></a></li>
+<li class="chapter" data-level="1.2" data-path="fasta-format.html"><a href="fasta-format.html"><i class="fa fa-check"></i><b>1.2</b> Secuencias en formato FASTA</a></li>
+<li class="chapter" data-level="1.3" data-path="db-embl-ebi.html"><a href="db-embl-ebi.html"><i class="fa fa-check"></i><b>1.3</b> La base de datos de EMBL-EBI</a></li>
+<li class="chapter" data-level="1.4" data-path="db-uniprot.html"><a href="db-uniprot.html"><i class="fa fa-check"></i><b>1.4</b> Bases de datos de proteínas</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="db-uniprot.html"><a href="db-uniprot.html#presentación-de-una-entrada-de-uniprot"><i class="fa fa-check"></i><b>1.4.1</b> Presentación de una entrada de UniProt</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sequence-comparisons.html"><a href="sequence-comparisons.html"><i class="fa fa-check"></i><b>2</b> Comparando Secuencias</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="msa-practice.html"><a href="msa-practice.html"><i class="fa fa-check"></i><b>2.1</b> Alineamientos de múltiples secuencias: citrato sintetasa</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clonning.html"><a href="clonning.html"><i class="fa fa-check"></i><b>3</b> Clonado <em>in silico</em> de genes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="primer-design.html"><a href="primer-design.html"><i class="fa fa-check"></i><b>3.1</b> Diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.2" data-path="restriction-enzymes.html"><a href="restriction-enzymes.html"><i class="fa fa-check"></i><b>3.2</b> Selección de sitios de restricción</a></li>
+<li class="chapter" data-level="3.3" data-path="more-on-primers.html"><a href="more-on-primers.html"><i class="fa fa-check"></i><b>3.3</b> Más sobre diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.4" data-path="amplificación-in-silico-de-genes-por-pcr..html"><a href="amplificación-in-silico-de-genes-por-pcr..html"><i class="fa fa-check"></i><b>3.4</b> Amplificación <em>in silico</em> de genes por PCR.</a></li>
+<li class="chapter" data-level="3.5" data-path="construcción-in-silico-de-plásmidos-recombinantes..html"><a href="construcción-in-silico-de-plásmidos-recombinantes..html"><i class="fa fa-check"></i><b>3.5</b> Construcción <em>in silico</em> de plásmidos recombinantes.</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="fasta-format" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Secuencias en formato FASTA<a href="fasta-format.html#fasta-format" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El formato FASTA es un formato de almacenamiento y compartido de secuencias sencillo, que consiste de un archivo de texto el cual consta de dos partes:</p>
+<ul>
+<li>Comienza con un signo de <em>mayor que</em>, <span class="math inline">\(&gt;\)</span>, seguido de información descriptiva de la secuencia.</li>
+<li>En la siguiente línea, se dispone la secuencia en grupos de 70 letras a la vez, cada grupo separado por un salto de línea.</li>
+</ul>
+<p>Un archivo típico se ve como el siguiente, que corresponde a la secuencia de aminoácidos del citocromo <em>c</em> humano:</p>
+<pre class="fasta"><code>  &gt;NP_061820.1 cytochrome c [Homo sapiens]
+  MGDVEKGKKIFIMKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQAPGYSYTAANKNKGIIWGEDTLMEYLE
+  NPKKYIPGTKMIFVGIKKKEERADLIAYLKKATNE</code></pre>
+<p>Los archivos FASTA no solo pueden contener secuencias específicas de un gen o una proteína, sino que también se pueden almacenar de esta forma genomas completos, o incluso más de una secuencia a la vez. En este caso, cada secuencia en formato FASTA está separada de la anterior por un salto de línea (<code>\n</code>). Por ejemplo, el siguiente sería el formato para un archivo con 4 secuencias del citocromo c para 4 especies distintas:</p>
+<pre class="fasta"><code>  &gt;NP_061820.1 cytochrome c [Homo sapiens]
+  MGDVEKGKKIFIMKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQAPGYSYTAANKNKGIIWGEDTLMEYLE
+  NPKKYIPGTKMIFVGIKKKEERADLIAYLKKATNE
+
+  &gt;NP_001039526.1 cytochrome c [Bos taurus]
+  MGDVEKGKKIFVQKCAQCHTVEKGGKHKTGPNLHGLFGRKTGQAPGFSYTDANKNKGITWGEETLMEYLE
+  NPKKYIPGTKMIFAGIKKKGEREDLIAYLKKATNE
+
+  &gt;AAB72175.1 cytochrome C [Arabidopsis thaliana]
+  MASFDEAPPGNAKAGEKIFRTKCAQCHTVEAGAGHKQGPNLNGLFGRQSGTTAGYSYSAANKNKAVEWEE
+  KALYDYLLNPKKYIPGTKMVFPGLKKPQDRADLIAYLKESTAPK
+
+  &gt;AAB72175.1 cytochrome C [Arabidopsis thaliana]
+  MASFDEAPPGNAKAGEKIFRTKCAQCHTVEAGAGHKQGPNLNGLFGRQSGTTAGYSYSAANKNKAVEWEE
+  KALYDYLLNPKKYIPGTKMVFPGLKKPQDRADLIAYLKESTAPK</code></pre>
+<p>Como se puede ver, cada uno de los archivos en formato FASTA corresponde a archivos de texto y, por lo tanto, se pueden abrir para explorarlos usando una aplicación tan sencilla como el bloc de notas, aunque hay otros programas que permiten abrir este tipo de archivos como JalView y BioEdit, que además poseen módulos para analizar estas secuencias.</p>
+<p><strong>¿Cómo puedo descargar varias secuencias a la vez en un solo archivo FASTA?</strong></p>
+<p>Para descargar varias secuencias a la vez, podemos hacer uso de las casillas de selección que se encuentran a la derecha de las entradas o coincidencias que aparecen al hacer una búsqueda, como se muestra en el siguiente ejemplo.</p>
+
+<blockquote>
+<p><strong>Ejemplo <a href="databases.html#databases">1</a>.4</strong> Usted desea realizar un análisis de las secuencias asociadas a distintas proteínas del metabolismo. Para empezar, usted decide analizar las secuencias del citocromo <em>c</em> provenientes de distintas especies con tiempos de divergencias variables.<br />
+Para la búsqueda, se decide usar el siguiente criterio:</p>
+</blockquote>
+<pre><code>  cytochrome c AND srcdb_refseq[PROP]</code></pre>
+<blockquote>
+<p>lo cual claro esta arroja miles de coincidencias. Sin embargo, usted predefine un conjunto de especies a partir del cual armar su estudio. Se comenzó con las secuencias de algunos primates (humano, chimpancé, y mono rhesus), seguido de otros mamíferos (caballo, burro, vaca, cerdo, oveja, perro, conejo, ballena gris de California, y el gran canguro gris), seguido de algunas aves (pollo, pavo, paloma, pato pekin), y reptiles (tortuga mordedora, serpiente de cascabel), anfibios (rana toro), y peces (atún y cazón).
+Para mantener los criterios de búsqueda cortos, se decidió hacer las búsquedas por partes, comenzando con los primates usando el criterio:</p>
+</blockquote>
+<pre><code>  cytochrome c AND (human OR chimpanzee OR Rhesus monkey) AND srcdb_refseq[PROP] </code></pre>
+<blockquote>
+<p>Se seleccionan las casillas correspondientes a las tres especies (números de acceso NP_061820.1, NP_001065289.1, y XP_028701782.1) y se procede a descargar las secuencias, seleccionando en el menú desplegable <em>Send To</em> (en la esquina superior derecha de los resultados de búsqueda), luego <em>File</em>, luego en el menú <em>Format</em> se selecciona FASTA, y se crea el archivo.<br />
+El resultado obtenido de esa forma es:</p>
+</blockquote>
+<pre><code>  &gt;NP_061820.1 cytochrome c [Homo sapiens]
+  MGDVEKGKKIFIMKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQAPGYSYTAANKNKGIIWGEDTLMEYLE
+  NPKKYIPGTKMIFVGIKKKEERADLIAYLKKATNE
+
+  &gt;NP_001065289.1 cytochrome c [Pan troglodytes]
+  MGDVEKGKKIFIMKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQAPGYSYTAANKNKGIIWGEDTLMEYLE
+  NPKKYIPGTKMIFVGIKKKEERADLIAYLKKATNE
+
+  &gt;XP_028701782.1 cytochrome c [Macaca mulatta]
+  MGDVEKGKKIFIMKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQAPGYSYTAANKNKGITWGEDTLMEYLE
+  NPKKYIPGTKMIFVGIKKKEERADLIAYLKKATNE</code></pre>
+<blockquote>
+<p>Luego, se realiza el mismo procedimiento para las otras especies. En cada caso, se descarga un archivo FASTA, que luego se puede unir con el anterior copiando la información contenida en un archivo, y pegándola en el otro archivo.</p>
+</blockquote>
+
+<blockquote>
+<p><strong>Ejercicio <a href="databases.html#databases">1</a>.3</strong> Complete el archivo FASTA del ejemplo <a href="databases.html#databases">1</a>.4, descargando las secuencias de aminoácidos del citocromo <em>c</em> faltantes de las especies mencionadas, e incluya las secuencias de aminoácidos de la misma proteína de las siguientes especies: insectos (<em>Samia cynthia</em> (una polilla), polilla del gusano cornudo del tabaco, mosca del gusano barrenador, <em>Drosophila melanogaster</em>), levadura de panadería (<em>Saccaromyces cervisiae</em>), <em>Candida krusei</em> (una levadura), <em>Neurospora crassa</em> (un moho), germen de trigo, semillas de trigo sarraceno, semillas de girasol, frijol mungo, coliflor, calabaza, semillas de sésamo, semillas de ricino, semillas de algodón, y semillas de abutilón (recuerde que los nombres de las especies deben estar en inglés, o debe buscar el nombre de la especie en internet antes de realizar la búsqueda).</p>
+</blockquote>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="genbank-search.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="db-embl-ebi.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.4 Bases de datos de proteínas | Bioinformatica-UC.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.4 Bases de datos de proteínas | Bioinformatica-UC.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.4 Bases de datos de proteínas | Bioinformatica-UC.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="db-embl-ebi.html"/>
+<link rel="next" href="sequence-comparisons.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="databases.html"><a href="databases.html"><i class="fa fa-check"></i><b>1</b> Búsqueda en bases de Datos Biológicas</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="genbank-search.html"><a href="genbank-search.html"><i class="fa fa-check"></i><b>1.1</b> Búsqueda en el <em>GenBank</em></a></li>
+<li class="chapter" data-level="1.2" data-path="fasta-format.html"><a href="fasta-format.html"><i class="fa fa-check"></i><b>1.2</b> Secuencias en formato FASTA</a></li>
+<li class="chapter" data-level="1.3" data-path="db-embl-ebi.html"><a href="db-embl-ebi.html"><i class="fa fa-check"></i><b>1.3</b> La base de datos de EMBL-EBI</a></li>
+<li class="chapter" data-level="1.4" data-path="db-uniprot.html"><a href="db-uniprot.html"><i class="fa fa-check"></i><b>1.4</b> Bases de datos de proteínas</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="db-uniprot.html"><a href="db-uniprot.html#presentación-de-una-entrada-de-uniprot"><i class="fa fa-check"></i><b>1.4.1</b> Presentación de una entrada de UniProt</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sequence-comparisons.html"><a href="sequence-comparisons.html"><i class="fa fa-check"></i><b>2</b> Comparando Secuencias</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="msa-practice.html"><a href="msa-practice.html"><i class="fa fa-check"></i><b>2.1</b> Alineamientos de múltiples secuencias: citrato sintetasa</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clonning.html"><a href="clonning.html"><i class="fa fa-check"></i><b>3</b> Clonado <em>in silico</em> de genes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="primer-design.html"><a href="primer-design.html"><i class="fa fa-check"></i><b>3.1</b> Diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.2" data-path="restriction-enzymes.html"><a href="restriction-enzymes.html"><i class="fa fa-check"></i><b>3.2</b> Selección de sitios de restricción</a></li>
+<li class="chapter" data-level="3.3" data-path="more-on-primers.html"><a href="more-on-primers.html"><i class="fa fa-check"></i><b>3.3</b> Más sobre diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.4" data-path="amplificación-in-silico-de-genes-por-pcr..html"><a href="amplificación-in-silico-de-genes-por-pcr..html"><i class="fa fa-check"></i><b>3.4</b> Amplificación <em>in silico</em> de genes por PCR.</a></li>
+<li class="chapter" data-level="3.5" data-path="construcción-in-silico-de-plásmidos-recombinantes..html"><a href="construcción-in-silico-de-plásmidos-recombinantes..html"><i class="fa fa-check"></i><b>3.5</b> Construcción <em>in silico</em> de plásmidos recombinantes.</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="db-uniprot" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Bases de datos de proteínas<a href="db-uniprot.html#db-uniprot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Entre las bases de datos de proteínas la más importante es la base de datos Swissprot del SIB (<em>Swiss Institute of Bioinformatics</em>), el cual opera también el servidor ExPASY (<em>Expert Protein Analysis System</em>).
+La importancia de esta radica en que la base de datos es manualmente curada, esto es, cada entrada es analizada y revisada por expertos y comparada con datos en la literatura, resultando en una base de datos de muy alta calidad.
+El formato de presentación es similar al de la base de datos EMBL, y de igual forma, contiene presentaciones con <em>displays</em> gráficos.</p>
+<p>Dado que la base de datos de Swissprot es manualmente curada, se hace muy lento el proceso de análisis relativo al número de secuencias que son generadas y enviadas para su verificación.
+Es por ello que existe una base de datos alternativa denominada TrEMBL que contiene secuencias que aún no han sido incluidas en Swissprot pero que se encuentran en la base de datos EMBL.
+El NCBI también posee un registro de proteínas que es en realidad un compendio de entradas encontradas en otras bases de datos de proteínas (incluida Swissprot y otras bases de datos como PIR y PDB).</p>
+<p>UniProt es una base de datos más completa que contiene información no solo de las secuencias, sino también de perfiles de expresión, localización celular, estructuras secundarias predichas, y análisis funcionales celulares/bioquímicos, por lo que tiene mayor información verificada y curada que RefSeq.
+De esta forma, UniProt sirve como un catálogo que reúne la información en las bases de datos de Swissprot, TrEMBL y PIR.</p>
+<p><strong>¿Cómo realizo una búsqueda en la base de datos?</strong></p>
+<p>Al igual que para las secuencias encontradas en el <em>GenBank</em>, la secuencias en UniProt tienen sus propios números de acceso, aunque ambas bases de datos tiene referencias cruzadas entre si. De esta forma, es posible llevar a cabo las búsquedas a partir de estos números de acceso. Para ello solo debemos ingresar a la página principal de UniProt, que se muestra en la figura <a href="db-uniprot.html#fig:uniprot-start-page">1.5</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:uniprot-start-page"></span>
+<img src="figs/embl-ebi-principal.png" alt="Página principal de UniProt encontrada en [https://www.uniprot.org](https://www.uniprot.org)" width="100%" />
+<p class="caption">
+Figure 1.5: Página principal de UniProt encontrada en <a href="https://www.uniprot.org">https://www.uniprot.org</a>
+</p>
+</div>
+<p>En el último ejemplo de la sección anterior, pudimos encontrar todas las coincidencias de proteínas Cry de <em>B. thuringiensis</em>, que referencian a la base de datos de UniProt. A partir de estos resultados, podemos obtener un archivo de texto con los número de acceso que luego se pueden procesar por medio de un <em>pipeline</em> que facilite la búsqueda de las secuencias (más adelante aprenderemos como hacer esto).</p>
+<p>Otra forma es repetir la búsqueda de las proteínas Cry en la página del UniProt, usando los filtros especializados y las etiquetas de búsqueda que definen los campos especiales, cuya documentación está disponible en <a href="https://www.uniprot.org/help/query-fields">la página de ayuda del portal de UniProt</a>.</p>
+
+<blockquote>
+<p><strong>Ejemplo <a href="databases.html#databases">1</a>.6</strong> Podemos repetir el ejemplo <a href="databases.html#databases">1</a>.5 sobre proteína Cry, podemos escribir el siguiente criterio de búsqueda <code>cry* AND organism_name:"Bacillus thuringiensis" AND reviewed:true</code>, que es equivalente al usado antes en EMBL-EBI. Al presionar <em>Enter</em>, vemos que los resultados son los mimos que los encontrados la página del EMBL-EBI.<br />
+Nos damos cuenta que el uso del <em>wildcard</em> * hace que aparezcan proteínas coincidentes de <em>Chaenorhabditis elegans</em>, las cuales no son de interés. Si realizamos la búsqueda sin este elemento, es decir, como <code>cry AND organism_name:"Bacillus thuringiensis" AND reviewed:true</code>, obtenemos solo resultados para <em>B. thuringiensis</em>.</p>
+<p>La diferencia entre la búsqueda en UniProt y EMBL-EBI, es que ahora podemos facilitar la descarga de las secuencias, seleccionando las casillas a la izquierda de los números de acceso de las secuencias que nos interesa o, en este caso, seleccionamos todas las entradas a la vez y le damos <em>click</em> al botón de descarga (<em>download</em>). Esto hará que aparezca un cuadro de dialogo, en el cual seleccionamos la casilla de <em>No</em> en las opciones de compresión, y le damos descargar.<br />
+El resultado es un archivo de texto en formato FASTA con las 110 secuencias de las proteínas Cry.</p>
+</blockquote>
+
+<blockquote>
+<p><strong>Ejercicio <a href="databases.html#databases">1</a>.4</strong> Para este ejercicio, vamos a explorar las proteínas del metabolismo de la glucosa, correspondiente a las fases de la glucolisis. Para ello, realice una búsqueda en UniProt las secuencias de aminoácidos de la Hexoquinasa, Fosfofructoquinasa, gliceraldehído-3-fosfato deshidrogenasa, enolasa, y piruvato quinasa. En cada caso, deberá descargar un archivo FASTA con las secuencias, y para cada enzima, debe haber al menos 20 secuencias correspondientes a 20 especies distintas (puede usar las mismas especies del ejemplo <a href="databases.html#databases">1</a>.6 y del ejercicio <a href="databases.html#databases">1</a>.3 de la sección <a href="fasta-format.html#fasta-format">1.2</a>).</p>
+</blockquote>
+<!---
+(ref:example-listeria-target) \@ref{databases}.`example_Counter`
+> **Ejemplo \@ref{databases}.`example_CounterCall`**  Targets for Listeria monocytogenes.
+
+(ref:example-covid-two) \@ref{databases}.`example_Counter`
+> **Ejemplo \@ref{databases}.`example_CounterCall`**  Sars-Cov-2 Proteins.
+--->
+<div id="presentación-de-una-entrada-de-uniprot" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Presentación de una entrada de UniProt<a href="db-uniprot.html#presentación-de-una-entrada-de-uniprot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si busca una secuencia y selecciona esta, se abre el registro de la proteína en cuestión. Por ejemplo, digamos que buscamos la hexoquinasa humana (<code>P19367</code>) en UniProt y seleccionamos el registro de la secuencia.
+Podemos ver en el registro, entre otras cosas, la siguiente información:</p>
+<ul>
+<li>Información de registro: nombre de la proteína, gen que la codifica, el organismo del que proviene el registro, la longitud de la secuencia, así como información sobre el estatus y calidad de la secuencia, por medio de una puntuación de anotación definida de 1 a 5, siendo 5 la puntuación para secuencias de mejor calidad.</li>
+<li>Luego, sigue información sobre la función, incluyendo actividad catalítica, regulación y rutas metabólicas o de señalización a las que pertenece.
+Seguido, están las características de la proteína, como los sitios de unión de sustrato y de reguladores, y otros aminoácidos de interés. Luego la ontología genética que da información sobre la función molecular, proceso biológico y componentes celulares a los que se asocia.</li>
+<li>Luego se presenta información taxonómica, así como número de acceso de la base de datos UniProt, y más abajo, la localización celular, interacciones con otras proteínas, estructura, y dominios de familia.</li>
+<li>Finalmente, se encuentra la secuencia de aminoácidos, junto con la longitud, el peso molecular y última actualización.</li>
+</ul>
+
+<blockquote>
+<p><strong>Ejercicio <a href="databases.html#databases">1</a>.5</strong> Investigue sobre la puntuación de anotación de las ontologías genéticas. ¿A que corresponde cada puntuación de anotación?</p>
+</blockquote>
+
+<blockquote>
+<p><strong>Ejercicio <a href="databases.html#databases">1</a>.6</strong> Realice una búsqueda en UniProt de la secuencia de la citrato sintetasa de <em>A. niger</em>, y describa: el gen que la codifica, el número de acceso, longitud de la secuencia, peso molecular de la proteína, localización celular, así como la reacción que cataliza y su función, reguladores alostéricos. Finalmente, discuta sobre la calidad de la secuencia y obtenga y reporte la secuencia de aminoácidos, en formato FASTA.</p>
+</blockquote>
+
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="db-embl-ebi.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sequence-comparisons.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

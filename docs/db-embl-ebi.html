@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.3 La base de datos de EMBL-EBI | Bioinformatica-UC.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.3 La base de datos de EMBL-EBI | Bioinformatica-UC.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.3 La base de datos de EMBL-EBI | Bioinformatica-UC.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="fasta-format.html"/>
+<link rel="next" href="db-uniprot.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="databases.html"><a href="databases.html"><i class="fa fa-check"></i><b>1</b> Búsqueda en bases de Datos Biológicas</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="genbank-search.html"><a href="genbank-search.html"><i class="fa fa-check"></i><b>1.1</b> Búsqueda en el <em>GenBank</em></a></li>
+<li class="chapter" data-level="1.2" data-path="fasta-format.html"><a href="fasta-format.html"><i class="fa fa-check"></i><b>1.2</b> Secuencias en formato FASTA</a></li>
+<li class="chapter" data-level="1.3" data-path="db-embl-ebi.html"><a href="db-embl-ebi.html"><i class="fa fa-check"></i><b>1.3</b> La base de datos de EMBL-EBI</a></li>
+<li class="chapter" data-level="1.4" data-path="db-uniprot.html"><a href="db-uniprot.html"><i class="fa fa-check"></i><b>1.4</b> Bases de datos de proteínas</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="db-uniprot.html"><a href="db-uniprot.html#presentación-de-una-entrada-de-uniprot"><i class="fa fa-check"></i><b>1.4.1</b> Presentación de una entrada de UniProt</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sequence-comparisons.html"><a href="sequence-comparisons.html"><i class="fa fa-check"></i><b>2</b> Comparando Secuencias</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="msa-practice.html"><a href="msa-practice.html"><i class="fa fa-check"></i><b>2.1</b> Alineamientos de múltiples secuencias: citrato sintetasa</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clonning.html"><a href="clonning.html"><i class="fa fa-check"></i><b>3</b> Clonado <em>in silico</em> de genes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="primer-design.html"><a href="primer-design.html"><i class="fa fa-check"></i><b>3.1</b> Diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.2" data-path="restriction-enzymes.html"><a href="restriction-enzymes.html"><i class="fa fa-check"></i><b>3.2</b> Selección de sitios de restricción</a></li>
+<li class="chapter" data-level="3.3" data-path="more-on-primers.html"><a href="more-on-primers.html"><i class="fa fa-check"></i><b>3.3</b> Más sobre diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.4" data-path="amplificación-in-silico-de-genes-por-pcr..html"><a href="amplificación-in-silico-de-genes-por-pcr..html"><i class="fa fa-check"></i><b>3.4</b> Amplificación <em>in silico</em> de genes por PCR.</a></li>
+<li class="chapter" data-level="3.5" data-path="construcción-in-silico-de-plásmidos-recombinantes..html"><a href="construcción-in-silico-de-plásmidos-recombinantes..html"><i class="fa fa-check"></i><b>3.5</b> Construcción <em>in silico</em> de plásmidos recombinantes.</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="db-embl-ebi" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> La base de datos de EMBL-EBI<a href="db-embl-ebi.html#db-embl-ebi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Otras bases de datos primarias para secuencias de nucleótidos como la EMBL y la DDBJ (mencionadas anteriormente). Estas son las contrapartes Europeas y Asiáticas del NCBI y representan un compendio de las secuencias de genes para estas zonas.
+Sin embargo, las tres bases de datos están sincronizadas, de forma que la información contenida en ellas es compartida por todas. Las diferencias principales entre estas tres bases de datos son:</p>
+<ul>
+<li>El formato de presentación de las anotaciones para el <em>GenBank</em> del NCBI y la DDBJ del CIB es el mismo, pero no es así para las anotaciones mostradas para el EMBL. Por ejemplo, la información obtenida para la subunidad beta de la hemoglobina (solo el segundo exón) se muestra como:</li>
+</ul>
+<pre><code>ID   AYV92130; SV 1; linear; genomic DNA; STD; HUM; 223 BP.
+XX
+PA   MH133464.1
+XX
+DT   22-NOV-2018 (Rel. 139, Created)
+DT   22-NOV-2018 (Rel. 139, Last updated, Version 1)
+XX
+DE   Homo sapiens (human) partial hemoglobin subunit beta
+XX
+KW   .
+XX
+OS   Homo sapiens (human)
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia;
+OC   Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae;
+OC   Homo.
+XX
+RN   [1]
+RA   Bhattacharjee P., Sekar T., Verma R., Mandhani P., Kapre A., Dhanmeher S.,
+RA   Bhad B., Lingojwar S., Lingojwar D.;
+RT   &quot;Homo sapiens hemoglobin subunit beta (HBB) exon 2 region&quot;;
+RL   Unpublished.
+XX
+RN   [2]
+RA   Bhattacharjee P., Sekar T., Verma R., Mandhani P., Kapre A., Dhanmeher S.,
+RA   Bhad B., Lingojwar S., Lingojwar D.;
+RT   ;
+RL   Submitted (28-MAR-2018) to the INSDC.
+RL   Molecular Biology, Atg Lab Biotechnology Research Laboratory, Ganesh Nagar
+RL   Pimple Nilakh, Pune, Maharashtra 411027, India
+XX
+DR   MD5; de8194e1efc6a1f1977b322dddcb2b80.
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..223
+FT                   /organism=&quot;Homo sapiens&quot;
+FT                   /mol_type=&quot;genomic DNA&quot;
+FT                   /country=&quot;India&quot;
+FT                   /isolation_source=&quot;whole blood&quot;
+FT                   /specimen_voucher=&quot;ATGLAB 2018102&quot;
+FT                   /collected_by=&quot;Devendra Lingojwar&quot;
+FT                   /collection_date=&quot;26-Feb-2018&quot;
+FT                   /db_xref=&quot;taxon:9606&quot;
+FT   CDS             MH133464.1:&lt;110..&gt;332
+FT                   /codon_start=2
+FT                   /gene=&quot;HBB&quot;
+FT                   /product=&quot;hemoglobin subunit beta&quot;
+FT                   /function=&quot;Oxygen carrying and transporting protein&quot;
+FT                   /db_xref=&quot;GOA:A0A3G5AXY7&quot;
+FT                   /db_xref=&quot;InterPro:IPR000971&quot;
+FT                   /db_xref=&quot;InterPro:IPR002337&quot;
+FT                   /db_xref=&quot;InterPro:IPR009050&quot;
+FT                   /db_xref=&quot;InterPro:IPR012292&quot;
+FT                   /db_xref=&quot;UniProtKB/TrEMBL:A0A3G5AXY7&quot;
+FT                   /protein_id=&quot;AYV92130.1&quot;
+FT                   /translation=&quot;LLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGL
+FT                   AHLDNLKGTFATLSELHCDKLHVDPENFR&quot;
+XX
+SQ   Sequence 223 BP; 44 A; 58 C; 65 G; 56 T; 0 other;
+    gctgctggtg gtctaccctt ggacccagag gttctttgag tcctttgggg atctgtccac        60
+    tcctgatgct gttatgggca accctaaggt gaaggctcat ggcaagaaag tgctcggtgc       120
+    ctttagtgat ggcctggctc acctggacaa cctcaagggc acctttgcca cactgagtga       180
+    gctgcactgt gacaagctgc acgtggatcc tgagaacttc agg                         223
+//</code></pre>
+<p>Como pueden ver, la información que contiene es la misma a la del formato para el <em>GenBank</em>, pero se dispone en un formato diferente.</p>
+<ul>
+<li>El sistema de consultas del EBI y CIB no es el <em>Entrez</em>, sino el Sistema de Recuperación de Secuencias (o SRS por <em>Sequence Retrieval System</em>).
+Este sistema hace uso especial de los operadores lógicos y expresiones regulares para realizar las consultas a la base de datos (pueden ver más información en la página de ayuda asociada las consultas).
+Además, el SRS permite realizar búsquedas estándar o extendidas, haciendo uso de los menús desplegables que se van generando a la izquierda (por ejemplo, al consultar la base de datos por la hemoglobina, se muestran todos los resultados que concuerdan con la palabra (<em>hemoglobine</em>).
+Luego se puede especializar la búsqueda, por ejemplo seleccionando la casilla para proteínas, de forma que solo muestre los resultados de secuencias de proteínas).</li>
+<li>La página de EMBL permite crear proyectos permanentes de forma que los resultados de una búsqueda puedan guardarse, de forma que si surge la necesidad de interrumpir la búsqueda, esta pueda retomarse luego desde donde se dejó.</li>
+</ul>
+<p>La página principal del EMBL-EBI se muestra en la figura <a href="db-embl-ebi.html#fig:embl-start-page">1.4</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:embl-start-page"></span>
+<img src="figs/embl-ebi-principal.png" alt="Página principal del EMBL-EBI encontrada en [https://www.ebi.ac.uk](https://www.ebi.ac.uk)" width="100%" />
+<p class="caption">
+Figure 1.4: Página principal del EMBL-EBI encontrada en <a href="https://www.ebi.ac.uk">https://www.ebi.ac.uk</a>
+</p>
+</div>
+<p>En cuanto al sistema de búsqueda SRS, funciona de forma similar al Entrez, permitiendo el uso de operadores lógicos y paréntesis para agrupar expresiones lógicas, así como el uso de comillas para representar conjuntos de palabras en un orden dado.
+De igual forma, permite el uso de campos de búsqueda, pero estos toman la forma <code>clave:valor</code>, en lugar de <code>valor[clave]</code>.
+Para más información sobre la búsqueda en EMBL-EBI usando el sistema SRS, debe consultar <a href="https://www.ebi.ac.uk/ebisearch/documentation">la documentación y ayuda</a>.</p>
+
+<blockquote>
+<p><strong>Ejemplo <a href="databases.html#databases">1</a>.5</strong> Las proteínas <em>Cry</em> son potentes pesticidas naturales producidos por bacterias esporuladas <em>Bacillus thuringiensis</em> que tienen una gran importancia a nivel industrial debido a la capacidad de estas de ser usadas como biocontroladores de plagas que atacan los cultivos agrícolas.<br />
+Podemos realizar una búsqueda seleccionando la base de datos correspondiente a secuencias de proteínas en el menú desplegable y colocamos la búsqueda especializada <code>cry* AND Bacillus thuringiensis</code>.<br />
+Al realizar la búsqueda, obtenemos 13282 <em>items</em> o coincidencias, muchas de las cuales corresponden a secuencias que han sido revisadas y otras que no. Podemos obtener solo las secuencias revisadas añadiendo la palabra <em>Reviewed</em> al criterio de búsqueda como en <code>cry* AND Bacillus thuringiensis AND reviewed</code>, de lo cual se reduce el número de coincidencias a 147 resultados, de los cuales 105 corresponden a <em>B. thuringiensis</em>.</p>
+<p>Si revisamos los filtros que se encuentran a la izquierda de los resultados, podemos observar que 26 de esos resultados corresponden a <em>B. thuringiensis</em>, 17 a la misma especie variedad <em>kurstaki</em>, y así hay otros resultados que corresponden a otras variedades de la misma especie, y algunos resultados de proteínas CRY de especies no relacionadas a <em>B. thuringiensis</em>. Podemos seleccionar solo las casillas correspondientes a <em>B. thuringiensis</em> y hacer <em>click</em> en <em>Refine</em>.<br />
+Sin embargo, no es tan sencillo descargar todas las secuencias en formato FASTA, y se debe hacer una a una.</p>
+</blockquote>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="fasta-format.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="db-uniprot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

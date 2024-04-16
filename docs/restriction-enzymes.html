@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.2 Selección de sitios de restricción | Bioinformatica-UC.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3.2 Selección de sitios de restricción | Bioinformatica-UC.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.2 Selección de sitios de restricción | Bioinformatica-UC.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="primer-design.html"/>
+<link rel="next" href="more-on-primers.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="databases.html"><a href="databases.html"><i class="fa fa-check"></i><b>1</b> Búsqueda en bases de Datos Biológicas</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="genbank-search.html"><a href="genbank-search.html"><i class="fa fa-check"></i><b>1.1</b> Búsqueda en el <em>GenBank</em></a></li>
+<li class="chapter" data-level="1.2" data-path="fasta-format.html"><a href="fasta-format.html"><i class="fa fa-check"></i><b>1.2</b> Secuencias en formato FASTA</a></li>
+<li class="chapter" data-level="1.3" data-path="db-embl-ebi.html"><a href="db-embl-ebi.html"><i class="fa fa-check"></i><b>1.3</b> La base de datos de EMBL-EBI</a></li>
+<li class="chapter" data-level="1.4" data-path="db-uniprot.html"><a href="db-uniprot.html"><i class="fa fa-check"></i><b>1.4</b> Bases de datos de proteínas</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="db-uniprot.html"><a href="db-uniprot.html#presentación-de-una-entrada-de-uniprot"><i class="fa fa-check"></i><b>1.4.1</b> Presentación de una entrada de UniProt</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sequence-comparisons.html"><a href="sequence-comparisons.html"><i class="fa fa-check"></i><b>2</b> Comparando Secuencias</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="msa-practice.html"><a href="msa-practice.html"><i class="fa fa-check"></i><b>2.1</b> Alineamientos de múltiples secuencias: citrato sintetasa</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clonning.html"><a href="clonning.html"><i class="fa fa-check"></i><b>3</b> Clonado <em>in silico</em> de genes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="primer-design.html"><a href="primer-design.html"><i class="fa fa-check"></i><b>3.1</b> Diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.2" data-path="restriction-enzymes.html"><a href="restriction-enzymes.html"><i class="fa fa-check"></i><b>3.2</b> Selección de sitios de restricción</a></li>
+<li class="chapter" data-level="3.3" data-path="more-on-primers.html"><a href="more-on-primers.html"><i class="fa fa-check"></i><b>3.3</b> Más sobre diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.4" data-path="amplificación-in-silico-de-genes-por-pcr..html"><a href="amplificación-in-silico-de-genes-por-pcr..html"><i class="fa fa-check"></i><b>3.4</b> Amplificación <em>in silico</em> de genes por PCR.</a></li>
+<li class="chapter" data-level="3.5" data-path="construcción-in-silico-de-plásmidos-recombinantes..html"><a href="construcción-in-silico-de-plásmidos-recombinantes..html"><i class="fa fa-check"></i><b>3.5</b> Construcción <em>in silico</em> de plásmidos recombinantes.</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="restriction-enzymes" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Selección de sitios de restricción<a href="restriction-enzymes.html#restriction-enzymes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El proceso de selección de sitios de restricción no es trivial y requiere de análisis. Se debe de tener en cuenta que no todos los sitios de restricción son adecuados y el uso de uno u otro depende de la aplicación, el vector de entrada, el inserto, y de la disponibilidad de enzimas de restricción. Se debe tener en cuenta:</p>
+<ul>
+<li>Las enzimas de restricción (ER) a usar deben estar en el MCS del vector de entrada (MCS es abreviación de <em>Multi-Cloning Sites</em>) debido a las restricciones que impone la necesidad de un promotor para expresar el gen de interés.</li>
+<li>Las ER a usar, por lo general, deben tener sitios únicos de corte en el plásmido de entrada, de forma que el proceso resulte en un segmento pequeño descartable, y uno más grande que representa la sección del plásmido al que se unirá el inserto.</li>
+<li>El inserto, por lo general, no debe contener sitios de restricción específicos para las ER que se usaran para el proceso de digestión.</li>
+</ul>
+
+<blockquote>
+<p><strong>Ejemplo <a href="clonning.html#clonning">3</a>.2</strong> Siguiendo con el proyecto de investigación de la citrato sintetasa, se decidió hacer uso del plásmido de expresión pKK223-3, el cual tiene un promotor <em>tac</em> que mejora el proceso de expresión de los genes que se encuentran corriente abajo en la secuencia. Para realizar este análisis se abre SerialCloner y se abre la secuencia de nucleótidos del plásmido (previamente buscada en el GenBank y descargada en un formato adecuado). Al abrirse la secuencia se le da <em>click</em> al botón de <em>Graphic Map</em>, lo cual muestra la ventana de la figura <a href="restriction-enzymes.html#fig:map-plasmid">3.2</a>.</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:map-plasmid"></span>
+<img src="figs/AN-ex/7.png" alt="Mapa de características del plásmido pKK223-3 para el clonado del gen de la citrato sintetasa." width="100%" />
+<p class="caption">
+Figure 3.2: Mapa de características del plásmido pKK223-3 para el clonado del gen de la citrato sintetasa.
+</p>
+</div>
+<blockquote>
+<p>Esto muestra un mapa gráfico del plásmido junto con sus características y sitios de restricción únicos (los sitios de restricción duplicados también se pueden marcar haciendo <em>click</em> en la casilla apropiada en el mapa). Los sitios de restricción de interés son aquellos que se encuentran entre el promotor mejorado con el cartucho <em>tac</em> y el terminador <em>rrnbT2</em> (un terminador fuerte), los cuales son: <em>EcorRI</em>, <em>Cfr9I</em>, <em>XmaI</em>, <em>TspMI</em>, <em>SmaI</em>, <em>PstI</em> y <em>HindIII</em>, lo cual es bastante conveniente porque en el laboratorio se tienen disponible las ER <em>EcoRI</em> y <em>SmaI</em>.</p>
+<p>El inserto se analiza por la presencia de los mismos sitios de restricción abriendo la secuencia en SerialCloner y abriendo el mapa gráfico del gen. Se hace <em>click</em> en la casilla de <em>Unique Sites</em> y se selecciona la casilla de <em>Particular Sites</em>. Luego se selecciona en el menú desplegable justo a la derecha las enzimas de restricción <em>EcoRI</em> y <em>SmaI</em>. El resultado se muestra en la figura <a href="restriction-enzymes.html#fig:citrate-er">3.3</a>.</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:citrate-er"></span>
+<img src="figs/AN-ex/8.png" alt="Secuencia consenso de la citrato sintetasa que muestra los sitios de restricción de las ER escogidas." width="100%" />
+<p class="caption">
+Figure 3.3: Secuencia consenso de la citrato sintetasa que muestra los sitios de restricción de las ER escogidas.
+</p>
+</div>
+<blockquote>
+<p>Se encuentra que el inserto tiene un sitio de restricción para <em>SmaI</em> en el residuo 1352. En general, es mala idea hacer uso de esta ER para realizar el clonado, aun así se procedió con el experimento (ver más abajo).</p>
+<p>Dada la elección de las ER, se procedió a añadir los sitios de restricción a los <em>primers</em> diseñados anteriormente. Para esto solo es necesario buscar en Internet (<a href="https://www.neb.com/en"><em>New England Biolabs</em></a> es una buena fuente de información) las secuencias de los sitios de restricción para las enzimas escogidas, y luego analizar la orientación del inserto en el plásmido de interés de forma que se pueda asociar correctamente el sitio de restricción apropiado a cada <em>primer</em>. En el plásmido, al ir de 5’ a 3’ el sitio de <em>EcoRI</em> se encuentra primero que el de <em>SmaI</em>, por lo que el <em>primer forward</em> debería tener este sitio de restricción si se quiere que la orientación sea de 5’ a 3’. Por tanto los <em>primers</em> quedan como:</p>
+</blockquote>
+<pre><code>    Forward |  5&#39;  GAATTC ATGCCTTTCACCATGCGC  3&#39;
+    Reverse |  5&#39;  CCCGGG TTAGACGCTGACCTCGAC  3&#39;</code></pre>
+<blockquote>
+<p>Noten que la longitud de los <em>primers</em> aumento pero esto no es relevante ya que aún no se llega a la longitud máxima de los <em>primers</em> (más adelante veremos sobre esto).</p>
+</blockquote>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="primer-design.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="more-on-primers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

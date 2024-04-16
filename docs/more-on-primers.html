@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.3 Más sobre diseño de Primers | Bioinformatica-UC.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3.3 Más sobre diseño de Primers | Bioinformatica-UC.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.3 Más sobre diseño de Primers | Bioinformatica-UC.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="restriction-enzymes.html"/>
+<link rel="next" href="amplificación-in-silico-de-genes-por-pcr..html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="databases.html"><a href="databases.html"><i class="fa fa-check"></i><b>1</b> Búsqueda en bases de Datos Biológicas</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="genbank-search.html"><a href="genbank-search.html"><i class="fa fa-check"></i><b>1.1</b> Búsqueda en el <em>GenBank</em></a></li>
+<li class="chapter" data-level="1.2" data-path="fasta-format.html"><a href="fasta-format.html"><i class="fa fa-check"></i><b>1.2</b> Secuencias en formato FASTA</a></li>
+<li class="chapter" data-level="1.3" data-path="db-embl-ebi.html"><a href="db-embl-ebi.html"><i class="fa fa-check"></i><b>1.3</b> La base de datos de EMBL-EBI</a></li>
+<li class="chapter" data-level="1.4" data-path="db-uniprot.html"><a href="db-uniprot.html"><i class="fa fa-check"></i><b>1.4</b> Bases de datos de proteínas</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="db-uniprot.html"><a href="db-uniprot.html#presentación-de-una-entrada-de-uniprot"><i class="fa fa-check"></i><b>1.4.1</b> Presentación de una entrada de UniProt</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sequence-comparisons.html"><a href="sequence-comparisons.html"><i class="fa fa-check"></i><b>2</b> Comparando Secuencias</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="msa-practice.html"><a href="msa-practice.html"><i class="fa fa-check"></i><b>2.1</b> Alineamientos de múltiples secuencias: citrato sintetasa</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clonning.html"><a href="clonning.html"><i class="fa fa-check"></i><b>3</b> Clonado <em>in silico</em> de genes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="primer-design.html"><a href="primer-design.html"><i class="fa fa-check"></i><b>3.1</b> Diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.2" data-path="restriction-enzymes.html"><a href="restriction-enzymes.html"><i class="fa fa-check"></i><b>3.2</b> Selección de sitios de restricción</a></li>
+<li class="chapter" data-level="3.3" data-path="more-on-primers.html"><a href="more-on-primers.html"><i class="fa fa-check"></i><b>3.3</b> Más sobre diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.4" data-path="amplificación-in-silico-de-genes-por-pcr..html"><a href="amplificación-in-silico-de-genes-por-pcr..html"><i class="fa fa-check"></i><b>3.4</b> Amplificación <em>in silico</em> de genes por PCR.</a></li>
+<li class="chapter" data-level="3.5" data-path="construcción-in-silico-de-plásmidos-recombinantes..html"><a href="construcción-in-silico-de-plásmidos-recombinantes..html"><i class="fa fa-check"></i><b>3.5</b> Construcción <em>in silico</em> de plásmidos recombinantes.</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="more-on-primers" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Más sobre diseño de <em>Primers</em><a href="more-on-primers.html#more-on-primers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El diseñar los <em>primers</em> requiere un paso siguiente de análisis de los mismos para verificar que son adecuados para llevar a cabo la PCR deseada. Para esto, se tiene que verificar que los <em>primers</em> diseñados cumplen con ciertos requisitos que aparecen debido a las condiciones con las cuales se debe llevar a cabo la PCR en el laboratorio. Estas son:</p>
+<ul>
+<li>Los <em>primers</em> deben ser específicos para la región de interés.</li>
+<li>No deben tener una longitud menor a 18 nucleótidos (menor a esto se pierde especifidad) y no mayor a 24 nucleótidos (mayor a esto hace que decrezca la eficiencia del alineamiento).</li>
+<li>Deben tener entre 40-60% de contenido GC para asegurar una temperatura de <em>melting</em> (<span class="math inline">\(T_m\)</span>) adecuada.</li>
+<li>La diferencia en la <span class="math inline">\(T_m\)</span> de ambos <em>primers</em> no debe ser mayor a <span class="math inline">\(5^\circ\)</span> C para poder usar el par en simultaneo. Valores entre 2 a <span class="math inline">\(3^\circ\)</span> C son preferibles.</li>
+<li>La <span class="math inline">\(T_m\)</span> debe estar entre <span class="math inline">\(55\)</span>-<span class="math inline">\(65^\circ\)</span> C.</li>
+<li>Es recomendable que el extremo 3’ no termine en T ya que este suele dar lugar a pareamientos inaceptables.</li>
+<li>El extremo 3’ de los <em>primers</em> debe terminar en G o C (llamado <em>G/C clamp</em>) dado que ayuda a estabilizar el pareamiento de los <em>primers</em> en esos extremos. Sin embargo, solo 3 de más G y C en esa posición es recomendable.</li>
+<li>No debe haber demasiada autocomplementaridad (dentro de un mismo <em>primer</em>) o complementaridad cruzada (entre pares de <em>primers</em>). Esto es especialmente importante en el extremo 3’ de la secuencia del <em>primer</em>, donde es más importante la complementaridad con la secuencia del gen de interés.</li>
+</ul>
+<p>Además de estos requisitos, otras consideraciones que se deben hacer pueden surgir como resultado de los objetivos de la investigación. Siempre es recomendable añadir algunos pocos nucleótidos (principalmente 4-6 nucleótidos) extra al extremo 5’ de los <em>primers</em> (antes de los sitios de restricción), dado que esto mejora la eficiencia de unión de las ER. Los nucleótidos añadidos pueden ser cualesquiera siempre y cuando no formen palíndromos ni dimerizaciones no deseadas. También se debe preservar el <em>marco de lectura</em> de la secuencia del gen de interés por lo que se debe verificar que el uso de los sitios de restricción seleccionados no cambien el marco de lectura.</p>
+
+<blockquote>
+<p><strong>Ejemplo <a href="clonning.html#clonning">3</a>.3</strong> Dadas las consideraciones anteriores, los <em>primers</em> diseñados hasta el momento para la amplificación de nuestro gen para la citrato sintetasa deben ser modificados un poco. Primero, se deben añadir los nucleótidos extras al extremo 5’ para mejorar la eficiencia de las ER (unos 6-8 nucleótidos bastaran, aunque esto varía dependiendo de la ER a usar):</p>
+</blockquote>
+<pre><code>    Forward |  5&#39;  CGCTGT GAATTC ATGCCTTTCACCATGCGC  3&#39;
+    Reverse |  5&#39;  TAATTT CCCGGG TTAGACGCTGACCTCGAC  3&#39;  </code></pre>
+<blockquote>
+<p>Segundo, la longitud de los <em>primers</em> aumentó a 30 nucleótidos como resultado del paso anterior, asi que es conveniente eliminar algunas bases del extremo 3’ para tener la longitud correcta:</p>
+</blockquote>
+<pre><code>    Forward |  5&#39;  CGCTGT GAATTC ATGCCTTTCACC  3&#39;
+    Reverse |  5&#39;  TAATTT CCCGGG TTAGACGCTGAC  3&#39;  </code></pre>
+<blockquote>
+<p>Tercero, se verifica que los extremos tengan extremos 3’ con <em>G/C clamp</em> (especialmente importante, que no terminen en T dado que esta base tiende a dar pareamientos erróneos).</p>
+<p>Una vez obtenidos los <em>primers</em> se analizan usando alguna herramienta que permita calcular los parámetros (<span class="math inline">\(T_m\)</span>, %GC, autocomplementaridad, y dimerización) y existen varias disponibles. Una de ellas disponibles (Primer-Blast del NCBI, PerlPrimer, Primer3, OligoAnalyzer, BioEdit, etc.). Usando la herramienta Primer-Blast, solo se tienen que colocar las secuencias generadas en las casillas correspondientes y modificar los parámetros de acuerdo a los requisitos mencionados anteriormente (en organismo se colocó <em>Aspergillus niger</em> tal como se muestra en la figura <a href="more-on-primers.html#fig:primer-blast">3.4</a>).</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:primer-blast"></span>
+<img src="figs/AN-ex/9.png" alt="Configuración de las entradas de Primer-Blast para verificar los _primers_ construidos." width="100%" />
+<p class="caption">
+Figure 3.4: Configuración de las entradas de Primer-Blast para verificar los <em>primers</em> construidos.
+</p>
+</div>
+<blockquote>
+<p>Los resultados obtenidos muestran que los pares de <em>primers</em> diseñados no son adecuados debido a que el contenido de GC es muy alto, al igual que la diferencia en la <span class="math inline">\(T_m\)</span> la cual es muy alta en el <em>primer reverse</em> (vea la figura <a href="more-on-primers.html#fig:primer-blast-results">3.5</a>).</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:primer-blast-results"></span>
+<img src="figs/AN-ex/10.png" alt="Resultados de Primer-Blast." width="100%" />
+<p class="caption">
+Figure 3.5: Resultados de Primer-Blast.
+</p>
+</div>
+<blockquote>
+<p>En este punto se comienza a jugar un poco con los <em>primers</em> (acortar un poco en el extremo 3’ sin perder de vista los requisitos listados anteriormente, cambiar los nucleótidos extra del extremo 5’ para modificar la <span class="math inline">\(T_m\)</span> y el %GC lo necesario) hasta obtener <em>primers</em> adecuados como los mostrados:</p>
+</blockquote>
+<pre><code>    Forward |  5&#39;  GCTCGT GAATTC ATGCCTTTCACCATGCGC  3&#39;
+    Reverse |  5&#39;  TATTAT CCCGGG TTAGACGCTGACCTCGAC  3&#39; </code></pre>
+
+<blockquote>
+<p><strong>Ejemplo <a href="clonning.html#clonning">3</a>.4</strong> Se busca desarrollar un sistema de producción de xilanasas procedentes de <em>Trichoderma asperellum</em>, utilizando una biorefineria a base de la levadura <em>Pichia pastoris</em>. Para ello, usted requiere amplificar el gen de la xilanasa (KM277356.1) de tal forma que pueda tener una cantidad suficientemente grande del gen para transformar a las levaduras. Partiendo de la secuencia de la xilanasa (la cual encontró en bases de datos biológicas), cuyos extremos son:</p>
+</blockquote>
+<pre><code>    Extremo 5&#39; |  5&#39;  ATGGTCTCCTTCACATCTCTCCTCGCCGGCTTCGTCGCTGTTACCGGAGTTCTGTCCGCTCCCACTGAGA...  3&#39;
+    Extremo 3&#39; |  5&#39;  ...CTTGGACTACCAGATCATTGCCGTGGAGGGCTACTTTAGCTCTGGTAACGCCAACATTAACGTTAGCTAA  3&#39;</code></pre>
+<blockquote>
+<p>se decidió realizar un par de <em>primers</em>, obteniéndose los fragmentos siguientes:</p>
+</blockquote>
+<pre><code>    Forward |  5&#39;  ATGCCTTTCACCATGCGCCTCGTC  3&#39;
+    Reverse |  5&#39;  TTAGACGCTGACCTCGACACGACC  3&#39;</code></pre>
+<blockquote>
+<p>Para el proceso de inserción en la levadura, requiere un plásmido de expresión. Luego de una rápida revisión, decide usar el plásmido pGEX-4T-3 el cual presenta los sitios de restricción <code>BamHI-EcorRI-SmaI-SalI-XhoI-NotI</code>, en la región MCS. Con esta información, se decide utilizar las ER <em>BamHI</em> y <em>NotI</em> (que convenientemente tiene en su laboratorio), de forma que los <em>primers</em> quedan como:</p>
+</blockquote>
+<pre><code>    Forward |  5&#39;  GGATCC ATGCCTTTCACCATGCGC  3&#39;
+    Reverse |  5&#39;  AGCGGCCGC TTAGACGCTGACCTCGAC  3&#39;</code></pre>
+<blockquote>
+<p>Dado que la proteína se va a expresar en <em>P. pastorus</em>, se necesita añadir al <em>primer forward</em> la secuencia consenso de Kozak de <em>Pichia</em>: una secuencia que es reconocida por la maquinaria de transcripción dada por (G/A)NN<strong>ATG</strong>G. Si modificamos el <em>primer forward</em> siguiendo este esquema, vemos que debemos tener cuidado con la introducción de cambios en el marco de lectura introducidos por la añadidura de la última G. Para ver esto, nótese que la secuencia de aminoácidos codificada por los codones del <em>primer</em> es:</p>
+</blockquote>
+<pre><code>    Forward |  5&#39;  GGATCC ATGCCTTTCACCATGCGC  3&#39;
+                           M  P  F  T  M  R</code></pre>
+<blockquote>
+<p>pero al introducir la secuencia consenso para el reconocimiento de la maquinaria de transcripción se obtiene:</p>
+</blockquote>
+<pre><code>    Forward |  5&#39;  GGATCCgnnATGgCCTTTCACCATGCGC  3&#39;
+                             M  A  F  H  H  A</code></pre>
+<blockquote>
+<p>que es totalmente distinta a la anterior. Para solucionar este problema, añadimos un par de bases más para no modificar el marco de lectura:</p>
+</blockquote>
+<pre><code>    Forward |  5&#39;  GGATCCgnnATGgnnCCTTTCACCATGCGC  3&#39;
+                             M  ?  P  F  T  M  R</code></pre>
+<blockquote>
+<p>Las bases N introducidas pueden ser cualesquiera, de forma que se cumplan las recomendaciones de diseño de <em>primers</em>, pero dado que las bases luego del codón de inicio ATG se traducen y forman parte de la proteína, estas se deben escoger con más cuidado. Es usual elegirlas de tal forma que se trate de un aminoácido que no sea reactivo y que tenga la mínima influencia en la estructura y función de la proteína, como codones GGN (que codifican para glicina) o GCN (que codifican para alanina).<br />
+De esta forma, siguiendo estas consideraciones, se obtienen los <em>primers</em> tentativos:</p>
+</blockquote>
+<pre><code>    Forward |  5&#39;  GGATCCGATATGGCACCTTTCACCATGC  3&#39;
+    Reverse |  5&#39;  AGCGGCCGCTTAGACGCTGACCTCGAC  3&#39;</code></pre>
+<blockquote>
+<p>Se deja al lector el comprobar los parámetros de diseño para este par de <em>primers</em>. Con estos <em>primers</em> particulares, se debe de modificar el protocolo de PCR para la amplificación ¿por qué?</p>
+</blockquote>
+
+<blockquote>
+<p><strong>Ejercicio <a href="clonning.html#clonning">3</a>.1</strong> Realice el Primer-Blast para el par de <em>primers</em> diseñado en el ejemplo <a href="clonning.html#clonning">3</a>.4. En caso de poder, modifique el par hasta optimizar los parámetros de diseño. ¿Qué puede decir de los <em>primers</em> diseñados?</p>
+</blockquote>
+<!---
+(ref:excersice-primer-design) \@ref(clonning).`excersice_Counter`
+--->
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="restriction-enzymes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="amplificación-in-silico-de-genes-por-pcr..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

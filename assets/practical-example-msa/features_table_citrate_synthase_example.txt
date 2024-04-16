@@ -1,0 +1,245 @@
+>Feature ref|XM_026766487.1|
+1	1752	gene
+			locus_tag	BDQ94DRAFT_144660
+			db_xref	GeneID:38134843
+108	1532	CDS
+			product	citrate synthase
+			protein_id	ref|XP_026625613.1|
+			note	jgi|Aspcos1|249775 citrate synthase
+			transcript_id	gnl|WGS:QQZQ|BDQ94DRAFT_mRNA144660
+			db_xref	GeneID:38134843
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Aspwel1_144660
+
+>Feature ref|XM_025528895.1|
+1	2540	gene
+			locus_tag	BO83DRAFT_350213
+			db_xref	GeneID:37050857
+356	2326	CDS
+			product	citrate synthase
+			protein_id	ref|XP_025382040.1|
+			transcript_id	gnl|WGS:MSFU|BO83DRAFT_mRNA350213
+			db_xref	GeneID:37050857
+			db_xref	InterPro:IPR003781
+			db_xref	InterPro:IPR005811
+			db_xref	JGIDB:Aspeuc1_350213
+
+>Feature ref|XM_025596061.1|
+1	2534	gene
+			locus_tag	BO96DRAFT_374865
+			db_xref	GeneID:37097926
+348	2318	CDS
+			product	citrate synthase
+			protein_id	ref|XP_025450720.1|
+			transcript_id	gnl|WGS:MSFR|BO96DRAFT_mRNA374865
+			db_xref	GeneID:37097926
+			db_xref	InterPro:IPR003781
+			db_xref	InterPro:IPR005811
+			db_xref	JGIDB:Asplac1_374865
+
+>Feature ref|XM_015553657.1|
+1	1755	gene
+			locus_tag	ANOM_008401
+			db_xref	GeneID:26810205
+71	1495	CDS
+			product	citrate synthase
+			protein_id	ref|XP_015403086.1|
+			transcript_id	gnl|WGS:JNOM|ANOM_008401-RA_mrna
+			db_xref	GeneID:26810205
+
+>Feature ref|XM_025544241.1|
+1	2506	gene
+			locus_tag	BO70DRAFT_366088
+			db_xref	GeneID:37066478
+309	2279	CDS
+			product	citrate synthase
+			protein_id	ref|XP_025395225.1|
+			transcript_id	gnl|WGS:MSFL|BO70DRAFT_mRNA366088
+			db_xref	GeneID:37066478
+			db_xref	InterPro:IPR003781
+			db_xref	InterPro:IPR005811
+			db_xref	JGIDB:Asphet1_366088
+
+>Feature ref|XM_024849350.1|
+1	2627	gene
+			locus_tag	P170DRAFT_437353
+			db_xref	GeneID:36557049
+347	2314	CDS
+			product	citrate synthase
+			protein_id	ref|XP_024702819.1|
+			transcript_id	gnl|WGS:MSFO|P170DRAFT_mRNA437353
+			db_xref	GeneID:36557049
+			db_xref	InterPro:IPR003781
+			db_xref	InterPro:IPR005811
+			db_xref	JGIDB:Aspste1_437353
+
+>Feature ref|XM_025612515.1|
+1	1814	gene
+			locus_tag	BO94DRAFT_538550
+			db_xref	GeneID:37114658
+95	1471	CDS
+			product	citrate synthase
+			protein_id	ref|XP_025463849.1|
+			transcript_id	gnl|WGS:MSFK|BO94DRAFT_mRNA538550
+			db_xref	GeneID:37114658
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Aspscl1_538550
+
+>Feature ref|XM_025666077.1|
+1	1315	gene
+			locus_tag	BO86DRAFT_127485
+			db_xref	GeneID:37169769
+98	973	CDS
+			product	citrate synthase
+			protein_id	ref|XP_025526445.1|
+			transcript_id	gnl|WGS:PSTF|BO86DRAFT_mRNA127485
+			db_xref	GeneID:37169769
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Aspjap1_127485
+
+>Feature ref|XM_025695995.1|
+1	1938	gene
+			locus_tag	BO97DRAFT_409106
+			db_xref	GeneID:37200284
+110	1534	CDS
+			product	citrate synthase
+			protein_id	ref|XP_025546462.1|
+			transcript_id	gnl|WGS:PSTJ|BO97DRAFT_mRNA409106
+			db_xref	GeneID:37200284
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Asphom1_409106
+
+>Feature ref|XM_025719378.1|
+1	2435	gene
+			locus_tag	BO80DRAFT_424825
+			db_xref	GeneID:37224243
+244	2214	CDS
+			product	citrate synthase
+			protein_id	ref|XP_025575586.1|
+			transcript_id	gnl|WGS:PSTI|BO80DRAFT_mRNA424825
+			db_xref	GeneID:37224243
+			db_xref	InterPro:IPR003781
+			db_xref	InterPro:IPR005811
+			db_xref	JGIDB:Aspibe1_424825
+
+>Feature ref|XM_025634761.1|
+1	2503	gene
+			locus_tag	BO82DRAFT_352685
+			db_xref	GeneID:37137502
+267	2237	CDS
+			product	citrate synthase
+			protein_id	ref|XP_025493819.1|
+			transcript_id	gnl|WGS:MSFT|BO82DRAFT_mRNA352685
+			db_xref	GeneID:37137502
+			db_xref	InterPro:IPR003781
+			db_xref	InterPro:IPR005811
+			db_xref	JGIDB:Aspuva1_352685
+
+>Feature ref|XM_024814398.1|
+1	1881	gene
+			locus_tag	BDW47DRAFT_113369
+			db_xref	GeneID:36521558
+269	1690	CDS
+			product	citrate synthase
+			protein_id	ref|XP_024667818.1|
+			transcript_id	gnl|WGS:PKFS|BDW47DRAFT_mRNA113369
+			db_xref	GeneID:36521558
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Aspcand1_113369
+
+>Feature ref|XM_040941984.1|
+1	1802	gene
+			locus_tag	BO72DRAFT_395063
+			db_xref	GeneID:63859317
+339	1727	CDS
+			product	citrate synthase Cit1
+			protein_id	ref|XP_040806079.1|
+			transcript_id	gnl|WGS:PSTG|BO72DRAFT_mRNA395063
+			db_xref	GeneID:63859317
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Aspfij1_395063
+
+>Feature ref|XM_024826556.1|
+1	1645	gene
+			locus_tag	P174DRAFT_438502
+			db_xref	GeneID:36533881
+87	1376	CDS
+			product	putative citrate synthase
+			protein_id	ref|XP_024685308.1|
+			transcript_id	gnl|WGS:MSZS|P174DRAFT_mRNA438502
+			db_xref	GeneID:36533881
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Aspnov1_438502
+
+>Feature ref|XM_032041535.1|
+1	2389	gene
+			locus_tag	BDW43DRAFT_272383
+			db_xref	GeneID:43625506
+277	1698	CDS
+			product	putative citrate synthase
+			protein_id	ref|XP_031901475.1|
+			transcript_id	gnl|WGS:SWAS|BDW43DRAFT_mRNA272383
+			db_xref	GeneID:43625506
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Aspalli1_272383
+
+>Feature ref|XM_025701369.1|
+1	1611	gene
+			locus_tag	BO88DRAFT_127367
+			db_xref	GeneID:37205961
+158	1555	CDS
+			product	citrate synthase Cit1
+			protein_id	ref|XP_025560025.1|
+			transcript_id	gnl|WGS:MSFS|BO88DRAFT_mRNA127367
+			db_xref	GeneID:37205961
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Aspvad1_127367
+
+>Feature ref|XM_025680388.1|
+1	1596	gene
+			locus_tag	BO79DRAFT_185315
+			db_xref	GeneID:37184404
+133	1530	CDS
+			product	citrate synthase Cit1
+			protein_id	ref|XP_025545451.1|
+			transcript_id	gnl|WGS:PSTH|BO79DRAFT_mRNA185315
+			db_xref	GeneID:37184404
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Aspcos1_185315
+
+>Feature ref|XM_025646116.1|
+1	1646	gene
+			locus_tag	BO66DRAFT_384987
+			db_xref	GeneID:37149191
+191	1579	CDS
+			product	citrate synthase Cit1
+			protein_id	ref|XP_025498496.1|
+			transcript_id	gnl|WGS:PSTE|BO66DRAFT_mRNA384987
+			db_xref	GeneID:37149191
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Aspacu1_384987
+
+>Feature ref|XM_025654629.1|
+1	1620	gene
+			locus_tag	BO85DRAFT_21367
+			db_xref	GeneID:37158031
+158	1555	CDS
+			product	citrate synthase Cit1
+			protein_id	ref|XP_025521243.1|
+			transcript_id	gnl|WGS:PSTD|BO85DRAFT_mRNA21367
+			db_xref	GeneID:37158031
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Asppip1_21367
+
+>Feature ref|XM_025583708.1|
+1	1826	gene
+			locus_tag	BO95DRAFT_395043
+			db_xref	GeneID:37085255
+357	1745	CDS
+			product	citrate synthase Cit1
+			protein_id	ref|XP_025439649.1|
+			transcript_id	gnl|WGS:PSTC|BO95DRAFT_mRNA395043
+			db_xref	GeneID:37085255
+			db_xref	InterPro:IPR002020
+			db_xref	JGIDB:Aspbru1_395043
+

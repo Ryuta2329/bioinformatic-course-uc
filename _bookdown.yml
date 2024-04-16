@@ -1,0 +1,28 @@
+title: "Bioinformática."
+author: "Marcelo J. Molinatti"
+date: Abril 14, 2024
+toc: true
+toc-depth: 2.0
+toc-title: "Índice."
+geometry:
+- left=3cm
+- right=3cm
+- top=2.5cm
+- bottom=2.5cm
+linestretch: 1.5
+secnumdepth: 2.0
+fontsize: 12pt
+colorlinks: true
+lof: false
+lot: false
+link-citations: true
+book_filename: "Bioinformatica-UC"
+rmd_files:
+- index.Rmd
+- 01-databases.Rmd
+- 02-practical-examples.Rmd
+- 03-primer-design.rmd
+output_dir: "./docs"
+lang: es-ES
+#url: 'https\://bookdown.org/john/awesome/'
+#github-repo: "john/awesome"

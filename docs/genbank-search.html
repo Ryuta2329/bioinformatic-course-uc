@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.1 Búsqueda en el GenBank | Bioinformatica-UC.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.1 Búsqueda en el GenBank | Bioinformatica-UC.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.1 Búsqueda en el GenBank | Bioinformatica-UC.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="databases.html"/>
+<link rel="next" href="fasta-format.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="databases.html"><a href="databases.html"><i class="fa fa-check"></i><b>1</b> Búsqueda en bases de Datos Biológicas</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="genbank-search.html"><a href="genbank-search.html"><i class="fa fa-check"></i><b>1.1</b> Búsqueda en el <em>GenBank</em></a></li>
+<li class="chapter" data-level="1.2" data-path="fasta-format.html"><a href="fasta-format.html"><i class="fa fa-check"></i><b>1.2</b> Secuencias en formato FASTA</a></li>
+<li class="chapter" data-level="1.3" data-path="db-embl-ebi.html"><a href="db-embl-ebi.html"><i class="fa fa-check"></i><b>1.3</b> La base de datos de EMBL-EBI</a></li>
+<li class="chapter" data-level="1.4" data-path="db-uniprot.html"><a href="db-uniprot.html"><i class="fa fa-check"></i><b>1.4</b> Bases de datos de proteínas</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="db-uniprot.html"><a href="db-uniprot.html#presentación-de-una-entrada-de-uniprot"><i class="fa fa-check"></i><b>1.4.1</b> Presentación de una entrada de UniProt</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sequence-comparisons.html"><a href="sequence-comparisons.html"><i class="fa fa-check"></i><b>2</b> Comparando Secuencias</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="msa-practice.html"><a href="msa-practice.html"><i class="fa fa-check"></i><b>2.1</b> Alineamientos de múltiples secuencias: citrato sintetasa</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clonning.html"><a href="clonning.html"><i class="fa fa-check"></i><b>3</b> Clonado <em>in silico</em> de genes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="primer-design.html"><a href="primer-design.html"><i class="fa fa-check"></i><b>3.1</b> Diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.2" data-path="restriction-enzymes.html"><a href="restriction-enzymes.html"><i class="fa fa-check"></i><b>3.2</b> Selección de sitios de restricción</a></li>
+<li class="chapter" data-level="3.3" data-path="more-on-primers.html"><a href="more-on-primers.html"><i class="fa fa-check"></i><b>3.3</b> Más sobre diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.4" data-path="amplificación-in-silico-de-genes-por-pcr..html"><a href="amplificación-in-silico-de-genes-por-pcr..html"><i class="fa fa-check"></i><b>3.4</b> Amplificación <em>in silico</em> de genes por PCR.</a></li>
+<li class="chapter" data-level="3.5" data-path="construcción-in-silico-de-plásmidos-recombinantes..html"><a href="construcción-in-silico-de-plásmidos-recombinantes..html"><i class="fa fa-check"></i><b>3.5</b> Construcción <em>in silico</em> de plásmidos recombinantes.</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="genbank-search" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Búsqueda en el <em>GenBank</em><a href="genbank-search.html#genbank-search" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para empezar, lo primero es entrar al portal del <a href="https://www.ncbi.nlm.nih.gov">NCBI</a>, cuya página principal se muestra en la figura <a href="genbank-search.html#fig:ncbi-start-page">1.1</a>.
+Al entrar a la página del NCBI, solo hay que ubicarse en la casilla de entrada de texto para búsquedas, localizada en la parte superior de la página.<br />
+A la izquierda de la barra de búsqueda, hay un menú desplegable que permite seleccionar la base de datos en la cual se quiere realizar la consulta, haciendo que la búsqueda sea más especializada.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ncbi-start-page"></span>
+<img src="figs/ncbi-principal.png" alt="Página principal del NCBI encontrada en [https://www.ncbi.nlm.nih.gov](https://www.ncbi.nlm.nih.gov)" width="100%" />
+<p class="caption">
+Figure 1.1: Página principal del NCBI encontrada en <a href="https://www.ncbi.nlm.nih.gov">https://www.ncbi.nlm.nih.gov</a>
+</p>
+</div>
+<p>La búsqueda desde la página del NCBI se hace usando términos clave (cadenas de caracteres que representan el término de búsqueda), en combinación con operadores lógicos y etiquetas (<em>search tags</em>) que definen campos de identificación o IDs, los cuales permiten búsquedas rápidas sencillas o mucho más complicadas.</p>
+<ul>
+<li>Los operadores lógicos pueden ser de tres tipos: <code>AND</code>, <code>OR</code> y <code>NOT</code>; con cada uno de los cuales es posible construir expresiones de búsqueda. Por ejemplo, si queremos buscar en la base de datos la hexoquinasa y fosfofructoquinasa (ambas proteínas del metabolismo de la glucosa), podríamos usar <code>hexokinase OR phosphofructokinase</code> para obtener los registros de estas proteínas.</li>
+<li>Las etiquetas de búsqueda se construyen como expresiones de clave-valor, las cuales toman la forma <code>valor[clave]</code>. Por ejemplo, la clave <code>ORGN</code> sirve para especificar un organismo o taxón particular, como en <code>Homo sapiens[ORGN]</code> o <code>FUNGI[ORGN]</code>. En estos caso, <em>Homo sapiens</em> y <em>FUNGI</em> sirven como valores del campo <code>ORGN</code>. Hay <a href="https://www.ncbi.nlm.nih.gov/books/NBK49540/">otras etiquetas o campos</a> disponibles, algunos de los cuales estaremos usando.</li>
+</ul>
+
+<blockquote>
+<p><strong>Ejemplo <a href="databases.html#databases">1</a>.1</strong>
+Digamos que como parte de un proyecto de investigación de interés, se requiere buscar la secuencia genética para la enzima que cataliza la reacción estereoespecífica de formación de citrato a partir de acetil-CoA y oxalacetato, la <em>citrato sintetasa</em>, como parte de un proyecto mucho mayor de ingeniería molecular que busca clonar esta enzima derivada de <em>Aspergillus niger</em> e introducirla en un vector de expresión para su producción industrial.</p>
+<p>Dado que solo se requiere de la secuencia de nucleótidos para un gen particular, se puede seleccionar la base de datos correspondiente a nucleótidos en el menú desplegable a la izquierda de la barra de búsqueda. Se coloca en la entrada para consultas el nombre de enzima que se desea consultar (en inglés) y se oprime <strong>Buscar</strong>.</p>
+<p>Se puede ver que se obtienen miles de resultados para la búsqueda de la enzima en la base de datos de nucleótidos.
+Pueden revisar la base de datos y van a encontrar que hay algunas coincidencias en las cuales se reportan palabras como <em>mRNA</em> o <em>partial</em>.
+Dado que se trata de un proyecto de ingeniería genética, los resultados parciales no nos interesan, porque las secuencias parciales no contienen información completa del gen. Y dado que solo nos interesan las secuencias derivadas de <em>A. niger</em>, podemos usar una etiqueta de búsqueda para este organismo.
+Esto se puede lograr usando una cadena de operadores lógicos como en:</p>
+</blockquote>
+<pre><code>    citrate synthase AND Aspergillus niger[ORGN] NOT partial</code></pre>
+<blockquote>
+<p>Como se observa, la búsqueda se ha reducida de cientos de miles, a solo (al momento de escritura de este material) 36 secuencias que coinciden con los criterios de búsqueda usados. Algunos de los <em>items</em> encontrados corresponden al gen de la citrato sintetasa. Sin embargo, dado que <em>A. niger</em> es un organismo eucariota, el gen asociado contendrá intrones y exones, pero a nosotros solo nos interesa la información codificante. Podemos tener esta información, seleccionando solo aquellas secuencias que corresponden a ARNm, de la siguiente forma:</p>
+</blockquote>
+<pre><code>    citrate synthase AND Aspergillus niger[ORGN] NOT partial AND mRNA</code></pre>
+<blockquote>
+<p>Hasta este punto, vemos que las coincidencias se reducen de 36 a 27 <em>items</em>. Varios de estos corresponden al genoma (<em>whole genome shotgun sequence</em>) de <em>A. niger</em> y otras a secciones o segmentos del genoma (<em>genomic contig</em>), que contienen otros genes y secuencias que no son de interés, por lo que las podemos filtrar como sigue:</p>
+</blockquote>
+<pre><code>    citrate synthase AND Aspergillus niger[ORGN] NOT (partial OR &quot;whole genome&quot; OR &quot;genomic contig&quot;) AND mRNA </code></pre>
+<blockquote>
+<p>(noten el uso de comillas en los filtros. Esto le dice a Entrez que busque la <em>palabra</em> completa, en ese orden). Hemos logrado reducir nuestra búsqueda a solo 5 <em>items</em> que potencialmente nos servirían como secuencias posibles a elegir.</p>
+</blockquote>
+<p>De la búsqueda del ejemplo anterior, podemos ver de forma más detallada la entrada que colocamos como criterio de búsqueda en la casilla de <em>Search Details</em> que se encuentra a la derecha, como se muestra en la figura <a href="genbank-search.html#fig:ncbi-search-details">1.2</a>. En esta casilla, aparece la forma como el sistema Entrez entiende la expresión colocada en la casilla de búsqueda.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ncbi-search-details"></span>
+<img src="figs/ncbi-principal.png" alt="Resultados de la búsqueda de la citrato sintetasa, donde se enfatiza la casilla de los detalles de búsqueda." width="100%" />
+<p class="caption">
+Figure 1.2: Resultados de la búsqueda de la citrato sintetasa, donde se enfatiza la casilla de los detalles de búsqueda.
+</p>
+</div>
+<p>Los detalles nos muestra que, cuando no especificamos una etiqueta de búsqueda para la palabra usada en la expresión, se le asigna por omisión la clave <code>All Fields</code>, que significa que el sistema va a buscar la palabra en todas las etiquetas de búsqueda posibles, devolviendo cualquier coincidencia.</p>
+<p>Ahora, antes de seleccionar cualquier secuencia para nuestro ejemplo de biología molecular, se ha de mencionar que la base de datos del <em>GenBank</em> contiene secuencias con grados variables de calidad.
+Esto significa que hay secuencias tanto revisadas como sin revisar en la base de datos. La revisión puede ser por medio de un proceso automático o estar manualmente curada por investigadores. Siempre que sea posible es mejor seleccionar las secuencias con la mayor calidad.</p>
+<p>Las secuencias que han sido revisadas de forma automática por el sistema del NCBI tienen un número de acceso que comienza con XM_ (si se trata de una secuencia de ARNm), XR_ (si es una secuencia de ARN no codificante) o XP_ (si es una secuencia de aminoácidos).
+Luego, cuando la secuencia es manualmente curada, se le asigna el identificador NM_, NR_ o NP_, respectivamente.</p>
+<p>Sea cual sea el caso, las secuencias revisadas pasan a ser parte de una base de datos especial denominada RefSeq que contiene secuencias de referencia del genoma de distintos organismos.
+Una forma de solo obtener resultados revisados es usando una etiqueta de búsqueda con clave <code>PROP</code> cuyo valor asociado sea <code>srcdb_refseq</code> (este valor especifica que la base de datos usada (srcdb es por <em>source database</em>) sea RefSeq). Otros valores asociados a esta clave se muestran en la <a href="https://www.ncbi.nlm.nih.gov/books/NBK49540/">tabla de etiquetas de búsqueda del NCBI</a>.</p>
+<blockquote>
+<p><strong>Ejemplo <a href="databases.html#databases">1</a>.1</strong> (<em>continuación</em>).
+Continuando con el ejemplo <a href="databases.html#databases">1</a>.1, de los 5 <em>items</em> mostrados para la citrato sintetasa, solo 3 de estos corresponden a secuenciadas contenidas en RefSeq: XM_025596061.1 es una secuencia de 2534 pb, XM_025596708.1 es de 1893 pb, y XM_001393158.2 de 1654 pb. De estas, solo las dos primeras son parte de un <em>BioProject</em>, una colección de datos que corresponden a un esfuerzo único de secuenciación.<br />
+Si seleccionamos el primero de estos <em>items</em> (XM_025596061.1), podemos revisar la información (metadata) asociada a la secuencia. Por lo general, la secuencia se utilizará en pasos posteriores de análisis, así que el investigador querrá descargarla en formato FASTA, que es un formato con una estructura sencilla y ligero. Para descargarla, la forma más sencilla es seleccionar el menú desplegable en la esquina superior derecha de la entrada llamado <em>Send To</em>, y seguir los pasos en la figura <a href="genbank-search.html#fig:fasta-download">1.3</a>, hasta obtener el archivo con la secuencia en formato FASTA.</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fasta-download"></span>
+<img src="figs/fasta-download.png" alt="Pasos para descargar una secuencia en formato FASTA: 1) Abra el menú desplegable _Send to_, 2) selecciona la casilla de _Complete records_, 3) selecciona _File_, 4) en el menú desplegable _Format_ selecciona FASTA, y 5) selecciona el botón _Create File_." width="100%" />
+<p class="caption">
+Figure 1.3: Pasos para descargar una secuencia en formato FASTA: 1) Abra el menú desplegable <em>Send to</em>, 2) selecciona la casilla de <em>Complete records</em>, 3) selecciona <em>File</em>, 4) en el menú desplegable <em>Format</em> selecciona FASTA, y 5) selecciona el botón <em>Create File</em>.
+</p>
+</div>
+<p>En la siguiente sección se explica la estructura del formato FASTA, pero primero, veamos otros ejemplos.</p>
+
+<blockquote>
+<p><strong>Ejemplo <a href="databases.html#databases">1</a>.2</strong>
+En el año 2020, el mundo entero se vio afectado por la pandemia surgida como consecuencia de la aparición del virus SARS-COV-2, el cual ha tenido repercusiones socio-económicas importantes, y un importante costo en vidas.
+El origen de esta pandemia se traza a la provincia de Wuhan en China, y la secuencia del aislado se encuentra disponible como secuencia de referencia con el código de acceso <code>NC_045512</code> con la cual se comparan las variantes, en búsqueda de formas de análisis y diagnóstico globales, así como en la búsqueda de vacunas y medida de prevención de la enfermedad o mitigación de sus efectos.</p>
+<p>Como parte de este ejemplo, puede entrar a la página del NCBI y buscar por la secuencia usando el número de acceso, de forma que se pueda encontrar información acerca de las características moleculares que describen a este virus, que pueden derivarse del análisis de la información presente en su secuencia.
+Para ello, revise la secuencia y verifica la siguiente información:</p>
+<ul>
+<li>La secuencia del virus es de 29903 bp y consiste de ssRNA (ARN de cadena sencilla, la abreviación es del inglés <em>single stranded RNA</em>). El genoma es lineal.</li>
+<li>El virus pertenece a la familia de Coronaviridae.</li>
+<li>La secuencia ha sido verificada manualmente por especialistas.</li>
+<li>Se trata de un virus patógeno de humanos obtenido de un virus aislado en China en la provincia de Wuhan.</li>
+<li>Presenta diversas proteínas entre las cuales destacan las poliproteínas de replicación ORF1a y ORF1ab (que se procesan luego en proteínas <em>nsp</em> (<em>non structural proteins</em>), que están involucradas en todo el ciclo de infección, y que se muestran como proteínas maduras en la información del genoma), la glucoproteína S (por <em>Surface</em>), la proteína E (por <em>Envelope</em>), la proteína N (por <em>Nucleocapside</em>), y los tallos de inducción de deslizamiento de marco de lectura.</li>
+</ul>
+</blockquote>
+
+<blockquote>
+<p><strong>Ejemplo <a href="databases.html#databases">1</a>.3</strong> Los plásmidos son importantes herramientas utilizadas en la biología recombinante para la inserción de genes foráneos al interior de células bacterianas para utilizar la maquinaria de las mismas para expresar proteínas de interés.
+Un plásmido usado para la expresión de proteínas es el pKK223-3 (un plásmido sintético de PL-Pharmacia).
+Buscando el mismo en el <em>GenBank</em> muestra que se trata de un plásmido de 4586 bp el cual confiere resistencia a ampicilina (gen AmpR) y tiene el cartucho de secuencias promotores <em>tac</em> de <em>E. coli</em> que sirve en el mejoramiento de la expresión de proteínas.
+También contiene las secuencias de poliligamiento (<em>polylinker</em>) del plásmido pUC18 que contiene los sitios de restricción <em>EcoRI-SmaI-BamHI-SalI-PstI-HindIII</em> para el uso de estas enzimas de restricción específica en protocolos de ingeniería genética.</p>
+</blockquote>
+
+<blockquote>
+<p><strong>Ejercicio <a href="databases.html#databases">1</a>.1</strong> Busque el plásmido pBSK (-) en el NCBI e investigue a partir de esta sus características y propiedades. Además, obtenga información bibliográfica sobre la construcción del plásmido.</p>
+</blockquote>
+
+<blockquote>
+<p><strong>Ejercicio <a href="databases.html#databases">1</a>.2</strong> Repita el ejemplo para la citrato sintetasa, pero ahora, en lugar de filtrar las secuencias de genomas completos o contiguos y las secuencias parciales, filtre los resultados para obtener solo aquellas secuencias con longitudes entre 1500 y 3000 pb (<em>Pista</em>: use la etiqueta de búsqueda <code>lim_inf:lim_sup[SLEN]</code>, donde <code>lim_inf</code> y <code>lim_sup</code> son números que indican el mínimo y máximo número de pares de bases).</p>
+</blockquote>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="databases.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fasta-format.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

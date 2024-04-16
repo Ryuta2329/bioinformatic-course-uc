@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Búsqueda en bases de Datos Biológicas | Bioinformatica-UC.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Búsqueda en bases de Datos Biológicas | Bioinformatica-UC.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Búsqueda en bases de Datos Biológicas | Bioinformatica-UC.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="genbank-search.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="databases.html"><a href="databases.html"><i class="fa fa-check"></i><b>1</b> Búsqueda en bases de Datos Biológicas</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="genbank-search.html"><a href="genbank-search.html"><i class="fa fa-check"></i><b>1.1</b> Búsqueda en el <em>GenBank</em></a></li>
+<li class="chapter" data-level="1.2" data-path="fasta-format.html"><a href="fasta-format.html"><i class="fa fa-check"></i><b>1.2</b> Secuencias en formato FASTA</a></li>
+<li class="chapter" data-level="1.3" data-path="db-embl-ebi.html"><a href="db-embl-ebi.html"><i class="fa fa-check"></i><b>1.3</b> La base de datos de EMBL-EBI</a></li>
+<li class="chapter" data-level="1.4" data-path="db-uniprot.html"><a href="db-uniprot.html"><i class="fa fa-check"></i><b>1.4</b> Bases de datos de proteínas</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="db-uniprot.html"><a href="db-uniprot.html#presentación-de-una-entrada-de-uniprot"><i class="fa fa-check"></i><b>1.4.1</b> Presentación de una entrada de UniProt</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sequence-comparisons.html"><a href="sequence-comparisons.html"><i class="fa fa-check"></i><b>2</b> Comparando Secuencias</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="msa-practice.html"><a href="msa-practice.html"><i class="fa fa-check"></i><b>2.1</b> Alineamientos de múltiples secuencias: citrato sintetasa</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clonning.html"><a href="clonning.html"><i class="fa fa-check"></i><b>3</b> Clonado <em>in silico</em> de genes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="primer-design.html"><a href="primer-design.html"><i class="fa fa-check"></i><b>3.1</b> Diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.2" data-path="restriction-enzymes.html"><a href="restriction-enzymes.html"><i class="fa fa-check"></i><b>3.2</b> Selección de sitios de restricción</a></li>
+<li class="chapter" data-level="3.3" data-path="more-on-primers.html"><a href="more-on-primers.html"><i class="fa fa-check"></i><b>3.3</b> Más sobre diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.4" data-path="amplificación-in-silico-de-genes-por-pcr..html"><a href="amplificación-in-silico-de-genes-por-pcr..html"><i class="fa fa-check"></i><b>3.4</b> Amplificación <em>in silico</em> de genes por PCR.</a></li>
+<li class="chapter" data-level="3.5" data-path="construcción-in-silico-de-plásmidos-recombinantes..html"><a href="construcción-in-silico-de-plásmidos-recombinantes..html"><i class="fa fa-check"></i><b>3.5</b> Construcción <em>in silico</em> de plásmidos recombinantes.</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="databases" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Búsqueda en bases de Datos Biológicas<a href="databases.html#databases" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Las bases de datos son una parte esencial del trabajo realizado en bioinformática.
+Con toda la información generada cada día en el mundo sobre secuenciaciones, y con la necesidad que se tiene de usar estos datos, de una forma sencilla y accesible, pero que muestre adecuadamente las características de las mismas, se hace necesario de bases de datos especializadas.
+Anualmente, estas bases de datos se registran en el primer tomo de la revista de <em>Nucleic Acid Researh</em>.</p>
+<p>Las bases de datos pueden ser de dos tipos:</p>
+<ol style="list-style-type: decimal">
+<li><em>Bases de datos primarias</em>: contienen información acerca de la secuencia primaria de nucleótidos o proteínas, e información acompañante (denominada anotaciones) sobre la función, bibliografía, referencias a otras bases de datos, entre otras cosas.</li>
+<li><em>Bases de datos secundarias</em>: estas resumen los resultados de análisis realizados a las secuencias primarias, con la finalidad de obtener patrones o características comunes de clases o familias de secuencias, con la finalidad de poder clasificar secuencias desconocidas basadas en estos patrones o características comunes.</li>
+</ol>
+<p>En todos los casos, el intercambio de información se hace por medio de sistemas simples basados en archivos de texto ASCII, y se facilita la búsqueda y uso de la información por medio de la inclusión de índices de búsqueda.
+Entre las bases de datos primarias que van a ser de uso común en el ámbito de la bioinformática, la ingeniería molecular y biología computacional esta el <em>GenBank</em> (disponible en el <em>US National Center for Biotechnology Information</em> o NCBI),
+el <em>EMBL</em> (siglas de <em>European Molecular Biology Laboratory Nucleotide Sequence Database</em> localizado en el <em>European Bioinformatics Institute</em> o EBI),
+y el <em>DDBJ</em> (siglas de <em>DNA Database of Japan</em> localizado en el <em>Center for Information Biology</em> o CIB).</p>
+<p>El <em>GenBank</em> es la más conocida de las bases de datos y contiene decenas de millones de secuencias a las cuales accesar desde una computadora vía Internet.
+Una entrada típica de la base de datos es mostrada a continuación:</p>
+<pre><code>LOCUS       NG_059281               1608 bp    DNA     linear   PRI 08-MAR-2021
+DEFINITION  Homo sapiens hemoglobin subunit beta (HBB), RefSeqGene (LRG_1232)
+            on chromosome 11.
+ACCESSION   NG_059281 REGION: 5001..6608
+VERSION     NG_059281.1
+KEYWORDS    RefSeq; RefSeqGene.
+SOURCE      Homo sapiens (human)
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini;
+            Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 1608)
+  AUTHORS   Calvo SE, Pagliarini DJ and Mootha VK.
+  TITLE     Upstream open reading frames cause widespread reduction of protein
+            expression and are polymorphic among humans
+  JOURNAL   Proc Natl Acad Sci U S A 106 (18), 7507-7512 (2009)
+   PUBMED   19372376
+REFERENCE   2  (bases 1 to 1608)
+  AUTHORS   Origa,R.
+  TITLE     Beta-Thalassemia
+  JOURNAL   (in) Adam MP, Ardinger HH, Pagon RA, Wallace SE, Bean LJH, Mirzaa G
+            and Amemiya A (Eds.);
+            GENEREVIEWS((R));
+            (1993)
+   PUBMED   20301599
+
+...
+
+PRIMARY     REFSEQ_SPAN         PRIMARY_IDENTIFIER PRIMARY_SPAN        COMP
+            1-10106             AC104389.8         24306-34411         c
+FEATURES             Location/Qualifiers
+     source          1..1608
+                     /organism=&quot;Homo sapiens&quot;
+                     /mol_type=&quot;genomic DNA&quot;
+                     /db_xref=&quot;taxon:9606&quot;
+                     /chromosome=&quot;11&quot;
+                     /map=&quot;11p15.4&quot;
+     gene            1..1608
+                     /gene=&quot;HBB&quot;
+                     /gene_synonym=&quot;beta-globin; CD113t-C; ECYT6&quot;
+                     /note=&quot;hemoglobin subunit beta&quot;
+                     /db_xref=&quot;GeneID:3043&quot;
+                     /db_xref=&quot;HGNC:HGNC:4827&quot;
+                     /db_xref=&quot;MIM:141900&quot;
+     mRNA            join(1..142,273..495,1346..1608)
+                     /gene=&quot;HBB&quot;
+                     /gene_synonym=&quot;beta-globin; CD113t-C; ECYT6&quot;
+                     /product=&quot;hemoglobin subunit beta&quot;
+                     /transcript_id=&quot;NM_000518.5&quot;
+                     /db_xref=&quot;GeneID:3043&quot;
+                     /db_xref=&quot;LRG:t1&quot;
+                     /db_xref=&quot;HGNC:HGNC:4827&quot;
+                     /db_xref=&quot;MIM:141900&quot;
+     exon            1..142
+                     /gene=&quot;HBB&quot;
+                     /gene_synonym=&quot;beta-globin; CD113t-C; ECYT6&quot;
+                     /inference=&quot;alignment:Splign:2.1.0&quot;
+                     /number=1
+     CDS             join(51..142,273..495,1346..1474)
+                     /gene=&quot;HBB&quot;
+                     /gene_synonym=&quot;beta-globin; CD113t-C; ECYT6&quot;
+                     /note=&quot;beta globin chain; hemoglobin, beta; hemoglobin
+                     beta subunit&quot;
+                     /codon_start=1
+                     /product=&quot;hemoglobin subunit beta&quot;
+                     /protein_id=&quot;NP_000509.1&quot;
+                     /db_xref=&quot;CCDS:CCDS7753.1&quot;
+                     /db_xref=&quot;GeneID:3043&quot;
+                     /db_xref=&quot;LRG:p1&quot;
+                     /db_xref=&quot;HGNC:HGNC:4827&quot;
+                     /db_xref=&quot;MIM:141900&quot;
+                     /translation=&quot;MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFE
+                     SFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPE
+                     NFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH&quot;
+
+    ...
+
+     misc_feature    1463..1465
+                     /gene=&quot;HBB&quot;
+                     /gene_synonym=&quot;beta-globin; CD113t-C; ECYT6&quot;
+                     /note=&quot;N6-acetyllysine, alternate.
+                     /evidence=ECO:0000269|PubMed:4531009; propagated from
+                     UniProtKB/Swiss-Prot (P68871.2); acetylation site&quot;
+     exon            273..495
+                     /gene=&quot;HBB&quot;
+                     /gene_synonym=&quot;beta-globin; CD113t-C; ECYT6&quot;
+                     /inference=&quot;alignment:Splign:2.1.0&quot;
+                     /number=2
+     exon            1346..1608
+                     /gene=&quot;HBB&quot;
+                     /gene_synonym=&quot;beta-globin; CD113t-C; ECYT6&quot;
+                     /inference=&quot;alignment:Splign:2.1.0&quot;
+                     /number=3
+ORIGIN      
+        1 acatttgctt ctgacacaac tgtgttcact agcaacctca aacagacacc atggtgcatc
+       61 tgactcctga ggagaagtct gccgttactg ccctgtgggg caaggtgaac gtggatgaag
+      121 ttggtggtga ggccctgggc aggttggtat caaggttaca agacaggttt aaggagacca
+      181 atagaaactg ggcatgtgga gacagagaag actcttgggt ttctgatagg cactgactct
+      241 ctctgcctat tggtctattt tcccaccctt aggctgctgg tggtctaccc ttggacccag
+      301 aggttctttg agtcctttgg ggatctgtcc actcctgatg ctgttatggg caaccctaag
+      361 gtgaaggctc atggcaagaa agtgctcggt gcctttagtg atggcctggc tcacctggac
+      421 aacctcaagg gcacctttgc cacactgagt gagctgcact gtgacaagct gcacgtggat
+      481 cctgagaact tcagggtgag tctatgggac gcttgatgtt ttctttcccc ttcttttcta
+      541 tggttaagtt catgtcatag gaaggggata agtaacaggg tacagtttag aatgggaaac
+      601 agacgaatga ttgcatcagt gtggaagtct caggatcgtt ttagtttctt ttatttgctg
+      661 ttcataacaa ttgttttctt ttgtttaatt cttgctttct ttttttttct tctccgcaat
+      721 ttttactatt atacttaatg ccttaacatt gtgtataaca aaaggaaata tctctgagat
+      781 acattaagta acttaaaaaa aaactttaca cagtctgcct agtacattac tatttggaat
+      841 atatgtgtgc ttatttgcat attcataatc tccctacttt attttctttt atttttaatt
+      901 gatacataat cattatacat atttatgggt taaagtgtaa tgttttaata tgtgtacaca
+      961 tattgaccaa atcagggtaa ttttgcattt gtaattttaa aaaatgcttt cttcttttaa
+     1021 tatacttttt tgtttatctt atttctaata ctttccctaa tctctttctt tcagggcaat
+     1081 aatgatacaa tgtatcatgc ctctttgcac cattctaaag aataacagtg ataatttctg
+     1141 ggttaaggca atagcaatat ctctgcatat aaatatttct gcatataaat tgtaactgat
+     1201 gtaagaggtt tcatattgct aatagcagct acaatccagc taccattctg cttttatttt
+     1261 atggttggga taaggctgga ttattctgag tccaagctag gcccttttgc taatcatgtt
+     1321 catacctctt atcttcctcc cacagctcct gggcaacgtg ctggtctgtg tgctggccca
+     1381 tcactttggc aaagaattca ccccaccagt gcaggctgcc tatcagaaag tggtggctgg
+     1441 tgtggctaat gccctggccc acaagtatca ctaagctcgc tttcttgctg tccaatttct
+     1501 attaaaggtt cctttgttcc ctaagtccaa ctactaaact gggggatatt atgaagggcc
+     1561 ttgagcatct ggattctgcc taataaaaaa catttatttt cattgcaa
+//</code></pre>
+<p>El anterior es un ejemplo de la información asociada a la subunidad <em>beta</em> de la hemoglobina humana (HBb).
+Cada una de las secuencias se encuentra asociada con un código denominado número de acceso que es único e identifica a la secuencia dentro del banco (en el caso del ejemplo, es NG_059281).
+Al inicio, se puede ver el <em>locus</em> único para la secuencia, la longitud de la secuencia y características particulares (se trata de una secuencia de ADN lineal), y la fecha de la última actualización.
+De igual forma, se muestra la fuente de la secuencia junto con la clasificación del organismo, y referencias a publicaciones especificas (en el ejemplo mostrado no se muestra toda la información mostrada en el <em>GenBank</em>.
+Las partes donde se omite información se muestran con tres puntos suspensivos).</p>
+<p>Luego se muestra la información referente a las características de la secuencia (<em>Features</em>).
+Cada sección de esta parte tiene asociado campos que describen particularidades de esa sección (por ejemplo, el campo <code>/translation</code> en la característica <em>CDS</em> muestra la secuencia de aminoácidos del gen al cual hace referencia la secuencia).
+Finalmente en <code>ORIGIN</code> se muestra la secuencia de ADN: cada línea contiene solo 60 bases separadas en grupos de 10 bases.</p>
+<p><strong>¿Cómo realizo una búsqueda en la base de datos?</strong></p>
+<p>Para realizar consultas a la base de datos del NCBI, se hace uso de un sistema denominado <em>Entrez</em>, que es un motor de búsqueda que logra llevar a cabo la búsqueda en la base de datos. El motor de búsqueda Entrez provee acceso a todas las bases de datos de forma simultánea usando solo un criterio de búsqueda. Este sistema permite a los usuarios recuperar, de las bases de datos, secuencias estructuras y referencias, así como también genomas, genes y mapas cromosómicos completos.</p>
+<p>Otra forma de realizar búsquedas en las bases de datos primarias es por medio de una herramienta llamada BLAST (siglas de <em>Basic Local Aligment Search Tool</em>), con la cual se pueden buscar secuencias de nucleótidos o proteínas, al comparar una secuencia conocida con otras contenidas en una base de datos. De esta forma, la base de datos devuelve todas las secuencias coincidentes (<em>hits</em> o <em>matches</em>), de acuerdo a cierto esquema de puntuación. Este sistema de búsqueda es útil cuando tenemos una secuencia desconocida que queremos identificar. Más adelante, cuando hablemos de <a href="#sequence-aligments">alineamientos de secuencias</a> profundizaremos en esta técnica. por ahora, nos concentraremos en la búsqueda por medio del sistema Entrez.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="genbank-search.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

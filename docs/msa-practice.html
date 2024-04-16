@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.1 Alineamientos de múltiples secuencias: citrato sintetasa | Bioinformatica-UC.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2.1 Alineamientos de múltiples secuencias: citrato sintetasa | Bioinformatica-UC.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.1 Alineamientos de múltiples secuencias: citrato sintetasa | Bioinformatica-UC.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="sequence-comparisons.html"/>
+<link rel="next" href="clonning.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="databases.html"><a href="databases.html"><i class="fa fa-check"></i><b>1</b> Búsqueda en bases de Datos Biológicas</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="genbank-search.html"><a href="genbank-search.html"><i class="fa fa-check"></i><b>1.1</b> Búsqueda en el <em>GenBank</em></a></li>
+<li class="chapter" data-level="1.2" data-path="fasta-format.html"><a href="fasta-format.html"><i class="fa fa-check"></i><b>1.2</b> Secuencias en formato FASTA</a></li>
+<li class="chapter" data-level="1.3" data-path="db-embl-ebi.html"><a href="db-embl-ebi.html"><i class="fa fa-check"></i><b>1.3</b> La base de datos de EMBL-EBI</a></li>
+<li class="chapter" data-level="1.4" data-path="db-uniprot.html"><a href="db-uniprot.html"><i class="fa fa-check"></i><b>1.4</b> Bases de datos de proteínas</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="db-uniprot.html"><a href="db-uniprot.html#presentación-de-una-entrada-de-uniprot"><i class="fa fa-check"></i><b>1.4.1</b> Presentación de una entrada de UniProt</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sequence-comparisons.html"><a href="sequence-comparisons.html"><i class="fa fa-check"></i><b>2</b> Comparando Secuencias</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="msa-practice.html"><a href="msa-practice.html"><i class="fa fa-check"></i><b>2.1</b> Alineamientos de múltiples secuencias: citrato sintetasa</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clonning.html"><a href="clonning.html"><i class="fa fa-check"></i><b>3</b> Clonado <em>in silico</em> de genes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="primer-design.html"><a href="primer-design.html"><i class="fa fa-check"></i><b>3.1</b> Diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.2" data-path="restriction-enzymes.html"><a href="restriction-enzymes.html"><i class="fa fa-check"></i><b>3.2</b> Selección de sitios de restricción</a></li>
+<li class="chapter" data-level="3.3" data-path="more-on-primers.html"><a href="more-on-primers.html"><i class="fa fa-check"></i><b>3.3</b> Más sobre diseño de <em>Primers</em></a></li>
+<li class="chapter" data-level="3.4" data-path="amplificación-in-silico-de-genes-por-pcr..html"><a href="amplificación-in-silico-de-genes-por-pcr..html"><i class="fa fa-check"></i><b>3.4</b> Amplificación <em>in silico</em> de genes por PCR.</a></li>
+<li class="chapter" data-level="3.5" data-path="construcción-in-silico-de-plásmidos-recombinantes..html"><a href="construcción-in-silico-de-plásmidos-recombinantes..html"><i class="fa fa-check"></i><b>3.5</b> Construcción <em>in silico</em> de plásmidos recombinantes.</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="msa-practice" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Alineamientos de múltiples secuencias: citrato sintetasa<a href="msa-practice.html#msa-practice" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para esta práctica, seguiremos con el ejemplo de la citrato sintetasa, solo que ahora construiremos una secuencia consenso a partir de la información contenida en el registro del <em>GenBank</em> para esta enzima, para el género <em>Aspergillus</em>. Para ello, primero realizamos la búsqueda:</p>
+<pre><code>  citrate synthase AND srcdb_refseq[PROP] AND Aspergillus[ORGN] NOT (partial OR &quot;whole genome&quot;)</code></pre>
+<p>Los resultados aun nos muestran elementos cromosómicos que contienen información que no nos interesa, asu que filtramos todas aquellas secuencias con longitudes mayores a unas 5000 pb:</p>
+<pre><code>  citrate synthase AND srcdb_refseq[PROP] AND Aspergillus[ORGN] NOT (partial OR &quot;whole genome&quot;) AND 1000:5000[SLEN]</code></pre>
+<p>Eso nos devuelve 30 <em>items</em> de secuencias pertenencientes a 20 especies de <em>Aspergillus niger</em>. Seleccionamos 20 de estas secuencias, y las descargamos en formato FASTA para su uso posterior. Además, al igual que como descargamos las secuencias en formato FASTA, descargamos una tabla de las características de cada secuencia: en este caso, en el menú desplegable de <em>Format</em>, en lugar de seleccionar FASTA, seleccionamos <em>Feature Table</em>, y le damos a descargar.
+Esta tabla la usaremos para el procesamiento de las secuencias descargadas, y tiene la forma:</p>
+<pre><code>    &gt;Feature ref|XM_026766487.1|
+    1   1752    gene
+                locus_tag   BDQ94DRAFT_144660
+                db_xref GeneID:38134843
+    108 1532    CDS
+                product citrate synthase
+                protein_id  ref|XP_026625613.1|
+                note    jgi|Aspcos1|249775 citrate synthase
+                transcript_id   gnl|WGS:QQZQ|BDQ94DRAFT_mRNA144660
+                db_xref GeneID:38134843
+                db_xref InterPro:IPR002020
+                db_xref JGIDB:Aspwel1_144660
+
+    &gt;Feature ref|XM_025528895.1|
+    1   2540    gene
+                locus_tag   BO83DRAFT_350213
+                db_xref GeneID:37050857
+    356 2326    CDS
+                product citrate synthase
+                protein_id  ref|XP_025382040.1|
+                transcript_id   gnl|WGS:MSFU|BO83DRAFT_mRNA350213
+                db_xref GeneID:37050857
+                db_xref InterPro:IPR003781
+                db_xref InterPro:IPR005811
+                db_xref JGIDB:Aspeuc1_350213
+
+    ...</code></pre>
+<p>Se observa que da el punto de inicio y fin del gen, la etiqueta del <em>locus</em> y la referencia del gen en la base de datos.
+Para la parte codificante (CDS), nos da el punto de inicio del marco de lectura abierto (u ORF. Para la primera secuencia con número de acceso XM_026766487.1, el inicio del ORF esta en la base 108 y termina en la base 1532), la referencia a la proteína y otra información relevante (esta información no es de interés en este momento).</p>
+<p>De las secuencias obtenidas, notamos que las secuencias pertenecientes a <em>A. alliacceus</em> y <em>A. novofumigatus</em> son secuencias putativas.
+Esto quiere decir que las secuencias se creen que es un gen, y de las cuales se han inferido el producto cumple uan función similar que la de otras secuencias de citrato sintetasa. Sin embargo, su verdadera función es desconocida aún.</p>
+<p><strong>Preprocesamiento de las secuencias</strong>.</p>
+<p>Las secuencias obtenidas las abrimos en BioEdit (el cual se puede encontrar y descargar <a href="https://thalljiscience.github.io">aquí</a>), de tal forma que encontramos el resultado mostrado en la figura <a href="msa-practice.html#fig:bioedt-citrate">2.1</a>.
+Los identificadores de las secuencias se modificaron de tal forma que solo contuvieran el número de acceso y el nombre de la especie a la que pertenece la secuencia.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bioedt-citrate"></span>
+<img src="figs/bioedit-citrate.png" alt="Secuencias de la citrato sintetasa de especies de _Aspergillus_ obtenidas en formato FASTA del NCBI." width="100%" />
+<p class="caption">
+Figure 2.1: Secuencias de la citrato sintetasa de especies de <em>Aspergillus</em> obtenidas en formato FASTA del NCBI.
+</p>
+</div>
+<p>Una vez con las secuencias abiertas, procedemos a quedarnos solo con el ORF correspondiente a la CDS para cada una de las secuencias.
+La sección en la que se encuentra el ORF en cada una de las secuencias se encuentra en el archivo con la tabla de características que descargamos antes.
+Para dejar el ORF en cada secuencia, verificamos la primera entrada de la tabla de características: esta corresponde a la secuencia con número de acceso XM_026766487.1, de <em>A. welwitschiae</em> (que sabemos por correspondencia en el BioEdit), cuya CDS comienza en 108 (este es el punto de entrada de un ORF y debería comenzar con las bases <code>ATG</code>, correspondientes a metionina, lo cual se verifica cierto en el BioEdit) y termina en la base 1532 (punto de salida del ORF y debería terminar con alguna de los codones de alto: <code>TAA</code>, <code>TAG</code> o <code>TGA</code>).
+Eliminamos entonces todas las bases fuera de la CDS, las cuales no contiene información relevante para la secuencia de aminoácidos:</p>
+<ul>
+<li>Empezando por el extremo 3’, nos colocamos el cursor después de la posición 1532 en la secuencia correspondiente a <em>A. welwitschiae</em> y comenzamos a eliminar las bases despúes de la <code>A</code> en la posición 1532 (notamos que el codón de alto es <code>TAA</code>).</li>
+<li>Ahora colocamos el cursor en la posición 108 (que observamnos comienza un codon de inicio <code>ATG</code> que codifica para metionina) y borramos todas las bases desde la 107 hacia atras.</li>
+</ul>
+<p>Esta forma es l más sencilla, pero también se podría empezar por eeliminar las bases desde el inicio de la CDS, y luego nos ubicamos en la posición de la diferencia entre el final del ORF y el inicio del ORF más 2 (el dos es para ubicarnos en las bases a eliminar y no justo sobre las bases de la secuencia de alto), y eliminamos todas las bases en esa posición.
+Por ejemplo, para la siguiente especie, el ORF esta entre 356 y 2326, por lo que elimnamos las bases antes de 356 (que comeinza con <code>ATG</code>), y luego nos ubicamos en <span class="math inline">\((2326 + 1) - (356 - 1) = 1972\)</span> y eliminamos todas esas bases despúes del codon de alto.</p>
+<p>Ahora repetimos este proceso de quedarnos solo con la CDS para cada una de las secuencias de la tabla.
+Una vez editadas, nos damos cuenta que la CDS de <em>A. japonicus</em> es la más corta (con 876 pb), seguida de la de <em>A. novofumigatus</em> (1290 pb). El resto de las secuencias, la mayoría tienen una longitud de alrededor de 1390 pb, otra gran parte tiene longitudes de alrededor de 1420 pb, y solo 6 secuencias superan los 1960 pb.</p>
+<p><strong>Alineamiento de Secuencias Múltiples</strong>.</p>
+<p>Ahora que ya tenemos las CDS, pasamos a realizar un alineamiento múltiple de las secuencias.
+Un alineamiento múltiple genera columnas de residuos homologos (estructural y evolutivamente) entre un conjunto de secuencias.
+Uno esperaría que residuos homologos ocupen posiciones estruturales similares y que todas divirgieran de un residuo ancestral común. En general, se puede verificar un MSA por medio del conocimiento de alienamientos estructurales de las proteínas siendo alienadas y en información de alienamientos a otras secuencias relacioandas que permiten revelar características conservadas, pero aun así, un alienameinto correto puede ser dificil de inferir, en especial si las secuencias involucradas comparten muy pocas similitudes entre sí.</p>
+<p>Se pone en contexto entocnes la neesidad de inferir un alienamiento con el grado de divergencia de las secuencias que estan siendo alieneadas. A mayor es la divergencia de las secuencias, es más dificil, si es que acaso posible, el definir de forma objetiva un alienameinto correcto sin ambiguedades.
+En egenral, solo algunos resduos se pueden identificar y alinear sin ambiguedad, los cuales corresponden a resioduos conservados como aquellos que son parte de leementos estructurales clave. Pero muchos otros residuos no pueden ser alienados con algun tipo de significancia particular debido a la evolución estructural y la divrgencia de las secuencias.</p>
+<p>Un método popular para realizar el alineamiento de las secuencias es por medio del procedimeinto CLUSTAL, el cual es un <em>método de alineamiento progresivo</em>, el cual puede estar basado en perfiles HMM o no. El primero corresponde al procedimeinto CLUSTALO (o CLUSTALOmega) y el segundo a CLUSTALW.
+El algoritmo funciona contruyendo un árbol guía en el cual se realiza primero el alienameinto de dos secuencias, y luego, el resultado es alineado con una tercera secuencia, y asi sucesivvamente (el algoritmo progresa en el alienamiento una secuencia a la vez).
+Esta estrategia permite obtener un método heuristico de alineamiento en el que no se separa el proceso de optimización del proceso de puntutación del alineaminto. Esto resulta en un m´petodo rápido y efcieinte, y en muchos caso, los alineamiento son razonables.
+Ahora, veamos como hacer nuestro alineamiento para las secuencias de la citrato sintetasa.</p>
+<p>Para ello, es primero necesario guardar las CDS como un archivo en formato FASTA. Solo debe usar la barra de herramientas en la parte superior, seleccionar <em>File</em> &gt; <em>Save as</em>. Esto abrirá una ventana de dialogo en la cual debe colocar un nombre para el archivo (yo escogí <code>cit1_Aspergillus_CDS</code>) y luego en el menú desplegable <em>Tipo</em>, seleccione la opción FASTA.</p>
+<p>Ahora podemos realizar el alineamiento de secuencias múltiples (MSA por sus siglas en inglés) usando el mismo BioEdit, el cual tiene una aplicación accesoria ClustalW para realizar el MSA.
+Antes de realizar el alineamiento, me encargue de ordenar, por conveniencia, con respecto a la longitud de las secuencias. Pordemo entonces hacer el MSA posicionandonos en la barra de herramientas <em>Accesory Applications</em> &gt; <em>ClustalW Multiple ALignment</em>, lo cual abre un cuadro dialogo que permite modificar los parametros del algoritmo. Estos no los modificaremos en este momento y solo correremos el programa haciendo <em>click</em> en <em>Run ClustalW</em>.</p>
+<p>Una vez el algorimto haya terminado de correr, el BioEdit abrirá una nueva ventana con el resultado, una de cuyas secciones (de la base 1170 a la base 1275) se muestra en la figura <a href="msa-practice.html#fig:citrate-dna-aligmnet">2.2</a>. Al final, luego de todas las ssecuencias, se muestran las bases de la secuencia consenso siguiendo el código UIPAC (este se puede añadir, seleccionando con el <em>mouse</em> la sección y luego en la barra de herrameintas en <em>Alignment</em> &gt; <em>Create IUPAC consensus in selected columns</em>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:citrate-dna-aligmnet"></span>
+<img src="figs/bioedit-citrate-aligment.png" alt="Alineamiento de secuencias multiples de la citrato sintetasa de especies de _Aspergillus_." width="100%" />
+<p class="caption">
+Figure 2.2: Alineamiento de secuencias multiples de la citrato sintetasa de especies de <em>Aspergillus</em>.
+</p>
+</div>
+<p>En la sección observada, vemos que la cantidad de residuos conservados es muy baja entre todas las secuencias, según lo que se puede ver en la secuencia consenso (hay muy pocas columnas con A, T, C o G en la secuencia consenso).
+Además, de forma general vemos que la mayoria de las transiciones encontradas en la sección sons transiciones R en los priemros dos tercios de las secuencias, y transiciones Y en el ultimo tercio de las secuencias. Estas transiciones se concentran en su mayoria en la posición 2 de los codones, por lo que resultan en cambios en la identidad del aminoácido codificante (cambios no sinónimos).
+Tambien, como esperabamos dada la longitud distinta de las secuencias, se observan <em>indels</em> de distintos tamaños, la mayoría de multiplos de 3, pero hay al menos dos <em>indels</em> de una base de largo que producen un cambio en el marco de lectura de las secuencias.</p>
+<p>Si comenzamos a agrupar especies de acuerdo a la longitud de sus secuencias (lo cual desde un punto de vista evolutivo tiene sentido: las secuencias más larga pueden ser resultado de incersiones de la secuencia ancestarl o las más cortas de deleciones en la secuencia ancestral. Sea como sea, tienen una relación evolutiva más estrecha las secuencias de longitud parecida), podemos ver que el grado de similiud en la secuencia es mucho mayor, con más residuos conservados en cada grupo.
+Las transiciones se observan ahora casi todas en las posición 1 de los tripletes, indicando mutaciones no sinonimas frecuentes, aunque estas caen dentro de aquellas mutaciones que conservan la propiedad del residuo en su mayoría.</p>
+<p><strong>Generación de secuencia consenso</strong>.</p>
+<p>Notamos, que si queremos escribir una secuencia consenso para el género, deberemos tomar en cuenta las similitudes entre grupos de especies, y construir una secuencia consenso para grupos más similares entre si. Esto sirve más adelante si se quiere hacer <em>primers</em> para amplificar el gen.</p>
+<p>Así, podemos dividir las secuencias en dos grupos, uno de secuencia larga que contiene a las 6 especies con secuencias de longitudes de más de 1950 pb; y uno de secuencia corta que contiene al resto. Luego se puede generar una secuencia consenso de ambos grupos. Para ello, se repite el paso de MSA sobre cada gripo de secuencias y luego, en BioEdit, se selecciona en la barra de herramientas <em>Alignment</em> &gt; <em>Create Consensus Sequence</em>. Esto genera un secuencia consenso que luego debemos editar manualmente, ya sea para eliminar o modificar <em>gaps</em>, o usar reglas de la mayoría para asignar una base en espacios ambiguos.</p>
+<p>Usando este procedieminto se obtienen las secuencias consenso:</p>
+<pre><code>    &gt;Consensus long CDS citA
+    ATGCCTACCTCTGCTCCTTTGGTCAACACCGCCAACGGCGCCTCCGCCAACGACAACATC
+    ACCCGCTTCGACCCCCCCAGCCGTGTGCTCTCTCCCCTCAGCAACGCCCTCTTCCACAAC
+    AAGACGAGATGTTTCGTATATGGTATGCAGCCCCGGGCTGTCCAGGGTATGCTTGACTTC
+    GACTTCATCTGCAAGCGTACCACTCCCTCCGTCGCCGGTATCATCTACACCTTCGGTGGC
+    CAGTTCGTGAGCAAGATGTACTGGGGTACCAGCGAGACTCTCCTCCCCGTCTACCAGGAT
+    GTCTCCAAGGCCATGGCCAAGCACCCCGACGTTGACACCGTTGTCAACTTCGCCTCTTCC
+    CGTTCCGTCTACAGCTCCACCATGGAGCTGATGGAGTGCCCCCAGATCAAGTCCATTGCC
+    ATCATTGCTGAGGGTGTCCCCGAGAGACGCGCTCGTGAGATCATGGTCACTGCCAAGGAG
+    AAGGGCATCACCATCATCGGACCTGCTACCGTCGGTGGTATCAAGCCCGGTGCGTTCAAG
+    ATCGGTAACACTGGTGGTATGATGGACAACATTGTTGCCTCCAAGCTCTACCGCAAGGGT
+    TCCGTCGGTTACGTCTCCAAGTCCGGTGGTATGTCCAACGAATTGAACAACATCATCTCC
+    CAGAACACCGACGGTGTCTACGAGGGTGTTGCCATCGGTGGTGACCGTTACCCCGGTACC
+    ACTTTCATCGACCACCTTCTCCGCTACCAGGCCGAGCCCGAGTGCAAGATCCTGGTTCTG
+    CTGGGTGAGGTCGGTGGTGTTGAGGAGTACCGCGTCATCGAGGCCGTCAAGAACGGCACC
+    ATCACCAAGCCCATTGTCGCCTGGGCCATCGGTACCTGCGCCAGCATGTTCAAGACCGAG
+    GTTCAGTTCGGTCACGCTGGTGCCTCTGCCAACTCCGACCTGGAGACCGCCGTTGCCAAG
+    AACAAGGCCATGCGTGAGGCCGGTATCCACGTTCCCGAGACCTTCGAGGACCTTCCCCAG
+    ACCCTCAAGGAGGTCTACGACGACCAGGTCAAGAAGGGTATCGTCAAGCCCCAGCCTGAG
+    CCCGTCGTCCCCAAGATCCCCATCGACTACTCCTGGGCTCAGGAGCTGGGTCTCGTCCGT
+    AAGCCCGCTGCTTTCATCTCCACCATCTCCGACGACCGTGGCCAGGAGCTTCTGTACGCC
+    GGTATGCCCATCTCTGATGTCTTCCGTGAGGACATTGGTATCGGTGGTGTCATGTCTCTT
+    CTGTGGTTCCGTCGCCGCCTCCCTGCCTACGCCAGCAAGTTCCTGGAGATGGTTCTCATG
+    CTTACTGCTGACCACGGTCCTGCCGTGTCTGGTGCCATGAACACCATCATCACCACCCGT
+    GCCGGCAAGGACCTGATCAGCGCCCTGGTCTCTGGTCTCCTGACCATCGGTTCTCGCTTC
+    GGTGGTGCCCTGGACGGCGCTGCCGAGGAGTTCACCAAGGCCTTCGACAAGGGCATGAGC
+    CCCCGTGACTTCGTCGACACCATGCGCAAGGAGAACAAGCTGATCCCCGGTATCGGTCAC
+    CGTATCAAGTCCCGCAACAACCCCGATCTCCGTGTCGAGCTCGTCAAGGAGTACGCCAAG
+    AAGCACTTCCCCAGCACCAAGCTGCTCGACTACGCCATTGCCGTCGAGACCGTCACCACC
+    TCCAAGAAGGACAACCTGATCCTCAACGTCGACGGTTGCGTTGCCGTCTGCTTCGTTGAC
+    CTCATGCGCAACTGCGGTGCCTTCTCCCCCGAGGAGGTTGAGGACTACATGAAGATGGGT
+    GTCCTCAACGGTCTCTTCGTCCTTGGTCGTACCATTGGTCTCATTGCCCACTACCTCGAC
+    CAGAAGAGACTGCGCACTGGTCTGTACAGACACCCCTGGGATGACATCACCTACCTGCTC
+    CCCGCCCTCCAGAAGGGTGGCTCCGAGGGCCGTGTCGAGGTCAGCGTCTAA</code></pre>
+<p>y</p>
+<pre><code>    &gt;Consensus short CDS citA
+    ATGGCTTCCACCTTGAGACTMGGAACTTCTCCCTTCCGATACGTCCCACTACCCGTCATG
+    CCRGTCGTCCAGCCCAVTGCCTTGAACCGCTTCCGCCGCTACTATACCACCGAAGCCAAG
+    TCCCTGAAAGACGCCCTCACAGCCGACATCCCCGCCAAGCGCGAGCACGTCAAGCAGGTC
+    MTCAAGGAGCACAGCAACAAGGTCATCGGCGAGGTCACCGTGGACCACGTCAACGGCGGT
+    GCGCGTGGTCTGAAGTCCCTCCTGTGGGAGGGRCCGTCCTCGACCCCGAGGAGGGTATCC
+    GTTTCCGCGGCAAGACCATCAAGGAGTGCCAGCGGCACCTGCCCAAGGCGCCCGGGGGCA
+    AGGAGACGCTCCCCGAGGCCATGTTCTGGCTGCTCCTGACCGGCGAGGTTCCCACCACGC
+    AGCAGGTGCGCGCCTTGTCTGCCGAGCTGGCCGAGCACTCCGACCTCCCCAAGTACATCC
+    TGGAGCTCATCAAGCCCTTCCCCAGCAACATGCACCCCATGACCCAGCTGTCCCTGGCCG
+    TGACCGCCCTCGACACCGAGTCCGCCTTCGCCAAGGCCTACGCCCACGGCATCAACAAGA
+    AGGACTACTGGAACCCCACCTTCGACGACTCCATGGACCTCATGGCCAAGCTCCCCACCA
+    TCGCCGCCATGATCTACCGCCACGACGTCATGGACCAGGTCAGCACGCAGCCACCCGAAA
+    GGACACAGGACTACTCCTACAACTTGGCCGACCAGCTCGGCTAGGGCGACRRCCRCGAAC
+    AGCGACTTCCTCGACCTGATGCGTCTGTACCTGACCCTGCACGCCGACCACGAGGGCGGC
+    AACGTCACCGCGCACACCACCCACCTGGTGGGCAGTGCCCTCAGCGACCCCATCCTCTGC
+    TTCACCGCCGGTCTGAAGGGTCTGGCCGGCCCGCTGCACGGACTGGCCAACCAGGAGGTG
+    CTGAACTGGCTCACGAAGATGAAGGCGGAGATTGGCACCGACGTGACCGACGAGGCGATG
+    AAGGAGTACCTCTGGTCCACGCTGAAGGCGGGCCAGGTGGTGCCCGGCTACGGACACGGC
+    GTCCTGCGCAAGACCGACCCGCGCTTCGAGTCTCTGAGCGAGTTTGCGGCTGCGCAGGCR
+    GACGTGCAGGCTAACCCGATGTTCAAGCTGGTCAAGCAGGTCTACAAGATTGCGCCTGGC
+    GTGCTGACGGAGCATGGCAAGACCAAGAACCCCCACCCCAACGTCGATGCTCACTCTGGT
+    GTGCTCCTCCAGTACTACGGCCTCACGCAGCCGAAGTACTACACCGTVCCCTTCGGCGTG
+    TCTCGTGCTCTGGGTGTCCTGGCCCAGCTGATCAGGGACCGTGCCCTGGGTGCGCCCATC
+    GAGCGCCCGAAGAGTATCAACACTGAGGCGAATGCCAAGCTDGTCGGTGCCAAGGTGTAA</code></pre>
+<p>Podemos verificar estas secuencias consenso usnado un Blast contra una base de datos de secuencias de nucleotidos conocidas. Para ello, vamos al <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">portal de BLAST del NCBI</a> y seleccionamos <em>Nucleotide BLAST</em> para realizar la búsqueda de secuencias relacionadas a nuestra consenso.</p>
+<p>BLAST es la abreviación de <em>Basic Local Alignment Search Tool</em>. Y tal como el nombre lo indica, es una herrameinta de búsqueda de secuencias que se basa en la similitud de la secuencia a cosnultar, con respecto a otras secuencias conocidas contenidas en la base de datos del NCBI.
+La palabra <em>local</em> en el nombre indica que pequeñas secciones son alineadas y luego extendidas tanto como sea posible. Si la extensión supera cierto umbral, se toma como que la sección alineada es una región conservada y se mantiene el alienameinto, de lo contrario, se desecha el alineamiento.</p>
+<p>De esta forma, se obtienen rapidamente secuencias relacioandas a la secuencia de consulta. Al igual que los alinemiento progrsivos, este es un método heuristico, es decir, se buscan buenas coinciddencias, pero no necesariamente las coincidencias exactas.
+La forma como verificamos el grado de similitud entre las secuencias es usando el porcentaje de identidad, que hace referencia al procentaje de coincidencias entre las secuencias comparadas del total de residuos en la szecuenica de consulta.</p>
+<p>Al realizar un BLAST con ambas secuencias consenso, podemos observar que</p>
+<ul>
+<li><p>Para la CDS larga: las secuencias que presentan más de un 90% de identidad con la consulta corresponden a secuencias de la citrato sintetasa de especies de <em>Aspergillus</em>. Más aún, no solo aparecen entre las coincidencias especies de <em>Aspergillus</em> usadas para construir la secuencia consenso, sino también otras especies del mismo género que no fueron tomasdas en cuenta en la construcción de la secuencia.
+El resto de las secencias mostradas presentan identidades de más del 85% y corresponden a especies de <em>Aspergillus</em> y de <em>Penicullium</em>.</p></li>
+<li><p>Para la CDS corta: las identidades estan entre el 70% y 82%, lo cual es aun indicativo de una alta relación entre la secuencia consultada y las encontradas en la búsqueda. Al igual que antes, muchas especies de <em>Aspergillus</em> estan representadas, incluyendo también coincidencias encojntadas en el grupo de secuencias más largas (como <em>A. niger</em> y <em>A. ibericus</em>), así como especies del género <em>Penicillium</em>, <em>Choletotrichium</em> y otros varios representantes del reino Fungi.</p></li>
+</ul>
+<p>Este resultado parece indicar que esta secuencia consenso es menos específica para el género y que resulta más conveniente usar la primera secuencia consenso.</p>
+
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sequence-comparisons.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="clonning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
